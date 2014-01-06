@@ -156,19 +156,19 @@ asides {
         count = 5                   // the number of bookmarks to show
     }
 
+    // BitBucket repositories.
+    bitbucket {
+        user = 'marshallpierce'     // BitBucket (https://bitbucket.org/) username
+        show_profile_link = true    // whether to show link to BitBucket profile
+    }
+
     // GitHub repositories.
     github {
-        user = 'marshallpierce'           // GitHub (https://github.com/) username
+        user = 'marshallpierce'     // GitHub (https://github.com/) username
         show_profile_link = true    // whether to show link to GitHub profile
         skip_forks = true
         show_repos = false
         count = 10                  // the number of repositories to show
-    }
-
-    // BitBucket repositories
-    bitbucket {
-        user = 'marshallpierce'           // GitHub (https://github.com/) username
-        show_profile_link = true    // whether to show link to GitHub profile
     }
 
     // The latest tweets.
