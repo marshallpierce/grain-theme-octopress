@@ -32,6 +32,7 @@ configurations.all {
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven {
         url 'http://repo.sysgears.com/releases/'
     }
