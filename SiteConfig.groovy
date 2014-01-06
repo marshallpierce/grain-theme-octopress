@@ -132,7 +132,7 @@ sharing {
 }
 
 // Sidebar modules that should be included by default.
-default_asides = ['asides/recent_posts.html', 'asides/github.html', 'asides/tweets.html', 'asides/delicious.html',
+default_asides = ['asides/recent_posts.html', 'asides/bitbucket.html', 'asides/github.html', 'asides/tweets.html', 'asides/delicious.html',
         'asides/pinboard.html', 'asides/about.html', 'asides/facebook.html', 'asides/twitter.html',
         'asides/instagram.html', 'asides/google_plus.html']
 
@@ -160,7 +160,14 @@ asides {
         user = 'marshallpierce'           // GitHub (https://github.com/) username
         show_profile_link = true    // whether to show link to GitHub profile
         skip_forks = true
+        show_repos = false
         count = 10                  // the number of repositories to show
+    }
+
+    // BitBucket repositories
+    bitbucket {
+        user = 'marshallpierce'           // GitHub (https://github.com/) username
+        show_profile_link = true    // whether to show link to GitHub profile
     }
 
     // The latest tweets.
