@@ -8,3 +8,15 @@
 //$heading-font-family: "Verdana", sans-serif;
 //$header-title-font-family: "Futura", sans-serif;
 //$header-subtitle-font-family: "Futura", sans-serif;
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro:400,700);
+
+$sans: 'Source Sans Pro', sans-serif;
+$serif: 'Times New Roman', 'Times', serif;
+$mono: 'Source Code Pro', monospace;
+
+$heading-font-family: 'Source Sans Pro', sans-serif;
+$header-title-font-family: 'Source Code Pro', monospace;
+$header-subtitle-font-family: $header-title-font-family;
+
+$header-title-font-weight: bold;

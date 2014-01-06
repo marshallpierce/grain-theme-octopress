@@ -2,3 +2,11 @@
 // Add styles here to make changes without digging in too much
 
 @import "button";
+
+article footer > .categories .categorie {
+  font-family: $sans;
+}
+
+body {
+  font-family: $sans;
+}
