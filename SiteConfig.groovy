@@ -78,16 +78,16 @@ deploy = s3_deploy_cmd
  */
 
 // General settings.
-title = '# cat /var/blog' // blog name for the header, title and RSS feed
-subtitle = 'Marshall Pierce\'s blog' // blog brief description for the header
-author = 'Marshall Pierce'                 // author name for Copyright, Metadata and RSS feed
+title = '# cat /var/blog'           // blog name for the header, title and RSS feed
+subtitle = 'by Marshall Pierce'     // blog brief description for the header
+author = 'Marshall Pierce'          // author name for Copyright, Metadata and RSS feed
 meta_description = ''               // blog description for Metadata
 
 // Blog and Archive.
 posts_per_blog_page = 5             // the number of posts to display per blog page
 posts_per_archive_page = 10         // the number of posts to display per archive page
 disqus {
-    short_name = ''                 // the unique identifier assigned to a Disqus (http://disqus.com/) forum
+    short_name = 'varblog'          // the unique identifier assigned to a Disqus (http://disqus.com/) forum
 }
 
 // RSS feed.
