@@ -44,8 +44,7 @@ environments {
     }
     prod {
         log.info "Production environment is used"
-        jetty_port = 4000
-        url = "http://localhost:${jetty_port}"
+        url = "http://varblog.org"
         show_unpublished = false
         features {
             minify_xml = true
