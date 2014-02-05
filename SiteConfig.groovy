@@ -77,7 +77,7 @@ deploy = s3_deploy_cmd
  */
 
 // General settings.
-title = '# cat /var/blog'           // blog name for the header, title and RSS feed
+title = '/var/blog'           // blog name for the header, title and RSS feed
 subtitle = 'by Marshall Pierce'     // blog brief description for the header
 author = 'Marshall Pierce'          // author name for Copyright, Metadata and RSS feed
 meta_description = ''               // blog description for Metadata
