@@ -1,4 +1,4 @@
-package com.example.grain.mapping
+package com.sysgears.octopress.mapping.pagination
 
 class Paginator {
 
@@ -21,7 +21,7 @@ class Paginator {
         splitOnPages.collect { itemsOnPage ->
             def model = [url: (pageUrl(++pageNo)), (nameInModel): itemsOnPage, paginator: [:]]
             if (pageNo > 1) {
-                model.paginator.previous_page = pageUrl(pageNo - 1)
+                model.paginator.prev_page = pageUrl(pageNo - 1)
             }
             if (pageNo < numPages) {
                 model.paginator.next_page = pageUrl(pageNo + 1)

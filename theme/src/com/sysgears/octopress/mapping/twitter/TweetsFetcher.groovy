@@ -1,6 +1,5 @@
-package com.example.grain.mapping
+package com.sysgears.octopress.mapping.twitter
 
-import com.example.grain.twitter.TwitterApiConnector
 import com.sysgears.grain.taglib.Site
 import net.sf.json.JSONArray
 

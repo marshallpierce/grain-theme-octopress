@@ -1,5 +1,6 @@
-import com.example.grain.ResourceMapper
-import com.example.grain.taglib.OctopressTagLib
+import com.sysgears.octopress.deploy.GHPagesDeployer
+import com.sysgears.octopress.mapping.ResourceMapper
+import com.sysgears.octopress.taglibs.OctopressTagLib
 
 /*
  * Grain configuration.
@@ -9,24 +10,9 @@ import com.example.grain.taglib.OctopressTagLib
 resource_mapper = new ResourceMapper(site).map
 tag_libs = [OctopressTagLib]
 
-// Locale and datetime format.
-Locale.setDefault(Locale.US)
-datetime_format = 'yyyy-MM-dd HH:mm'
-
-// Site directories.
-base_dir = System.getProperty('user.dir')
-cache_dir = "${base_dir}/.cache"
-content_dir = "${base_dir}/content"
-theme_dir = "${base_dir}/theme"
-source_dir = [content_dir, theme_dir, "${cache_dir}/compass"]
-include_dir = "${theme_dir}/includes"
-layout_dir = "${theme_dir}/layouts"
-destination_dir = "${base_dir}/target"
-
-excludes = ['/sass/.*', '/src/.*', '/target/.*']
-
 features {
-    highlight = "pygments"
+    highlight = 'pygments' // 'none', 'pygments'
+    markdown = 'txtmark'   // 'txtmark', 'pegdown'
     cache_highlight = "true"
     pygments = "auto"
     compass = "auto"
@@ -37,8 +23,7 @@ features {
 
 environments {
     dev {
-        log.info "Development environment is used"
-        jetty_port = 4000
+        log.info 'Development environment is used'
         url = "http://localhost:${jetty_port}"
         show_unpublished = true
     }
@@ -55,22 +40,37 @@ environments {
     }
     cmd {
         features {
-            highlight = "none"
-            compass = "none"
+            highlight = 'none'
+            compass = 'none'
         }
     }
+}
+
+python {
+    interpreter = 'jython' // 'auto', 'python', 'jython'
+    //cmd_candidates = ['python2', 'python', 'python2.7']
+    //setup_tools = '2.1'
+}
+
+ruby {
+    interpreter = 'jruby'   // 'auto', 'ruby', 'jruby'
+    //cmd_candidates = ['ruby', 'ruby1.8.7', 'ruby1.9.3', 'user.home/.rvm/bin/ruby']
+    //ruby_gems = '2.2.2'
 }
 
 // Deployment settings.
 s3_bucket = "varblog.org"
 s3_deploy_cmd = "s3cmd -c ${System.getenv('HOME')}/.s3cfg-varblog.org sync --acl-public --reduced-redundancy ${destination_dir}/ s3://${s3_bucket}/"
 
-rsync_ssh_user = "user@example.com"
-rsync_ssh_port = "22"
-rsync_document_root = "~/public_html/"
+rsync_ssh_user = 'user@example.com'
+rsync_ssh_port = '22'
+rsync_document_root = '~/public_html/'
 rsync_deploy_cmd = "rsync -avze 'ssh -p ${rsync_ssh_port}' --delete ${destination_dir} ${rsync_ssh_user}:${rsync_document_root}"
 
-deploy = s3_deploy_cmd
+gh_pages_url = '' // path to GitHub repository in format git@github.com:{username}/{repo}.git
+github_pages_deploy_cmd = new GHPagesDeployer(site).deploy
+
+deploy = github_pages_deploy_cmd
 
 /*
  * Site configuration.

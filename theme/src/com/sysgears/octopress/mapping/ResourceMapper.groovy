@@ -1,9 +1,9 @@
-package com.example.grain
+package com.sysgears.octopress.mapping
 
-import com.example.grain.mapping.Paginator
-import com.example.grain.mapping.TweetsFetcher
 import com.sysgears.grain.taglib.GrainUtils
 import com.sysgears.grain.taglib.Site
+import com.sysgears.octopress.mapping.pagination.Paginator
+import com.sysgears.octopress.mapping.twitter.TweetsFetcher
 
 /**
  * Change pages urls and extend models.
@@ -73,9 +73,6 @@ class ResourceMapper {
                 break
             case ~/\/blog\/.*/:
                 update.url = getPostUrl('/blog/', resource)
-                break
-            case ~/\/errors.*/:
-                update.url = "/errors/"
                 break
         }
 
