@@ -5,7 +5,7 @@ date: "2015-03-29 14:56"
 author:
 categories: [software]
 comments: true
-published: false
+published: true
 ---
 
 The other day I read a disappointing screed by a determined developer. The specific text is unimportant, but I'm sure you've read plenty just like it: claims about technology X that the author doesn't like, while simultaneously promoting technology Y that they do like as a technological panacea. Now you know why the specific article is irrelevant -- it could be Sass vs Less, or CoffeeScript vs Dart, or Maven vs Gradle, or K&R vs BSD curly brace placement, and any of those hypothetical articles could be extracted from another with find and replace. 
