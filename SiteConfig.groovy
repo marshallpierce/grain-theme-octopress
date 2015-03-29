@@ -60,7 +60,7 @@ ruby {
 
 // Deployment settings.
 s3_bucket = "varblog.org"
-s3_deploy_cmd = "s3cmd -c ${System.getenv('HOME')}/.s3cfg-varblog.org sync --acl-public --reduced-redundancy ${destination_dir}/ s3://${s3_bucket}/"
+s3_deploy_cmd = "s3cmd -c ${System.getenv('HOME')}/.s3cfg-varblog.org sync --acl-public ${destination_dir}/ s3://${s3_bucket}/"
 
 rsync_ssh_user = 'user@example.com'
 rsync_ssh_port = '22'
