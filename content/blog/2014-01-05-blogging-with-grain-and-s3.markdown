@@ -3,7 +3,7 @@ layout: post
 title: "Blogging with Grain and S3"
 date: "2014-01-05 18:39"
 author:
-categories: [grain, aws, s3, route53, cloudfront]
+categories: [grain, aws, s3, route53, blog]
 comments: true
 published: true
 ---
