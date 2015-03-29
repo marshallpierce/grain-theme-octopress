@@ -31,6 +31,14 @@ The theme ships with a few handy commands that allow to create new pages and pos
 ./grainw create-post "Post Sample" # adds new post 'Post Sample'
 ```
 
+To deploy:
+
+```
+./grainw clean
+./grainw generate
+./grainw deploy
+```
+
 Customization
 -------------
 
