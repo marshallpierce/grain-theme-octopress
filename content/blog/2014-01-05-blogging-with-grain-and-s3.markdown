@@ -12,9 +12,9 @@ I prefer static site generators when it comes to blogging: they're easy to store
 
 ## Grain
 
-This blog uses the [Octopress theme](http://sysgears.com/grain/themes/octopress/) for [Grain](http://sysgears.com/grain/). I chose to [fork (see the varblog branch)](https://github.com/marshallpierce/grain-theme-octopress) the [main octopress theme repo](https://github.com/sysgears/grain-theme-octopress) so that I could more easily incorporate future improvements, rather than starting a new repo using a released version. Especially as Grain matures, you may wish to just take a released version and go from there, but for now using a fork has been fine, and it's let me easily make pull requests as I make improvements that could be generally useful to other users.
+This blog uses the [Octopress theme](http://sysgears.com/grain/themes/octopress/) for [Grain](http://sysgears.com/grain/). I chose to [fork (see the varblog branch)](https://github.com/marshallpierce/varblog.org) the [main octopress theme repo](https://github.com/sysgears/grain-theme-octopress) so that I could more easily incorporate future improvements, rather than starting a new repo using a released version. Especially as Grain matures, you may wish to just take a released version and go from there, but for now using a fork has been fine, and it's let me easily make pull requests as I make improvements that could be generally useful to other users.
 
-I encourage interested readers to go look at [the commits in my fork](https://github.com/marshallpierce/grain-theme-octopress/commits/varblog) to see all the setup steps I took, but I'll point out one in particular. My Linux system used Python 3 by default, which wasn't compatible with the version of Pygments bundled with Grain. So, to change it to look for python 2 first, I added the following to my SiteConfig in the `features` section:
+I encourage interested readers to go look at [the commits in my fork](https://github.com/marshallpierce/varblog.org/commits/varblog) to see all the setup steps I took, but I'll point out one in particular. My Linux system used Python 3 by default, which wasn't compatible with the version of Pygments bundled with Grain. So, to change it to look for python 2 first, I added the following to my SiteConfig in the `features` section:
 
 ```
     python {
