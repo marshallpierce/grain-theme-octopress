@@ -60,7 +60,11 @@ ruby {
 
 // Deployment settings.
 s3_bucket = "varblog.org"
-s3_deploy_cmd = "s3cmd -c ${System.getenv('HOME')}/.s3cfg-varblog.org sync --acl-public ${destination_dir}/ s3://${s3_bucket}/"
+String homedir = System.getenv('HOME')
+// expand the glob we'd like to use with jets3t
+List<String> thingsInTarget = new File(destination_dir).listFiles().collect({it.toString()})
+String baseCmd = "${homedir}/local/jets3t-0.9.4/bin/synchronize.sh --provider S3 --acl PUBLIC_READ --properties ${homedir}/local/jets3t-0.9.4/configs/synchronize-varblog.org.properties UP varblog.org"
+s3_deploy_cmd = baseCmd + ' ' + thingsInTarget.join(' ')
 
 rsync_ssh_user = 'user@example.com'
 rsync_ssh_port = '22'
