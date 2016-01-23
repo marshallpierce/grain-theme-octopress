@@ -5,7 +5,7 @@ date: "2016-01-21 18:16"
 author:
 categories: [diy, cycling]
 comments: true
-published: false
+published: true
 ---
 
 It's surprisingly easy to end up with a multi-bike household, and inevitably some of those bikes need to be stored somewhere out of the way. This guide will show you how to build a strong and safe bike hoist that makes it easy to lift your bikes overhead when you're not using them.
