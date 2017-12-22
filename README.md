@@ -1,7 +1,12 @@
-Source of [varblog.org](http://varblog.org), using the [Octopress Grain theme](http://sysgears.com/grain/themes/octopress/).
+Source of [varblog.org](http://varblog.org).
+
+![Banner](https://raw.githubusercontent.com/sysgears/grain-theme-octopress/master/banner.jpg)
+>>>>>>> master
 
 Octopress Grain Theme
 =====================
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/sysgears.svg?style=social)](https://twitter.com/sysgears)
 
 This is a port of Octopress blogging theme for Grain framework.
 
