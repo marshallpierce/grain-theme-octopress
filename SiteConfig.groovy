@@ -91,7 +91,7 @@ meta_description = ''               // blog description for Metadata
 posts_per_blog_page = 5             // the number of posts to display per blog page
 posts_per_archive_page = 10         // the number of posts to display per archive page
 disqus {
-    short_name = 'varblog'          // the unique identifier assigned to a Disqus (http://disqus.com/) forum
+//    short_name = 'varblog'          // the unique identifier assigned to a Disqus (http://disqus.com/) forum
 }
 
 // RSS feed.
@@ -114,26 +114,26 @@ google_analytics_site_name = 'varblog.org'
 // Sharing.
 sharing {
     // Button for sharing of posts and pages on Twitter.
-    twitter {
-        share_button {
-            enabled = true
-            lang = 'en'
-        }
-    }
+//    twitter {
+//        share_button {
+//            enabled = true
+//            lang = 'en'
+//        }
+//    }
     // Button for sharing of posts and pages on Facebook.
-    facebook {
-        share_button {
-            enabled = true
-            lang = 'en_US'          // locale code e.g. 'en_US', 'en_GB', etc.
-        }
-    }
+//    facebook {
+//        share_button {
+//            enabled = true
+//            lang = 'en_US'          // locale code e.g. 'en_US', 'en_GB', etc.
+//        }
+//    }
     // Button for sharing of posts and pages on Google plus one.
-    googleplus_one {
-        share_button {
-            enabled = true
-            size = 'medium'         // one of 'small', 'medium', 'standard', 'tall'
-        }
-    }
+//    googleplus_one {
+//        share_button {
+//            enabled = true
+//            size = 'medium'         // one of 'small', 'medium', 'standard', 'tall'
+//        }
+//    }
 }
 
 // Sidebar modules that should be included by default.
