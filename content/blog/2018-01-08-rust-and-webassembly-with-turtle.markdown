@@ -5,7 +5,7 @@ date: "2018-01-08 09:54"
 author:
 categories: [software, rust, webassembly]
 comments: true
-published: false
+published: true
 ---
 
 In this post, I'll walk through a few of the highlights of getting [Turtle](http://turtle.rs/), a Rust library for creating animated drawings, to run in the browser with WebAssembly.
