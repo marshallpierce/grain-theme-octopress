@@ -37,8 +37,8 @@ configurations.all {
 }
 
 repositories {
-    mavenCentral()
     mavenLocal()
+    mavenCentral()
     maven {
         url 'https://oss.sonatype.org/content/groups/public/'
     }
@@ -74,10 +74,6 @@ task gendeps {
     }
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.8'
-}
-
 idea {
     module {
         excludeDirs = ['.cache', '.idea', '.gradle', '.nb-gradle', '.settings', 'bin', 'out', 'target', 'gradle'].collect { file(it) }
@@ -95,4 +91,17 @@ task preview(type: JavaExec) {
     classpath sourceSets.main.runtimeClasspath
     main = mainClassName
     args name
+}
+
+task deploy(type: JavaExec) {
+    classpath sourceSets.main.runtimeClasspath
+    main = mainClassName
+    args name
+}
+
+task createPost(type: JavaExec) {
+    classpath sourceSets.main.runtimeClasspath
+    main = mainClassName
+    def postName = project.hasProperty('postName') ? project.getProperty('postName') : 'NEW-POST'
+    args 'create-post', postName
 }

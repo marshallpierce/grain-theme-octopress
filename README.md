@@ -1,8 +1,7 @@
 Source of [varblog.org](http://varblog.org).
 
 ![Banner](https://raw.githubusercontent.com/sysgears/grain-theme-octopress/master/banner.jpg)
->>>>>>> master
-
+ 
 Octopress Grain Theme
 =====================
 
@@ -157,7 +156,6 @@ certifies the following:
         at http://www.opensource.org.
 
 License
-=======
 
 Grain Octopress theme is licensed under the terms of the
 [MIT License][MIT License].

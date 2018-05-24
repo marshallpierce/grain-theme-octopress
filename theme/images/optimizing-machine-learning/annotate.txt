@@ -1,0 +1,2000 @@
+
+Sorted summary for file /lib/modules/4.14.34-gentoo/build/vmlinux
+----------------------------------------------
+
+   95.72 entry_64.o:0
+ Percent |	Source code & Disassembly of vmlinux for cycles
+---------------------------------------------------------------
+         :
+         :
+         :
+         :	Disassembly of section .text:
+         :
+         :	ffffffff816000d6 <syscall_return_via_sysret>:
+         :	syscall_return_via_sysret():
+    0.01 :	  ffffffff816000d6:       pop    %r15
+    0.00 :	  ffffffff816000d8:       pop    %r14
+    0.00 :	  ffffffff816000da:       pop    %r13
+    0.40 :	  ffffffff816000dc:       pop    %r12
+    0.01 :	  ffffffff816000de:       pop    %rbp
+    0.01 :	  ffffffff816000df:       pop    %rbx
+    0.00 :	  ffffffff816000e0:       pop    %rsi
+    0.43 :	  ffffffff816000e1:       pop    %r10
+    0.00 :	  ffffffff816000e3:       pop    %r9
+    0.01 :	  ffffffff816000e5:       pop    %r8
+    0.01 :	  ffffffff816000e7:       pop    %rax
+    0.45 :	  ffffffff816000e8:       pop    %rsi
+    0.00 :	  ffffffff816000e9:       pop    %rdx
+    0.00 :	  ffffffff816000ea:       pop    %rsi
+    0.01 :	  ffffffff816000eb:       mov    %rsp,%rdi
+    0.42 :	  ffffffff816000ee:       mov    %gs:0x5004,%rsp
+ entry_64.o:0    0.80 :	  ffffffff816000f7:       pushq  0x28(%rdi)
+    2.31 :	  ffffffff816000fa:       pushq  (%rdi)
+    0.40 :	  ffffffff816000fc:       push   %rax
+    0.26 :	  ffffffff816000fd:       jmp    ffffffff81600142 <syscall_return_via_sysret+0x6c>
+    0.02 :	  ffffffff816000ff:       mov    %cr3,%rdi
+    0.91 :	  ffffffff81600102:       jmp    ffffffff81600138 <syscall_return_via_sysret+0x62>
+    0.00 :	  ffffffff81600104:       mov    %rdi,%rax
+    0.17 :	  ffffffff81600107:       and    $0x7ff,%rdi
+    0.26 :	  ffffffff8160010e:       bt     %rdi,%gs:0x1eada
+    4.27 :	  ffffffff81600118:       jae    ffffffff81600129 <syscall_return_via_sysret+0x53>
+    0.00 :	  ffffffff8160011a:       btr    %rdi,%gs:0x1eada
+    0.00 :	  ffffffff81600124:       mov    %rax,%rdi
+    0.00 :	  ffffffff81600127:       jmp    ffffffff81600131 <syscall_return_via_sysret+0x5b>
+    0.48 :	  ffffffff81600129:       mov    %rax,%rdi
+    0.00 :	  ffffffff8160012c:       bts    $0x3f,%rdi
+    0.02 :	  ffffffff81600131:       or     $0x800,%rdi
+    0.00 :	  ffffffff81600138:       or     $0x1000,%rdi
+    0.45 :	  ffffffff8160013f:       mov    %rdi,%cr3
+ entry_64.o:0   76.36 :	  ffffffff81600142:       pop    %rax
+    7.66 :	  ffffffff81600143:       pop    %rdi
+ entry_64.o:0    2.82 :	  ffffffff81600144:       pop    %rsp
+    0.59 :	  ffffffff81600145:       swapgs 
+    0.46 :	  ffffffff81600148:       sysretq 
+    0.00 :	  ffffffff8160014b:       nopl   0x0(%rax,%rax,1)
+
+Sorted summary for file /home/mbp/.virtualenvs/pytorch-examples/lib/python3.5/site-packages/PIL/.libs/libjpeg-4268453f.so.9.2.0
+----------------------------------------------
+
+    2.52 libjpeg-4268453f.so.9.2.0[36635]
+    1.93 libjpeg-4268453f.so.9.2.0[3624d]
+    1.83 libjpeg-4268453f.so.9.2.0[3646a]
+    1.53 libjpeg-4268453f.so.9.2.0[3648b]
+    1.44 libjpeg-4268453f.so.9.2.0[36284]
+    1.16 libjpeg-4268453f.so.9.2.0[36562]
+    1.07 libjpeg-4268453f.so.9.2.0[35e0f]
+    0.97 libjpeg-4268453f.so.9.2.0[365b1]
+    0.94 libjpeg-4268453f.so.9.2.0[35ed8]
+    0.90 libjpeg-4268453f.so.9.2.0[36566]
+    0.85 libjpeg-4268453f.so.9.2.0[35d6e]
+    0.83 libjpeg-4268453f.so.9.2.0[35ee0]
+    0.82 libjpeg-4268453f.so.9.2.0[35ed0]
+    0.81 libjpeg-4268453f.so.9.2.0[3653c]
+    0.79 libjpeg-4268453f.so.9.2.0[35e8c]
+    0.79 libjpeg-4268453f.so.9.2.0[367ad]
+    0.79 libjpeg-4268453f.so.9.2.0[36457]
+    0.78 libjpeg-4268453f.so.9.2.0[360a2]
+    0.75 libjpeg-4268453f.so.9.2.0[3607c]
+    0.74 libjpeg-4268453f.so.9.2.0[35e90]
+    0.72 libjpeg-4268453f.so.9.2.0[35ecb]
+    0.70 libjpeg-4268453f.so.9.2.0[35d77]
+    0.70 libjpeg-4268453f.so.9.2.0[35e9f]
+    0.69 libjpeg-4268453f.so.9.2.0[35f83]
+    0.66 libjpeg-4268453f.so.9.2.0[35f62]
+    0.65 libjpeg-4268453f.so.9.2.0[365c0]
+    0.59 libjpeg-4268453f.so.9.2.0[360a6]
+    0.58 libjpeg-4268453f.so.9.2.0[360f1]
+    0.58 libjpeg-4268453f.so.9.2.0[364b3]
+    0.56 libjpeg-4268453f.so.9.2.0[36651]
+    0.55 libjpeg-4268453f.so.9.2.0[3652e]
+    0.55 libjpeg-4268453f.so.9.2.0[364ec]
+    0.55 libjpeg-4268453f.so.9.2.0[364d4]
+    0.54 libjpeg-4268453f.so.9.2.0[3676b]
+    0.54 libjpeg-4268453f.so.9.2.0[35d7b]
+    0.54 libjpeg-4268453f.so.9.2.0[3663e]
+    0.54 libjpeg-4268453f.so.9.2.0[364e0]
+    0.53 libjpeg-4268453f.so.9.2.0[3656e]
+    0.53 libjpeg-4268453f.so.9.2.0[35d63]
+    0.53 libjpeg-4268453f.so.9.2.0[36632]
+    0.52 libjpeg-4268453f.so.9.2.0[36603]
+    0.52 libjpeg-4268453f.so.9.2.0[3666c]
+    0.52 libjpeg-4268453f.so.9.2.0[36492]
+    0.52 libjpeg-4268453f.so.9.2.0[3665d]
+    0.52 libjpeg-4268453f.so.9.2.0[364c2]
+    0.51 libjpeg-4268453f.so.9.2.0[36514]
+    0.50 libjpeg-4268453f.so.9.2.0[36471]
+ Percent |	Source code & Disassembly of libjpeg-4268453f.so.9.2.0 for cycles
+---------------------------------------------------------------------------------
+         :
+         :
+         :
+         :	Disassembly of section .text:
+         :
+         :	0000000000035cec <jpeg_idct_islow@@LIBJPEG_9.0>:
+    0.00 :	  35cec:       push   %rbp
+    0.00 :	  35ced:       mov    %rsp,%rbp
+    0.07 :	  35cf0:       sub    $0x14c,%rsp
+    0.00 :	  35cf7:       mov    %rdi,-0x1a8(%rbp)
+    0.00 :	  35cfe:       mov    %rsi,-0x1b0(%rbp)
+    0.07 :	  35d05:       mov    %rdx,-0x1b8(%rbp)
+    0.01 :	  35d0c:       mov    %rcx,-0x1c0(%rbp)
+    0.00 :	  35d13:       mov    %r8d,-0x1c4(%rbp)
+    0.00 :	  35d1a:       mov    -0x1a8(%rbp),%rax
+    0.07 :	  35d21:       mov    0x1b8(%rax),%rax
+    0.02 :	  35d28:       sub    $0x180,%rax
+    0.00 :	  35d2e:       mov    %rax,-0x28(%rbp)
+    0.01 :	  35d32:       mov    -0x1b8(%rbp),%rax
+    0.07 :	  35d39:       mov    %rax,-0x8(%rbp)
+    0.00 :	  35d3d:       mov    -0x1b0(%rbp),%rax
+    0.06 :	  35d44:       mov    0x58(%rax),%rax
+    0.03 :	  35d48:       mov    %rax,-0x10(%rbp)
+    0.05 :	  35d4c:       lea    -0x1a0(%rbp),%rax
+    0.00 :	  35d53:       mov    %rax,-0x18(%rbp)
+    0.00 :	  35d57:       movl   $0x8,-0x1c(%rbp)
+    0.01 :	  35d5e:       jmpq   36249 <jpeg_idct_islow@@LIBJPEG_9.0+0x55d>
+ libjpeg-4268453f.so.9.2.0[35d63]    0.53 :	  35d63:       mov    -0x8(%rbp),%rax
+    0.18 :	  35d67:       add    $0x10,%rax
+    0.01 :	  35d6b:       movzwl (%rax),%eax
+ libjpeg-4268453f.so.9.2.0[35d6e]    0.85 :	  35d6e:       test   %ax,%ax
+    0.00 :	  35d71:       jne    35e8c <jpeg_idct_islow@@LIBJPEG_9.0+0x1a0>
+ libjpeg-4268453f.so.9.2.0[35d77]    0.70 :	  35d77:       mov    -0x8(%rbp),%rax
+ libjpeg-4268453f.so.9.2.0[35d7b]    0.54 :	  35d7b:       add    $0x20,%rax
+    0.05 :	  35d7f:       movzwl (%rax),%eax
+    0.28 :	  35d82:       test   %ax,%ax
+    0.00 :	  35d85:       jne    35e8c <jpeg_idct_islow@@LIBJPEG_9.0+0x1a0>
+    0.34 :	  35d8b:       mov    -0x8(%rbp),%rax
+    0.10 :	  35d8f:       add    $0x30,%rax
+    0.01 :	  35d93:       movzwl (%rax),%eax
+    0.09 :	  35d96:       test   %ax,%ax
+    0.00 :	  35d99:       jne    35e8c <jpeg_idct_islow@@LIBJPEG_9.0+0x1a0>
+    0.29 :	  35d9f:       mov    -0x8(%rbp),%rax
+    0.04 :	  35da3:       add    $0x40,%rax
+    0.00 :	  35da7:       movzwl (%rax),%eax
+    0.05 :	  35daa:       test   %ax,%ax
+    0.00 :	  35dad:       jne    35e8c <jpeg_idct_islow@@LIBJPEG_9.0+0x1a0>
+    0.30 :	  35db3:       mov    -0x8(%rbp),%rax
+    0.02 :	  35db7:       add    $0x50,%rax
+    0.00 :	  35dbb:       movzwl (%rax),%eax
+    0.04 :	  35dbe:       test   %ax,%ax
+    0.00 :	  35dc1:       jne    35e8c <jpeg_idct_islow@@LIBJPEG_9.0+0x1a0>
+    0.26 :	  35dc7:       mov    -0x8(%rbp),%rax
+    0.01 :	  35dcb:       add    $0x60,%rax
+    0.00 :	  35dcf:       movzwl (%rax),%eax
+    0.04 :	  35dd2:       test   %ax,%ax
+    0.00 :	  35dd5:       jne    35e8c <jpeg_idct_islow@@LIBJPEG_9.0+0x1a0>
+    0.27 :	  35ddb:       mov    -0x8(%rbp),%rax
+    0.02 :	  35ddf:       add    $0x70,%rax
+    0.00 :	  35de3:       movzwl (%rax),%eax
+    0.03 :	  35de6:       test   %ax,%ax
+    0.00 :	  35de9:       jne    35e8c <jpeg_idct_islow@@LIBJPEG_9.0+0x1a0>
+    0.27 :	  35def:       mov    -0x8(%rbp),%rax
+    0.01 :	  35df3:       movzwl (%rax),%eax
+    0.01 :	  35df6:       movswl %ax,%edx
+    0.10 :	  35df9:       mov    -0x10(%rbp),%rax
+    0.19 :	  35dfd:       mov    (%rax),%eax
+    0.02 :	  35dff:       imul   %edx,%eax
+    0.46 :	  35e02:       shl    $0x2,%eax
+    0.22 :	  35e05:       mov    %eax,-0x2c(%rbp)
+    0.27 :	  35e08:       mov    -0x18(%rbp),%rax
+    0.01 :	  35e0c:       mov    -0x2c(%rbp),%edx
+ libjpeg-4268453f.so.9.2.0[35e0f]    1.07 :	  35e0f:       mov    %edx,(%rax)
+    0.30 :	  35e11:       mov    -0x18(%rbp),%rax
+    0.00 :	  35e15:       lea    0x20(%rax),%rdx
+    0.00 :	  35e19:       mov    -0x2c(%rbp),%eax
+    0.01 :	  35e1c:       mov    %eax,(%rdx)
+    0.26 :	  35e1e:       mov    -0x18(%rbp),%rax
+    0.00 :	  35e22:       lea    0x40(%rax),%rdx
+    0.00 :	  35e26:       mov    -0x2c(%rbp),%eax
+    0.02 :	  35e29:       mov    %eax,(%rdx)
+    0.31 :	  35e2b:       mov    -0x18(%rbp),%rax
+    0.00 :	  35e2f:       lea    0x60(%rax),%rdx
+    0.00 :	  35e33:       mov    -0x2c(%rbp),%eax
+    0.01 :	  35e36:       mov    %eax,(%rdx)
+    0.30 :	  35e38:       mov    -0x18(%rbp),%rax
+    0.00 :	  35e3c:       lea    0x80(%rax),%rdx
+    0.00 :	  35e43:       mov    -0x2c(%rbp),%eax
+    0.01 :	  35e46:       mov    %eax,(%rdx)
+    0.24 :	  35e48:       mov    -0x18(%rbp),%rax
+    0.00 :	  35e4c:       lea    0xa0(%rax),%rdx
+    0.00 :	  35e53:       mov    -0x2c(%rbp),%eax
+    0.02 :	  35e56:       mov    %eax,(%rdx)
+    0.25 :	  35e58:       mov    -0x18(%rbp),%rax
+    0.00 :	  35e5c:       lea    0xc0(%rax),%rdx
+    0.00 :	  35e63:       mov    -0x2c(%rbp),%eax
+    0.02 :	  35e66:       mov    %eax,(%rdx)
+    0.29 :	  35e68:       mov    -0x18(%rbp),%rax
+    0.00 :	  35e6c:       lea    0xe0(%rax),%rdx
+    0.00 :	  35e73:       mov    -0x2c(%rbp),%eax
+    0.02 :	  35e76:       mov    %eax,(%rdx)
+    0.26 :	  35e78:       addq   $0x2,-0x8(%rbp)
+    0.10 :	  35e7d:       addq   $0x4,-0x10(%rbp)
+    0.30 :	  35e82:       addq   $0x4,-0x18(%rbp)
+    0.17 :	  35e87:       jmpq   36245 <jpeg_idct_islow@@LIBJPEG_9.0+0x559>
+ libjpeg-4268453f.so.9.2.0[35e8c]    0.79 :	  35e8c:       mov    -0x8(%rbp),%rax
+ libjpeg-4268453f.so.9.2.0[35e90]    0.74 :	  35e90:       movzwl (%rax),%eax
+    0.36 :	  35e93:       movswl %ax,%edx
+    0.19 :	  35e96:       mov    -0x10(%rbp),%rax
+    0.07 :	  35e9a:       mov    (%rax),%eax
+    0.09 :	  35e9c:       imul   %edx,%eax
+ libjpeg-4268453f.so.9.2.0[35e9f]    0.70 :	  35e9f:       cltq   
+    0.27 :	  35ea1:       mov    %rax,-0x38(%rbp)
+    0.32 :	  35ea5:       mov    -0x8(%rbp),%rax
+    0.01 :	  35ea9:       add    $0x40,%rax
+    0.00 :	  35ead:       movzwl (%rax),%eax
+    0.02 :	  35eb0:       movswl %ax,%edx
+    0.29 :	  35eb3:       mov    -0x10(%rbp),%rax
+    0.01 :	  35eb7:       sub    $0xffffffffffffff80,%rax
+    0.00 :	  35ebb:       mov    (%rax),%eax
+    0.02 :	  35ebd:       imul   %edx,%eax
+    0.34 :	  35ec0:       cltq   
+    0.11 :	  35ec2:       mov    %rax,-0x40(%rbp)
+    0.14 :	  35ec6:       shlq   $0xd,-0x38(%rbp)
+ libjpeg-4268453f.so.9.2.0[35ecb]    0.72 :	  35ecb:       shlq   $0xd,-0x40(%rbp)
+ libjpeg-4268453f.so.9.2.0[35ed0]    0.82 :	  35ed0:       addq   $0x400,-0x38(%rbp)
+ libjpeg-4268453f.so.9.2.0[35ed8]    0.94 :	  35ed8:       mov    -0x40(%rbp),%rax
+    0.30 :	  35edc:       mov    -0x38(%rbp),%rdx
+ libjpeg-4268453f.so.9.2.0[35ee0]    0.83 :	  35ee0:       add    %rdx,%rax
+    0.30 :	  35ee3:       mov    %rax,-0x48(%rbp)
+    0.28 :	  35ee7:       mov    -0x40(%rbp),%rax
+    0.00 :	  35eeb:       mov    -0x38(%rbp),%rdx
+    0.00 :	  35eef:       sub    %rax,%rdx
+    0.03 :	  35ef2:       mov    %rdx,%rax
+    0.32 :	  35ef5:       mov    %rax,-0x50(%rbp)
+    0.02 :	  35ef9:       mov    -0x8(%rbp),%rax
+    0.00 :	  35efd:       add    $0x20,%rax
+    0.00 :	  35f01:       movzwl (%rax),%eax
+    0.26 :	  35f04:       movswl %ax,%edx
+    0.03 :	  35f07:       mov    -0x10(%rbp),%rax
+    0.00 :	  35f0b:       add    $0x40,%rax
+    0.00 :	  35f0f:       mov    (%rax),%eax
+    0.28 :	  35f11:       imul   %edx,%eax
+    0.03 :	  35f14:       cltq   
+    0.01 :	  35f16:       mov    %rax,-0x38(%rbp)
+    0.01 :	  35f1a:       mov    -0x8(%rbp),%rax
+    0.22 :	  35f1e:       add    $0x60,%rax
+    0.02 :	  35f22:       movzwl (%rax),%eax
+    0.01 :	  35f25:       movswl %ax,%edx
+    0.01 :	  35f28:       mov    -0x10(%rbp),%rax
+    0.25 :	  35f2c:       add    $0xc0,%rax
+    0.01 :	  35f32:       mov    (%rax),%eax
+    0.00 :	  35f34:       imul   %edx,%eax
+    0.01 :	  35f37:       cltq   
+    0.23 :	  35f39:       mov    %rax,-0x40(%rbp)
+    0.03 :	  35f3d:       mov    -0x40(%rbp),%rax
+    0.15 :	  35f41:       mov    -0x38(%rbp),%rdx
+    0.00 :	  35f45:       add    %rdx,%rax
+    0.27 :	  35f48:       imul   $0x1151,%rax,%rax
+    0.31 :	  35f4f:       mov    %rax,-0x58(%rbp)
+    0.13 :	  35f53:       mov    -0x38(%rbp),%rax
+    0.00 :	  35f57:       imul   $0x187e,%rax,%rdx
+    0.13 :	  35f5e:       mov    -0x58(%rbp),%rax
+ libjpeg-4268453f.so.9.2.0[35f62]    0.66 :	  35f62:       add    %rdx,%rax
+    0.24 :	  35f65:       mov    %rax,-0x60(%rbp)
+    0.21 :	  35f69:       mov    -0x40(%rbp),%rax
+    0.07 :	  35f6d:       imul   $0xffffffffffffc4df,%rax,%rdx
+    0.02 :	  35f74:       mov    -0x58(%rbp),%rax
+    0.00 :	  35f78:       add    %rdx,%rax
+    0.20 :	  35f7b:       mov    %rax,-0x68(%rbp)
+    0.06 :	  35f7f:       mov    -0x60(%rbp),%rax
+ libjpeg-4268453f.so.9.2.0[35f83]    0.69 :	  35f83:       mov    -0x48(%rbp),%rdx
+    0.00 :	  35f87:       add    %rdx,%rax
+    0.26 :	  35f8a:       mov    %rax,-0x70(%rbp)
+    0.26 :	  35f8e:       mov    -0x60(%rbp),%rax
+    0.01 :	  35f92:       mov    -0x48(%rbp),%rdx
+    0.00 :	  35f96:       sub    %rax,%rdx
+    0.00 :	  35f99:       mov    %rdx,%rax
+    0.28 :	  35f9c:       mov    %rax,-0x78(%rbp)
+    0.01 :	  35fa0:       mov    -0x68(%rbp),%rax
+    0.01 :	  35fa4:       mov    -0x50(%rbp),%rdx
+    0.00 :	  35fa8:       add    %rdx,%rax
+    0.23 :	  35fab:       mov    %rax,-0x80(%rbp)
+    0.00 :	  35faf:       mov    -0x68(%rbp),%rax
+    0.00 :	  35fb3:       mov    -0x50(%rbp),%rdx
+    0.00 :	  35fb7:       sub    %rax,%rdx
+    0.27 :	  35fba:       mov    %rdx,%rax
+    0.02 :	  35fbd:       mov    %rax,-0x88(%rbp)
+    0.01 :	  35fc4:       mov    -0x8(%rbp),%rax
+    0.00 :	  35fc8:       add    $0x70,%rax
+    0.30 :	  35fcc:       movzwl (%rax),%eax
+    0.01 :	  35fcf:       movswl %ax,%edx
+    0.01 :	  35fd2:       mov    -0x10(%rbp),%rax
+    0.00 :	  35fd6:       add    $0xe0,%rax
+    0.26 :	  35fdc:       mov    (%rax),%eax
+    0.00 :	  35fde:       imul   %edx,%eax
+    0.00 :	  35fe1:       cltq   
+    0.00 :	  35fe3:       mov    %rax,-0x48(%rbp)
+    0.26 :	  35fe7:       mov    -0x8(%rbp),%rax
+    0.01 :	  35feb:       add    $0x50,%rax
+    0.01 :	  35fef:       movzwl (%rax),%eax
+    0.00 :	  35ff2:       movswl %ax,%edx
+    0.31 :	  35ff5:       mov    -0x10(%rbp),%rax
+    0.01 :	  35ff9:       add    $0xa0,%rax
+    0.01 :	  35fff:       mov    (%rax),%eax
+    0.01 :	  36001:       imul   %edx,%eax
+    0.30 :	  36004:       cltq   
+    0.01 :	  36006:       mov    %rax,-0x50(%rbp)
+    0.01 :	  3600a:       mov    -0x8(%rbp),%rax
+    0.00 :	  3600e:       add    $0x30,%rax
+    0.31 :	  36012:       movzwl (%rax),%eax
+    0.01 :	  36015:       movswl %ax,%edx
+    0.02 :	  36018:       mov    -0x10(%rbp),%rax
+    0.00 :	  3601c:       add    $0x60,%rax
+    0.27 :	  36020:       mov    (%rax),%eax
+    0.01 :	  36022:       imul   %edx,%eax
+    0.02 :	  36025:       cltq   
+    0.01 :	  36027:       mov    %rax,-0x60(%rbp)
+    0.26 :	  3602b:       mov    -0x8(%rbp),%rax
+    0.00 :	  3602f:       add    $0x10,%rax
+    0.01 :	  36033:       movzwl (%rax),%eax
+    0.01 :	  36036:       movswl %ax,%edx
+    0.28 :	  36039:       mov    -0x10(%rbp),%rax
+    0.01 :	  3603d:       add    $0x20,%rax
+    0.01 :	  36041:       mov    (%rax),%eax
+    0.01 :	  36043:       imul   %edx,%eax
+    0.27 :	  36046:       cltq   
+    0.01 :	  36048:       mov    %rax,-0x68(%rbp)
+    0.02 :	  3604c:       mov    -0x60(%rbp),%rax
+    0.01 :	  36050:       mov    -0x48(%rbp),%rdx
+    0.28 :	  36054:       add    %rdx,%rax
+    0.01 :	  36057:       mov    %rax,-0x38(%rbp)
+    0.02 :	  3605b:       mov    -0x68(%rbp),%rax
+    0.03 :	  3605f:       mov    -0x50(%rbp),%rdx
+    0.20 :	  36063:       add    %rdx,%rax
+    0.03 :	  36066:       mov    %rax,-0x40(%rbp)
+    0.05 :	  3606a:       mov    -0x40(%rbp),%rax
+    0.36 :	  3606e:       mov    -0x38(%rbp),%rdx
+    0.12 :	  36072:       add    %rdx,%rax
+    0.27 :	  36075:       imul   $0x25a1,%rax,%rax
+ libjpeg-4268453f.so.9.2.0[3607c]    0.75 :	  3607c:       mov    %rax,-0x58(%rbp)
+    0.31 :	  36080:       mov    -0x38(%rbp),%rax
+    0.01 :	  36084:       imul   $0xffffffffffffc13b,%rax,%rax
+    0.00 :	  3608b:       mov    %rax,-0x38(%rbp)
+    0.01 :	  3608f:       mov    -0x40(%rbp),%rax
+    0.28 :	  36093:       imul   $0xfffffffffffff384,%rax,%rax
+    0.00 :	  3609a:       mov    %rax,-0x40(%rbp)
+    0.00 :	  3609e:       mov    -0x58(%rbp),%rax
+ libjpeg-4268453f.so.9.2.0[360a2]    0.78 :	  360a2:       add    %rax,-0x38(%rbp)
+ libjpeg-4268453f.so.9.2.0[360a6]    0.59 :	  360a6:       mov    -0x58(%rbp),%rax
+    0.00 :	  360aa:       add    %rax,-0x40(%rbp)
+    0.25 :	  360ae:       mov    -0x68(%rbp),%rax
+    0.01 :	  360b2:       mov    -0x48(%rbp),%rdx
+    0.00 :	  360b6:       add    %rdx,%rax
+    0.00 :	  360b9:       imul   $0xffffffffffffe333,%rax,%rax
+    0.29 :	  360c0:       mov    %rax,-0x58(%rbp)
+    0.00 :	  360c4:       mov    -0x48(%rbp),%rax
+    0.00 :	  360c8:       imul   $0x98e,%rax,%rax
+    0.00 :	  360cf:       mov    %rax,-0x48(%rbp)
+    0.33 :	  360d3:       mov    -0x68(%rbp),%rax
+    0.01 :	  360d7:       imul   $0x300b,%rax,%rax
+    0.00 :	  360de:       mov    %rax,-0x68(%rbp)
+    0.00 :	  360e2:       mov    -0x38(%rbp),%rax
+    0.30 :	  360e6:       mov    -0x58(%rbp),%rdx
+    0.01 :	  360ea:       add    %rdx,%rax
+    0.28 :	  360ed:       add    %rax,-0x48(%rbp)
+ libjpeg-4268453f.so.9.2.0[360f1]    0.58 :	  360f1:       mov    -0x40(%rbp),%rax
+    0.00 :	  360f5:       mov    -0x58(%rbp),%rdx
+    0.00 :	  360f9:       add    %rdx,%rax
+    0.00 :	  360fc:       add    %rax,-0x68(%rbp)
+    0.45 :	  36100:       mov    -0x60(%rbp),%rax
+    0.00 :	  36104:       mov    -0x50(%rbp),%rdx
+    0.00 :	  36108:       add    %rdx,%rax
+    0.18 :	  3610b:       imul   $0xffffffffffffadfd,%rax,%rax
+    0.12 :	  36112:       mov    %rax,-0x58(%rbp)
+    0.00 :	  36116:       mov    -0x50(%rbp),%rax
+    0.00 :	  3611a:       imul   $0x41b3,%rax,%rax
+    0.12 :	  36121:       mov    %rax,-0x50(%rbp)
+    0.14 :	  36125:       mov    -0x60(%rbp),%rax
+    0.00 :	  36129:       imul   $0x6254,%rax,%rax
+    0.00 :	  36130:       mov    %rax,-0x60(%rbp)
+    0.16 :	  36134:       mov    -0x40(%rbp),%rax
+    0.14 :	  36138:       mov    -0x58(%rbp),%rdx
+    0.00 :	  3613c:       add    %rdx,%rax
+    0.01 :	  3613f:       add    %rax,-0x50(%rbp)
+    0.29 :	  36143:       mov    -0x38(%rbp),%rax
+    0.00 :	  36147:       mov    -0x58(%rbp),%rdx
+    0.00 :	  3614b:       add    %rdx,%rax
+    0.11 :	  3614e:       add    %rax,-0x60(%rbp)
+    0.15 :	  36152:       mov    -0x68(%rbp),%rax
+    0.00 :	  36156:       mov    -0x70(%rbp),%rdx
+    0.14 :	  3615a:       add    %rdx,%rax
+    0.14 :	  3615d:       sar    $0xb,%rax
+    0.01 :	  36161:       mov    %eax,%edx
+    0.00 :	  36163:       mov    -0x18(%rbp),%rax
+    0.11 :	  36167:       mov    %edx,(%rax)
+    0.16 :	  36169:       mov    -0x18(%rbp),%rax
+    0.00 :	  3616d:       lea    0xe0(%rax),%rdx
+    0.00 :	  36174:       mov    -0x68(%rbp),%rax
+    0.12 :	  36178:       mov    -0x70(%rbp),%rcx
+    0.17 :	  3617c:       sub    %rax,%rcx
+    0.01 :	  3617f:       mov    %rcx,%rax
+    0.00 :	  36182:       sar    $0xb,%rax
+    0.13 :	  36186:       mov    %eax,(%rdx)
+    0.18 :	  36188:       mov    -0x18(%rbp),%rax
+    0.00 :	  3618c:       lea    0x20(%rax),%rdx
+    0.00 :	  36190:       mov    -0x60(%rbp),%rax
+    0.12 :	  36194:       mov    -0x80(%rbp),%rcx
+    0.18 :	  36198:       add    %rcx,%rax
+    0.01 :	  3619b:       sar    $0xb,%rax
+    0.00 :	  3619f:       mov    %eax,(%rdx)
+    0.16 :	  361a1:       mov    -0x18(%rbp),%rax
+    0.09 :	  361a5:       lea    0xc0(%rax),%rdx
+    0.00 :	  361ac:       mov    -0x60(%rbp),%rax
+    0.00 :	  361b0:       mov    -0x80(%rbp),%rcx
+    0.15 :	  361b4:       sub    %rax,%rcx
+    0.14 :	  361b7:       mov    %rcx,%rax
+    0.00 :	  361ba:       sar    $0xb,%rax
+    0.00 :	  361be:       mov    %eax,(%rdx)
+    0.15 :	  361c0:       mov    -0x18(%rbp),%rax
+    0.14 :	  361c4:       lea    0x40(%rax),%rdx
+    0.00 :	  361c8:       mov    -0x50(%rbp),%rax
+    0.01 :	  361cc:       mov    -0x88(%rbp),%rcx
+    0.13 :	  361d3:       add    %rcx,%rax
+    0.12 :	  361d6:       sar    $0xb,%rax
+    0.00 :	  361da:       mov    %eax,(%rdx)
+    0.01 :	  361dc:       mov    -0x18(%rbp),%rax
+    0.16 :	  361e0:       lea    0xa0(%rax),%rdx
+    0.13 :	  361e7:       mov    -0x50(%rbp),%rax
+    0.00 :	  361eb:       mov    -0x88(%rbp),%rcx
+    0.00 :	  361f2:       sub    %rax,%rcx
+    0.14 :	  361f5:       mov    %rcx,%rax
+    0.11 :	  361f8:       sar    $0xb,%rax
+    0.00 :	  361fc:       mov    %eax,(%rdx)
+    0.02 :	  361fe:       mov    -0x18(%rbp),%rax
+    0.14 :	  36202:       lea    0x60(%rax),%rdx
+    0.13 :	  36206:       mov    -0x48(%rbp),%rax
+    0.00 :	  3620a:       mov    -0x78(%rbp),%rcx
+    0.01 :	  3620e:       add    %rcx,%rax
+    0.13 :	  36211:       sar    $0xb,%rax
+    0.12 :	  36215:       mov    %eax,(%rdx)
+    0.02 :	  36217:       mov    -0x18(%rbp),%rax
+    0.00 :	  3621b:       lea    0x80(%rax),%rdx
+    0.15 :	  36222:       mov    -0x48(%rbp),%rax
+    0.10 :	  36226:       mov    -0x78(%rbp),%rcx
+    0.01 :	  3622a:       sub    %rax,%rcx
+    0.00 :	  3622d:       mov    %rcx,%rax
+    0.15 :	  36230:       sar    $0xb,%rax
+    0.12 :	  36234:       mov    %eax,(%rdx)
+    0.02 :	  36236:       addq   $0x2,-0x8(%rbp)
+    0.17 :	  3623b:       addq   $0x4,-0x10(%rbp)
+    0.15 :	  36240:       addq   $0x4,-0x18(%rbp)
+    0.16 :	  36245:       subl   $0x1,-0x1c(%rbp)
+    0.47 :	  36249:       cmpl   $0x0,-0x1c(%rbp)
+ libjpeg-4268453f.so.9.2.0[3624d]    1.93 :	  3624d:       jg     35d63 <jpeg_idct_islow@@LIBJPEG_9.0+0x77>
+    0.30 :	  36253:       lea    -0x1a0(%rbp),%rax
+    0.13 :	  3625a:       mov    %rax,-0x18(%rbp)
+    0.18 :	  3625e:       movl   $0x0,-0x1c(%rbp)
+    0.00 :	  36265:       jmpq   367a9 <jpeg_idct_islow@@LIBJPEG_9.0+0xabd>
+    0.07 :	  3626a:       mov    -0x1c(%rbp),%eax
+    0.28 :	  3626d:       cltq   
+    0.01 :	  3626f:       lea    0x0(,%rax,8),%rdx
+    0.36 :	  36277:       mov    -0x1c0(%rbp),%rax
+    0.08 :	  3627e:       add    %rdx,%rax
+    0.16 :	  36281:       mov    (%rax),%rdx
+ libjpeg-4268453f.so.9.2.0[36284]    1.44 :	  36284:       mov    -0x1c4(%rbp),%eax
+    0.16 :	  3628a:       add    %rdx,%rax
+    0.33 :	  3628d:       mov    %rax,-0x90(%rbp)
+    0.44 :	  36294:       mov    -0x18(%rbp),%rax
+    0.02 :	  36298:       mov    (%rax),%eax
+    0.16 :	  3629a:       cltq   
+    0.01 :	  3629c:       add    $0x4010,%rax
+    0.39 :	  362a2:       mov    %rax,-0x38(%rbp)
+    0.02 :	  362a6:       mov    -0x18(%rbp),%rax
+    0.17 :	  362aa:       add    $0x4,%rax
+    0.01 :	  362ae:       mov    (%rax),%eax
+    0.42 :	  362b0:       test   %eax,%eax
+    0.00 :	  362b2:       jne    363ec <jpeg_idct_islow@@LIBJPEG_9.0+0x700>
+    0.06 :	  362b8:       mov    -0x18(%rbp),%rax
+    0.07 :	  362bc:       add    $0x8,%rax
+    0.01 :	  362c0:       mov    (%rax),%eax
+    0.07 :	  362c2:       test   %eax,%eax
+    0.00 :	  362c4:       jne    363ec <jpeg_idct_islow@@LIBJPEG_9.0+0x700>
+    0.02 :	  362ca:       mov    -0x18(%rbp),%rax
+    0.00 :	  362ce:       add    $0xc,%rax
+    0.00 :	  362d2:       mov    (%rax),%eax
+    0.06 :	  362d4:       test   %eax,%eax
+    0.00 :	  362d6:       jne    363ec <jpeg_idct_islow@@LIBJPEG_9.0+0x700>
+    0.01 :	  362dc:       mov    -0x18(%rbp),%rax
+    0.00 :	  362e0:       add    $0x10,%rax
+    0.00 :	  362e4:       mov    (%rax),%eax
+    0.07 :	  362e6:       test   %eax,%eax
+    0.00 :	  362e8:       jne    363ec <jpeg_idct_islow@@LIBJPEG_9.0+0x700>
+    0.02 :	  362ee:       mov    -0x18(%rbp),%rax
+    0.00 :	  362f2:       add    $0x14,%rax
+    0.00 :	  362f6:       mov    (%rax),%eax
+    0.06 :	  362f8:       test   %eax,%eax
+    0.00 :	  362fa:       jne    363ec <jpeg_idct_islow@@LIBJPEG_9.0+0x700>
+    0.01 :	  36300:       mov    -0x18(%rbp),%rax
+    0.00 :	  36304:       add    $0x18,%rax
+    0.00 :	  36308:       mov    (%rax),%eax
+    0.04 :	  3630a:       test   %eax,%eax
+    0.00 :	  3630c:       jne    363ec <jpeg_idct_islow@@LIBJPEG_9.0+0x700>
+    0.03 :	  36312:       mov    -0x18(%rbp),%rax
+    0.00 :	  36316:       add    $0x1c,%rax
+    0.00 :	  3631a:       mov    (%rax),%eax
+    0.03 :	  3631c:       test   %eax,%eax
+    0.00 :	  3631e:       jne    363ec <jpeg_idct_islow@@LIBJPEG_9.0+0x700>
+    0.04 :	  36324:       mov    -0x38(%rbp),%rax
+    0.00 :	  36328:       sar    $0x5,%rax
+    0.00 :	  3632c:       cltq   
+    0.04 :	  3632e:       and    $0x3ff,%eax
+    0.02 :	  36333:       mov    %rax,%rdx
+    0.00 :	  36336:       mov    -0x28(%rbp),%rax
+    0.00 :	  3633a:       add    %rdx,%rax
+    0.03 :	  3633d:       movzbl (%rax),%eax
+    0.11 :	  36340:       mov    %al,-0x91(%rbp)
+    0.03 :	  36346:       mov    -0x90(%rbp),%rax
+    0.00 :	  3634d:       movzbl -0x91(%rbp),%edx
+    0.15 :	  36354:       mov    %dl,(%rax)
+    0.07 :	  36356:       mov    -0x90(%rbp),%rax
+    0.00 :	  3635d:       lea    0x1(%rax),%rdx
+    0.00 :	  36361:       movzbl -0x91(%rbp),%eax
+    0.01 :	  36368:       mov    %al,(%rdx)
+    0.06 :	  3636a:       mov    -0x90(%rbp),%rax
+    0.00 :	  36371:       lea    0x2(%rax),%rdx
+    0.01 :	  36375:       movzbl -0x91(%rbp),%eax
+    0.01 :	  3637c:       mov    %al,(%rdx)
+    0.13 :	  3637e:       mov    -0x90(%rbp),%rax
+    0.00 :	  36385:       lea    0x3(%rax),%rdx
+    0.00 :	  36389:       movzbl -0x91(%rbp),%eax
+    0.00 :	  36390:       mov    %al,(%rdx)
+    0.07 :	  36392:       mov    -0x90(%rbp),%rax
+    0.00 :	  36399:       lea    0x4(%rax),%rdx
+    0.00 :	  3639d:       movzbl -0x91(%rbp),%eax
+    0.00 :	  363a4:       mov    %al,(%rdx)
+    0.07 :	  363a6:       mov    -0x90(%rbp),%rax
+    0.00 :	  363ad:       lea    0x5(%rax),%rdx
+    0.00 :	  363b1:       movzbl -0x91(%rbp),%eax
+    0.01 :	  363b8:       mov    %al,(%rdx)
+    0.08 :	  363ba:       mov    -0x90(%rbp),%rax
+    0.00 :	  363c1:       lea    0x6(%rax),%rdx
+    0.00 :	  363c5:       movzbl -0x91(%rbp),%eax
+    0.01 :	  363cc:       mov    %al,(%rdx)
+    0.08 :	  363ce:       mov    -0x90(%rbp),%rax
+    0.00 :	  363d5:       lea    0x7(%rax),%rdx
+    0.00 :	  363d9:       movzbl -0x91(%rbp),%eax
+    0.00 :	  363e0:       mov    %al,(%rdx)
+    0.06 :	  363e2:       addq   $0x20,-0x18(%rbp)
+    0.00 :	  363e7:       jmpq   367a5 <jpeg_idct_islow@@LIBJPEG_9.0+0xab9>
+    0.04 :	  363ec:       mov    -0x18(%rbp),%rax
+    0.19 :	  363f0:       add    $0x10,%rax
+    0.01 :	  363f4:       mov    (%rax),%eax
+    0.41 :	  363f6:       cltq   
+    0.04 :	  363f8:       mov    %rax,-0x40(%rbp)
+    0.16 :	  363fc:       mov    -0x40(%rbp),%rax
+    0.32 :	  36400:       mov    -0x38(%rbp),%rdx
+    0.30 :	  36404:       add    %rdx,%rax
+    0.11 :	  36407:       shl    $0xd,%rax
+    0.29 :	  3640b:       mov    %rax,-0x48(%rbp)
+    0.13 :	  3640f:       mov    -0x40(%rbp),%rax
+    0.26 :	  36413:       mov    -0x38(%rbp),%rdx
+    0.01 :	  36417:       sub    %rax,%rdx
+    0.13 :	  3641a:       mov    %rdx,%rax
+    0.14 :	  3641d:       shl    $0xd,%rax
+    0.28 :	  36421:       mov    %rax,-0x50(%rbp)
+    0.03 :	  36425:       mov    -0x18(%rbp),%rax
+    0.08 :	  36429:       add    $0x8,%rax
+    0.14 :	  3642d:       mov    (%rax),%eax
+    0.30 :	  3642f:       cltq   
+    0.03 :	  36431:       mov    %rax,-0x38(%rbp)
+    0.14 :	  36435:       mov    -0x18(%rbp),%rax
+    0.14 :	  36439:       add    $0x18,%rax
+    0.27 :	  3643d:       mov    (%rax),%eax
+    0.03 :	  3643f:       cltq   
+    0.12 :	  36441:       mov    %rax,-0x40(%rbp)
+    0.12 :	  36445:       mov    -0x40(%rbp),%rax
+    0.44 :	  36449:       mov    -0x38(%rbp),%rdx
+    0.07 :	  3644d:       add    %rdx,%rax
+    0.20 :	  36450:       imul   $0x1151,%rax,%rax
+ libjpeg-4268453f.so.9.2.0[36457]    0.79 :	  36457:       mov    %rax,-0x58(%rbp)
+    0.39 :	  3645b:       mov    -0x38(%rbp),%rax
+    0.01 :	  3645f:       imul   $0x187e,%rax,%rdx
+    0.03 :	  36466:       mov    -0x58(%rbp),%rax
+ libjpeg-4268453f.so.9.2.0[3646a]    1.83 :	  3646a:       add    %rdx,%rax
+    0.50 :	  3646d:       mov    %rax,-0x60(%rbp)
+ libjpeg-4268453f.so.9.2.0[36471]    0.50 :	  36471:       mov    -0x40(%rbp),%rax
+    0.00 :	  36475:       imul   $0xffffffffffffc4df,%rax,%rdx
+    0.00 :	  3647c:       mov    -0x58(%rbp),%rax
+    0.02 :	  36480:       add    %rdx,%rax
+    0.48 :	  36483:       mov    %rax,-0x68(%rbp)
+    0.00 :	  36487:       mov    -0x60(%rbp),%rax
+ libjpeg-4268453f.so.9.2.0[3648b]    1.53 :	  3648b:       mov    -0x48(%rbp),%rdx
+    0.00 :	  3648f:       add    %rdx,%rax
+ libjpeg-4268453f.so.9.2.0[36492]    0.52 :	  36492:       mov    %rax,-0x70(%rbp)
+    0.49 :	  36496:       mov    -0x60(%rbp),%rax
+    0.00 :	  3649a:       mov    -0x48(%rbp),%rdx
+    0.00 :	  3649e:       sub    %rax,%rdx
+    0.00 :	  364a1:       mov    %rdx,%rax
+    0.46 :	  364a4:       mov    %rax,-0x78(%rbp)
+    0.02 :	  364a8:       mov    -0x68(%rbp),%rax
+    0.00 :	  364ac:       mov    -0x50(%rbp),%rdx
+    0.01 :	  364b0:       add    %rdx,%rax
+ libjpeg-4268453f.so.9.2.0[364b3]    0.58 :	  364b3:       mov    %rax,-0x80(%rbp)
+    0.01 :	  364b7:       mov    -0x68(%rbp),%rax
+    0.00 :	  364bb:       mov    -0x50(%rbp),%rdx
+    0.00 :	  364bf:       sub    %rax,%rdx
+ libjpeg-4268453f.so.9.2.0[364c2]    0.52 :	  364c2:       mov    %rdx,%rax
+    0.02 :	  364c5:       mov    %rax,-0x88(%rbp)
+    0.02 :	  364cc:       mov    -0x18(%rbp),%rax
+    0.00 :	  364d0:       add    $0x1c,%rax
+ libjpeg-4268453f.so.9.2.0[364d4]    0.55 :	  364d4:       mov    (%rax),%eax
+    0.01 :	  364d6:       cltq   
+    0.03 :	  364d8:       mov    %rax,-0x48(%rbp)
+    0.00 :	  364dc:       mov    -0x18(%rbp),%rax
+ libjpeg-4268453f.so.9.2.0[364e0]    0.54 :	  364e0:       add    $0x14,%rax
+    0.02 :	  364e4:       mov    (%rax),%eax
+    0.02 :	  364e6:       cltq   
+    0.01 :	  364e8:       mov    %rax,-0x50(%rbp)
+ libjpeg-4268453f.so.9.2.0[364ec]    0.55 :	  364ec:       mov    -0x18(%rbp),%rax
+    0.01 :	  364f0:       add    $0xc,%rax
+    0.01 :	  364f4:       mov    (%rax),%eax
+    0.02 :	  364f6:       cltq   
+    0.49 :	  364f8:       mov    %rax,-0x60(%rbp)
+    0.01 :	  364fc:       mov    -0x18(%rbp),%rax
+    0.02 :	  36500:       add    $0x4,%rax
+    0.00 :	  36504:       mov    (%rax),%eax
+    0.47 :	  36506:       cltq   
+    0.01 :	  36508:       mov    %rax,-0x68(%rbp)
+    0.02 :	  3650c:       mov    -0x60(%rbp),%rax
+    0.03 :	  36510:       mov    -0x48(%rbp),%rdx
+ libjpeg-4268453f.so.9.2.0[36514]    0.51 :	  36514:       add    %rdx,%rax
+    0.03 :	  36517:       mov    %rax,-0x38(%rbp)
+    0.07 :	  3651b:       mov    -0x68(%rbp),%rax
+    0.02 :	  3651f:       mov    -0x50(%rbp),%rdx
+    0.44 :	  36523:       add    %rdx,%rax
+    0.04 :	  36526:       mov    %rax,-0x40(%rbp)
+    0.07 :	  3652a:       mov    -0x40(%rbp),%rax
+ libjpeg-4268453f.so.9.2.0[3652e]    0.55 :	  3652e:       mov    -0x38(%rbp),%rdx
+    0.42 :	  36532:       add    %rdx,%rax
+    0.27 :	  36535:       imul   $0x25a1,%rax,%rax
+ libjpeg-4268453f.so.9.2.0[3653c]    0.81 :	  3653c:       mov    %rax,-0x58(%rbp)
+    0.31 :	  36540:       mov    -0x38(%rbp),%rax
+    0.15 :	  36544:       imul   $0xffffffffffffc13b,%rax,%rax
+    0.01 :	  3654b:       mov    %rax,-0x38(%rbp)
+    0.03 :	  3654f:       mov    -0x40(%rbp),%rax
+    0.28 :	  36553:       imul   $0xfffffffffffff384,%rax,%rax
+    0.16 :	  3655a:       mov    %rax,-0x40(%rbp)
+    0.01 :	  3655e:       mov    -0x58(%rbp),%rax
+ libjpeg-4268453f.so.9.2.0[36562]    1.16 :	  36562:       add    %rax,-0x38(%rbp)
+ libjpeg-4268453f.so.9.2.0[36566]    0.90 :	  36566:       mov    -0x58(%rbp),%rax
+    0.00 :	  3656a:       add    %rax,-0x40(%rbp)
+ libjpeg-4268453f.so.9.2.0[3656e]    0.53 :	  3656e:       mov    -0x68(%rbp),%rax
+    0.03 :	  36572:       mov    -0x48(%rbp),%rdx
+    0.00 :	  36576:       add    %rdx,%rax
+    0.01 :	  36579:       imul   $0xffffffffffffe333,%rax,%rax
+    0.45 :	  36580:       mov    %rax,-0x58(%rbp)
+    0.02 :	  36584:       mov    -0x48(%rbp),%rax
+    0.00 :	  36588:       imul   $0x98e,%rax,%rax
+    0.01 :	  3658f:       mov    %rax,-0x48(%rbp)
+    0.47 :	  36593:       mov    -0x68(%rbp),%rax
+    0.03 :	  36597:       imul   $0x300b,%rax,%rax
+    0.00 :	  3659e:       mov    %rax,-0x68(%rbp)
+    0.00 :	  365a2:       mov    -0x38(%rbp),%rax
+    0.49 :	  365a6:       mov    -0x58(%rbp),%rdx
+    0.02 :	  365aa:       add    %rdx,%rax
+    0.45 :	  365ad:       add    %rax,-0x48(%rbp)
+ libjpeg-4268453f.so.9.2.0[365b1]    0.97 :	  365b1:       mov    -0x40(%rbp),%rax
+    0.01 :	  365b5:       mov    -0x58(%rbp),%rdx
+    0.00 :	  365b9:       add    %rdx,%rax
+    0.01 :	  365bc:       add    %rax,-0x68(%rbp)
+ libjpeg-4268453f.so.9.2.0[365c0]    0.65 :	  365c0:       mov    -0x60(%rbp),%rax
+    0.00 :	  365c4:       mov    -0x50(%rbp),%rdx
+    0.00 :	  365c8:       add    %rdx,%rax
+    0.28 :	  365cb:       imul   $0xffffffffffffadfd,%rax,%rax
+    0.21 :	  365d2:       mov    %rax,-0x58(%rbp)
+    0.00 :	  365d6:       mov    -0x50(%rbp),%rax
+    0.00 :	  365da:       imul   $0x41b3,%rax,%rax
+    0.23 :	  365e1:       mov    %rax,-0x50(%rbp)
+    0.26 :	  365e5:       mov    -0x60(%rbp),%rax
+    0.00 :	  365e9:       imul   $0x6254,%rax,%rax
+    0.00 :	  365f0:       mov    %rax,-0x60(%rbp)
+    0.27 :	  365f4:       mov    -0x40(%rbp),%rax
+    0.18 :	  365f8:       mov    -0x58(%rbp),%rdx
+    0.01 :	  365fc:       add    %rdx,%rax
+    0.01 :	  365ff:       add    %rax,-0x50(%rbp)
+ libjpeg-4268453f.so.9.2.0[36603]    0.52 :	  36603:       mov    -0x38(%rbp),%rax
+    0.01 :	  36607:       mov    -0x58(%rbp),%rdx
+    0.00 :	  3660b:       add    %rdx,%rax
+    0.29 :	  3660e:       add    %rax,-0x60(%rbp)
+    0.25 :	  36612:       mov    -0x68(%rbp),%rax
+    0.00 :	  36616:       mov    -0x70(%rbp),%rdx
+    0.30 :	  3661a:       add    %rdx,%rax
+    0.22 :	  3661d:       sar    $0x12,%rax
+    0.01 :	  36621:       cltq   
+    0.47 :	  36623:       and    $0x3ff,%eax
+    0.47 :	  36628:       mov    %rax,%rdx
+    0.02 :	  3662b:       mov    -0x28(%rbp),%rax
+    0.00 :	  3662f:       add    %rdx,%rax
+ libjpeg-4268453f.so.9.2.0[36632]    0.53 :	  36632:       movzbl (%rax),%edx
+ libjpeg-4268453f.so.9.2.0[36635]    2.52 :	  36635:       mov    -0x90(%rbp),%rax
+    0.00 :	  3663c:       mov    %dl,(%rax)
+ libjpeg-4268453f.so.9.2.0[3663e]    0.54 :	  3663e:       mov    -0x90(%rbp),%rax
+    0.00 :	  36645:       lea    0x7(%rax),%rdx
+    0.01 :	  36649:       mov    -0x68(%rbp),%rax
+    0.01 :	  3664d:       mov    -0x70(%rbp),%rcx
+ libjpeg-4268453f.so.9.2.0[36651]    0.56 :	  36651:       sub    %rax,%rcx
+    0.01 :	  36654:       mov    %rcx,%rax
+    0.03 :	  36657:       sar    $0x12,%rax
+    0.01 :	  3665b:       cltq   
+ libjpeg-4268453f.so.9.2.0[3665d]    0.52 :	  3665d:       and    $0x3ff,%eax
+    0.00 :	  36662:       mov    %rax,%rcx
+    0.02 :	  36665:       mov    -0x28(%rbp),%rax
+    0.00 :	  36669:       add    %rcx,%rax
+ libjpeg-4268453f.so.9.2.0[3666c]    0.52 :	  3666c:       movzbl (%rax),%eax
+    0.08 :	  3666f:       mov    %al,(%rdx)
+    0.12 :	  36671:       mov    -0x90(%rbp),%rax
+    0.01 :	  36678:       lea    0x1(%rax),%rdx
+    0.44 :	  3667c:       mov    -0x60(%rbp),%rax
+    0.01 :	  36680:       mov    -0x80(%rbp),%rcx
+    0.11 :	  36684:       add    %rcx,%rax
+    0.00 :	  36687:       sar    $0x12,%rax
+    0.37 :	  3668b:       cltq   
+    0.01 :	  3668d:       and    $0x3ff,%eax
+    0.12 :	  36692:       mov    %rax,%rcx
+    0.00 :	  36695:       mov    -0x28(%rbp),%rax
+    0.37 :	  36699:       add    %rcx,%rax
+    0.00 :	  3669c:       movzbl (%rax),%eax
+    0.17 :	  3669f:       mov    %al,(%rdx)
+    0.01 :	  366a1:       mov    -0x90(%rbp),%rax
+    0.40 :	  366a8:       lea    0x6(%rax),%rdx
+    0.00 :	  366ac:       mov    -0x60(%rbp),%rax
+    0.10 :	  366b0:       mov    -0x80(%rbp),%rcx
+    0.02 :	  366b4:       sub    %rax,%rcx
+    0.42 :	  366b7:       mov    %rcx,%rax
+    0.00 :	  366ba:       sar    $0x12,%rax
+    0.08 :	  366be:       cltq   
+    0.01 :	  366c0:       and    $0x3ff,%eax
+    0.42 :	  366c5:       mov    %rax,%rcx
+    0.00 :	  366c8:       mov    -0x28(%rbp),%rax
+    0.11 :	  366cc:       add    %rcx,%rax
+    0.03 :	  366cf:       movzbl (%rax),%eax
+    0.47 :	  366d2:       mov    %al,(%rdx)
+    0.02 :	  366d4:       mov    -0x90(%rbp),%rax
+    0.10 :	  366db:       lea    0x2(%rax),%rdx
+    0.00 :	  366df:       mov    -0x50(%rbp),%rax
+    0.39 :	  366e3:       mov    -0x88(%rbp),%rcx
+    0.03 :	  366ea:       add    %rcx,%rax
+    0.08 :	  366ed:       sar    $0x12,%rax
+    0.01 :	  366f1:       cltq   
+    0.38 :	  366f3:       and    $0x3ff,%eax
+    0.01 :	  366f8:       mov    %rax,%rcx
+    0.10 :	  366fb:       mov    -0x28(%rbp),%rax
+    0.01 :	  366ff:       add    %rcx,%rax
+    0.39 :	  36702:       movzbl (%rax),%eax
+    0.08 :	  36705:       mov    %al,(%rdx)
+    0.10 :	  36707:       mov    -0x90(%rbp),%rax
+    0.01 :	  3670e:       lea    0x5(%rax),%rdx
+    0.38 :	  36712:       mov    -0x50(%rbp),%rax
+    0.02 :	  36716:       mov    -0x88(%rbp),%rcx
+    0.11 :	  3671d:       sub    %rax,%rcx
+    0.00 :	  36720:       mov    %rcx,%rax
+    0.39 :	  36723:       sar    $0x12,%rax
+    0.03 :	  36727:       cltq   
+    0.14 :	  36729:       and    $0x3ff,%eax
+    0.01 :	  3672e:       mov    %rax,%rcx
+    0.32 :	  36731:       mov    -0x28(%rbp),%rax
+    0.02 :	  36735:       add    %rcx,%rax
+    0.12 :	  36738:       movzbl (%rax),%eax
+    0.08 :	  3673b:       mov    %al,(%rdx)
+    0.40 :	  3673d:       mov    -0x90(%rbp),%rax
+    0.00 :	  36744:       lea    0x3(%rax),%rdx
+    0.07 :	  36748:       mov    -0x48(%rbp),%rax
+    0.02 :	  3674c:       mov    -0x78(%rbp),%rcx
+    0.35 :	  36750:       add    %rcx,%rax
+    0.01 :	  36753:       sar    $0x12,%rax
+    0.11 :	  36757:       cltq   
+    0.03 :	  36759:       and    $0x3ff,%eax
+    0.34 :	  3675e:       mov    %rax,%rcx
+    0.01 :	  36761:       mov    -0x28(%rbp),%rax
+    0.11 :	  36765:       add    %rcx,%rax
+    0.02 :	  36768:       movzbl (%rax),%eax
+ libjpeg-4268453f.so.9.2.0[3676b]    0.54 :	  3676b:       mov    %al,(%rdx)
+    0.03 :	  3676d:       mov    -0x90(%rbp),%rax
+    0.08 :	  36774:       lea    0x4(%rax),%rdx
+    0.01 :	  36778:       mov    -0x48(%rbp),%rax
+    0.34 :	  3677c:       mov    -0x78(%rbp),%rcx
+    0.02 :	  36780:       sub    %rax,%rcx
+    0.09 :	  36783:       mov    %rcx,%rax
+    0.00 :	  36786:       sar    $0x12,%rax
+    0.43 :	  3678a:       cltq   
+    0.01 :	  3678c:       and    $0x3ff,%eax
+    0.07 :	  36791:       mov    %rax,%rcx
+    0.01 :	  36794:       mov    -0x28(%rbp),%rax
+    0.41 :	  36798:       add    %rcx,%rax
+    0.03 :	  3679b:       movzbl (%rax),%eax
+    0.18 :	  3679e:       mov    %al,(%rdx)
+    0.02 :	  367a0:       addq   $0x20,-0x18(%rbp)
+    0.42 :	  367a5:       addl   $0x1,-0x1c(%rbp)
+    0.27 :	  367a9:       cmpl   $0x7,-0x1c(%rbp)
+ libjpeg-4268453f.so.9.2.0[367ad]    0.79 :	  367ad:       jle    3626a <jpeg_idct_islow@@LIBJPEG_9.0+0x57e>
+    0.06 :	  367b3:       leaveq 
+    0.26 :	  367b4:       retq   
+
+Sorted summary for file [vdso]
+----------------------------------------------
+
+   78.64 [vdso][9c0]
+   14.58 [vdso][9c1]
+    2.22 [vdso][8de]
+    1.83 [vdso][8eb]
+    1.81 [vdso][8d0]
+ Percent |	Source code & Disassembly of [vdso] for cycles
+--------------------------------------------------------------
+         :
+         :
+         :
+         :	Disassembly of section .text:
+         :
+         :	00000000000008d0 <__vdso_clock_gettime@@LINUX_2.6>:
+ [vdso][8d0]    1.81 :	  8d0:   push   %rbp
+    0.46 :	  8d1:   cmp    $0x1,%edi
+    0.02 :	  8d4:   lea    -0x385b(%rip),%r9        # ffffffffffffd080 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc480>
+    0.00 :	  8db:   mov    %rsp,%rbp
+ [vdso][8de]    2.22 :	  8de:   je     946 <__vdso_clock_gettime@@LINUX_2.6+0x76>
+    0.04 :	  8e0:   jle    9c2 <__vdso_clock_gettime@@LINUX_2.6+0xf2>
+    0.00 :	  8e6:   cmp    $0x5,%edi
+    0.00 :	  8e9:   je     91f <__vdso_clock_gettime@@LINUX_2.6+0x4f>
+ [vdso][8eb]    1.83 :	  8eb:   cmp    $0x6,%edi
+    0.00 :	  8ee:   jne    9b6 <__vdso_clock_gettime@@LINUX_2.6+0xe6>
+    0.00 :	  8f4:   mov    (%r9),%eax
+    0.00 :	  8f7:   test   $0x1,%al
+    0.00 :	  8f9:   jne    a9d <__vdso_clock_gettime@@LINUX_2.6+0x1cd>
+    0.00 :	  8ff:   mov    -0x3836(%rip),%rdx        # ffffffffffffd0d0 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc4d0>
+    0.00 :	  906:   mov    %rdx,(%rsi)
+    0.00 :	  909:   mov    -0x3838(%rip),%rdx        # ffffffffffffd0d8 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc4d8>
+    0.00 :	  910:   mov    %rdx,0x8(%rsi)
+    0.00 :	  914:   cmp    %eax,(%r9)
+    0.00 :	  917:   jne    8f4 <__vdso_clock_gettime@@LINUX_2.6+0x24>
+    0.00 :	  919:   xor    %eax,%eax
+    0.00 :	  91b:   pop    %rbp
+    0.00 :	  91c:   retq   
+    0.00 :	  91d:   pause  
+    0.00 :	  91f:   mov    (%r9),%eax
+    0.00 :	  922:   test   $0x1,%al
+    0.00 :	  924:   jne    91d <__vdso_clock_gettime@@LINUX_2.6+0x4d>
+    0.00 :	  926:   mov    -0x386d(%rip),%rdx        # ffffffffffffd0c0 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc4c0>
+    0.00 :	  92d:   mov    %rdx,(%rsi)
+    0.00 :	  930:   mov    -0x386f(%rip),%rdx        # ffffffffffffd0c8 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc4c8>
+    0.00 :	  937:   mov    %rdx,0x8(%rsi)
+    0.00 :	  93b:   cmp    (%r9),%eax
+    0.00 :	  93e:   jne    91f <__vdso_clock_gettime@@LINUX_2.6+0x4f>
+    0.00 :	  940:   xor    %eax,%eax
+    0.00 :	  942:   jmp    91b <__vdso_clock_gettime@@LINUX_2.6+0x4b>
+    0.00 :	  944:   pause  
+    0.00 :	  946:   mov    (%r9),%r11d
+    0.00 :	  949:   test   $0x1,%r11b
+    0.00 :	  94d:   jne    944 <__vdso_clock_gettime@@LINUX_2.6+0x74>
+    0.00 :	  94f:   mov    -0x38a6(%rip),%rax        # ffffffffffffd0b0 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc4b0>
+    0.00 :	  956:   mov    -0x38d9(%rip),%r10d        # ffffffffffffd084 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc484>
+    0.00 :	  95d:   mov    %rax,(%rsi)
+    0.00 :	  960:   xor    %eax,%eax
+    0.00 :	  962:   cmpl   $0x1,-0x38e5(%rip)        # ffffffffffffd084 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc484>
+    0.00 :	  969:   mov    -0x38b8(%rip),%r8        # ffffffffffffd0b8 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc4b8>
+    0.00 :	  970:   je     a65 <__vdso_clock_gettime@@LINUX_2.6+0x195>
+    0.00 :	  976:   mov    -0x38e0(%rip),%ecx        # ffffffffffffd09c <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc49c>
+    0.00 :	  97c:   cmp    %r11d,(%r9)
+    0.00 :	  97f:   jne    946 <__vdso_clock_gettime@@LINUX_2.6+0x76>
+    0.00 :	  981:   add    %r8,%rax
+    0.00 :	  984:   shr    %cl,%rax
+    0.00 :	  987:   cmp    $0x3b9ac9ff,%rax
+    0.00 :	  98d:   jbe    a96 <__vdso_clock_gettime@@LINUX_2.6+0x1c6>
+    0.00 :	  993:   xor    %edx,%edx
+    0.00 :	  995:   sub    $0x3b9aca00,%rax
+    0.00 :	  99b:   add    $0x1,%edx
+    0.00 :	  99e:   cmp    $0x3b9ac9ff,%rax
+    0.00 :	  9a4:   ja     995 <__vdso_clock_gettime@@LINUX_2.6+0xc5>
+    0.00 :	  9a6:   add    %rdx,(%rsi)
+    0.00 :	  9a9:   test   %r10d,%r10d
+    0.00 :	  9ac:   mov    %rax,0x8(%rsi)
+    0.00 :	  9b0:   jne    919 <__vdso_clock_gettime@@LINUX_2.6+0x49>
+    0.37 :	  9b6:   movslq %edi,%rdi
+    0.03 :	  9b9:   mov    $0xe4,%eax
+    0.00 :	  9be:   syscall 
+ [vdso][9c0]   78.64 :	  9c0:   pop    %rbp
+ [vdso][9c1]   14.58 :	  9c1:   retq   
+    0.00 :	  9c2:   test   %edi,%edi
+    0.00 :	  9c4:   jne    9b6 <__vdso_clock_gettime@@LINUX_2.6+0xe6>
+    0.00 :	  9c6:   mov    (%r9),%r11d
+    0.00 :	  9c9:   test   $0x1,%r11b
+    0.00 :	  9cd:   jne    aa4 <__vdso_clock_gettime@@LINUX_2.6+0x1d4>
+    0.00 :	  9d3:   mov    -0x3932(%rip),%rax        # ffffffffffffd0a8 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc4a8>
+    0.00 :	  9da:   mov    -0x395d(%rip),%r10d        # ffffffffffffd084 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc484>
+    0.00 :	  9e1:   mov    %rax,(%rsi)
+    0.00 :	  9e4:   xor    %eax,%eax
+    0.00 :	  9e6:   cmpl   $0x1,-0x3969(%rip)        # ffffffffffffd084 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc484>
+    0.00 :	  9ed:   mov    -0x3954(%rip),%r8        # ffffffffffffd0a0 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc4a0>
+    0.00 :	  9f4:   je     a37 <__vdso_clock_gettime@@LINUX_2.6+0x167>
+    0.00 :	  9f6:   mov    -0x3960(%rip),%ecx        # ffffffffffffd09c <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc49c>
+    0.00 :	  9fc:   cmp    %r11d,(%r9)
+    0.00 :	  9ff:   jne    9c6 <__vdso_clock_gettime@@LINUX_2.6+0xf6>
+    0.00 :	  a01:   add    %r8,%rax
+    0.00 :	  a04:   shr    %cl,%rax
+    0.00 :	  a07:   cmp    $0x3b9ac9ff,%rax
+    0.00 :	  a0d:   jbe    a96 <__vdso_clock_gettime@@LINUX_2.6+0x1c6>
+    0.00 :	  a13:   xor    %edx,%edx
+    0.00 :	  a15:   sub    $0x3b9aca00,%rax
+    0.00 :	  a1b:   add    $0x1,%edx
+    0.00 :	  a1e:   cmp    $0x3b9ac9ff,%rax
+    0.00 :	  a24:   ja     a15 <__vdso_clock_gettime@@LINUX_2.6+0x145>
+    0.00 :	  a26:   add    %rdx,(%rsi)
+    0.00 :	  a29:   test   %r10d,%r10d
+    0.00 :	  a2c:   mov    %rax,0x8(%rsi)
+    0.00 :	  a30:   je     9b6 <__vdso_clock_gettime@@LINUX_2.6+0xe6>
+    0.00 :	  a32:   jmpq   919 <__vdso_clock_gettime@@LINUX_2.6+0x49>
+    0.00 :	  a37:   lfence 
+    0.00 :	  a3a:   rdtsc  
+    0.00 :	  a3c:   shl    $0x20,%rdx
+    0.00 :	  a40:   or     %rdx,%rax
+    0.00 :	  a43:   mov    -0x39c2(%rip),%rdx        # ffffffffffffd088 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc488>
+    0.00 :	  a4a:   cmp    %rdx,%rax
+    0.00 :	  a4d:   jb     aab <__vdso_clock_gettime@@LINUX_2.6+0x1db>
+    0.00 :	  a4f:   sub    %rdx,%rax
+    0.00 :	  a52:   and    -0x39c9(%rip),%rax        # ffffffffffffd090 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc490>
+    0.00 :	  a59:   mov    -0x39c7(%rip),%edx        # ffffffffffffd098 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc498>
+    0.00 :	  a5f:   imul   %rdx,%rax
+    0.00 :	  a63:   jmp    9f6 <__vdso_clock_gettime@@LINUX_2.6+0x126>
+    0.00 :	  a65:   lfence 
+    0.00 :	  a68:   rdtsc  
+    0.00 :	  a6a:   shl    $0x20,%rdx
+    0.00 :	  a6e:   or     %rdx,%rax
+    0.00 :	  a71:   mov    -0x39f0(%rip),%rdx        # ffffffffffffd088 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc488>
+    0.00 :	  a78:   cmp    %rdx,%rax
+    0.00 :	  a7b:   jb     aaf <__vdso_clock_gettime@@LINUX_2.6+0x1df>
+    0.00 :	  a7d:   sub    %rdx,%rax
+    0.00 :	  a80:   and    -0x39f7(%rip),%rax        # ffffffffffffd090 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc490>
+    0.00 :	  a87:   mov    -0x39f5(%rip),%edx        # ffffffffffffd098 <__vdso_getcpu@@LINUX_2.6+0xffffffffffffc498>
+    0.00 :	  a8d:   imul   %rdx,%rax
+    0.00 :	  a91:   jmpq   976 <__vdso_clock_gettime@@LINUX_2.6+0xa6>
+    0.00 :	  a96:   xor    %edx,%edx
+    0.00 :	  a98:   jmpq   9a6 <__vdso_clock_gettime@@LINUX_2.6+0xd6>
+    0.00 :	  a9d:   pause  
+    0.00 :	  a9f:   jmpq   8f4 <__vdso_clock_gettime@@LINUX_2.6+0x24>
+    0.00 :	  aa4:   pause  
+    0.00 :	  aa6:   jmpq   9c6 <__vdso_clock_gettime@@LINUX_2.6+0xf6>
+    0.00 :	  aab:   xor    %eax,%eax
+    0.00 :	  aad:   jmp    a52 <__vdso_clock_gettime@@LINUX_2.6+0x182>
+    0.00 :	  aaf:   xor    %eax,%eax
+    0.00 :	  ab1:   jmp    a80 <__vdso_clock_gettime@@LINUX_2.6+0x1b0>
+
+Sorted summary for file /home/mbp/.virtualenvs/pytorch-examples/lib/python3.5/site-packages/PIL/_imaging.cpython-35m-x86_64-linux-gnu.so
+----------------------------------------------
+
+   10.14 _imaging.cpython-35m-x86_64-linux-gnu.so[21b41]
+    5.87 _imaging.cpython-35m-x86_64-linux-gnu.so[21b56]
+    4.19 _imaging.cpython-35m-x86_64-linux-gnu.so[21b53]
+    4.16 _imaging.cpython-35m-x86_64-linux-gnu.so[21b59]
+    3.82 _imaging.cpython-35m-x86_64-linux-gnu.so[21b38]
+    3.81 _imaging.cpython-35m-x86_64-linux-gnu.so[21b3e]
+    3.39 _imaging.cpython-35m-x86_64-linux-gnu.so[21b3b]
+    3.29 _imaging.cpython-35m-x86_64-linux-gnu.so[21b33]
+    3.29 _imaging.cpython-35m-x86_64-linux-gnu.so[21b2b]
+    3.23 _imaging.cpython-35m-x86_64-linux-gnu.so[21b4d]
+    3.17 _imaging.cpython-35m-x86_64-linux-gnu.so[21b28]
+    3.12 _imaging.cpython-35m-x86_64-linux-gnu.so[21b2f]
+    2.65 _imaging.cpython-35m-x86_64-linux-gnu.so[21b50]
+    2.50 _imaging.cpython-35m-x86_64-linux-gnu.so[21b47]
+    2.00 _imaging.cpython-35m-x86_64-linux-gnu.so[21ba2]
+    1.95 _imaging.cpython-35m-x86_64-linux-gnu.so[21ba5]
+    1.89 _imaging.cpython-35m-x86_64-linux-gnu.so[21ade]
+    1.86 _imaging.cpython-35m-x86_64-linux-gnu.so[21b8b]
+    1.81 _imaging.cpython-35m-x86_64-linux-gnu.so[21b18]
+    1.74 _imaging.cpython-35m-x86_64-linux-gnu.so[21aed]
+    1.53 _imaging.cpython-35m-x86_64-linux-gnu.so[21b03]
+    1.39 _imaging.cpython-35m-x86_64-linux-gnu.so[21b97]
+    1.31 _imaging.cpython-35m-x86_64-linux-gnu.so[21b60]
+    1.25 _imaging.cpython-35m-x86_64-linux-gnu.so[21b95]
+    1.21 _imaging.cpython-35m-x86_64-linux-gnu.so[21b8f]
+    1.19 _imaging.cpython-35m-x86_64-linux-gnu.so[21b6c]
+    1.17 _imaging.cpython-35m-x86_64-linux-gnu.so[21b87]
+    1.12 _imaging.cpython-35m-x86_64-linux-gnu.so[21b20]
+    1.10 _imaging.cpython-35m-x86_64-linux-gnu.so[21b72]
+    1.09 _imaging.cpython-35m-x86_64-linux-gnu.so[21b77]
+    1.01 _imaging.cpython-35m-x86_64-linux-gnu.so[21b22]
+    1.01 _imaging.cpython-35m-x86_64-linux-gnu.so[21afe]
+    0.98 _imaging.cpython-35m-x86_64-linux-gnu.so[21b92]
+    0.98 _imaging.cpython-35m-x86_64-linux-gnu.so[21b6f]
+    0.98 _imaging.cpython-35m-x86_64-linux-gnu.so[21ad9]
+    0.96 _imaging.cpython-35m-x86_64-linux-gnu.so[21b12]
+    0.96 _imaging.cpython-35m-x86_64-linux-gnu.so[21aea]
+    0.94 _imaging.cpython-35m-x86_64-linux-gnu.so[21b7f]
+    0.91 _imaging.cpython-35m-x86_64-linux-gnu.so[21b66]
+    0.84 _imaging.cpython-35m-x86_64-linux-gnu.so[21b63]
+    0.83 _imaging.cpython-35m-x86_64-linux-gnu.so[21b7c]
+    0.80 _imaging.cpython-35m-x86_64-linux-gnu.so[21b69]
+    0.80 _imaging.cpython-35m-x86_64-linux-gnu.so[21b5d]
+    0.73 _imaging.cpython-35m-x86_64-linux-gnu.so[21b83]
+    0.73 _imaging.cpython-35m-x86_64-linux-gnu.so[21b1c]
+    0.72 _imaging.cpython-35m-x86_64-linux-gnu.so[21b06]
+    0.71 _imaging.cpython-35m-x86_64-linux-gnu.so[21b9b]
+    0.67 _imaging.cpython-35m-x86_64-linux-gnu.so[21b74]
+    0.58 _imaging.cpython-35m-x86_64-linux-gnu.so[21af1]
+    0.56 _imaging.cpython-35m-x86_64-linux-gnu.so[21ba9]
+    0.55 _imaging.cpython-35m-x86_64-linux-gnu.so[21ae0]
+    0.50 _imaging.cpython-35m-x86_64-linux-gnu.so[21af9]
+    0.50 _imaging.cpython-35m-x86_64-linux-gnu.so[21ae5]
+ Percent |	Source code & Disassembly of _imaging.cpython-35m-x86_64-linux-gnu.so for cycles
+------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         :	Disassembly of section .text:
+         :
+         :	0000000000021790 <ImagingResampleHorizontal_8bpc@@Base>:
+    0.00 :	  21790:       push   %r15
+    0.00 :	  21792:       mov    %rdi,%r15
+    0.00 :	  21795:       push   %r14
+    0.00 :	  21797:       mov    %rsi,%r14
+    0.00 :	  2179a:       mov    %ecx,%esi
+    0.00 :	  2179c:       push   %r13
+    0.00 :	  2179e:       mov    %r8,%r13
+    0.00 :	  217a1:       push   %r12
+    0.00 :	  217a3:       push   %rbp
+    0.00 :	  217a4:       mov    %r9,%rbp
+    0.00 :	  217a7:       push   %rbx
+    0.00 :	  217a8:       sub    $0x58,%rsp
+    0.00 :	  217ac:       mov    0x14(%rdi),%edi
+    0.00 :	  217af:       mov    %edx,0x30(%rsp)
+    0.00 :	  217b3:       mov    %r9,%rdx
+    0.00 :	  217b6:       mov    %ecx,(%rsp)
+    0.00 :	  217b9:       mov    %r9,0x8(%rsp)
+    0.00 :	  217be:       callq  11eb0 <normalize_coeffs_8bpc@plt>
+    0.00 :	  217c3:       lea    0x48(%rsp),%rax
+    0.00 :	  217c8:       mov    %rax,%rdi
+    0.00 :	  217cb:       mov    %rax,0x38(%rsp)
+    0.00 :	  217d0:       callq  11900 <ImagingSectionEnter@plt>
+    0.00 :	  217d5:       cmpq   $0x0,0x28(%r14)
+    0.00 :	  217da:       je     218d5 <ImagingResampleHorizontal_8bpc@@Base+0x145>
+    0.00 :	  217e0:       mov    0x18(%r15),%edx
+    0.00 :	  217e4:       test   %edx,%edx
+    0.00 :	  217e6:       jle    218b8 <ImagingResampleHorizontal_8bpc@@Base+0x128>
+    0.00 :	  217ec:       mov    0x14(%r15),%eax
+    0.00 :	  217f0:       xor    %r12d,%r12d
+    0.00 :	  217f3:       mov    %r12d,0x4(%rsp)
+    0.00 :	  217f8:       test   %eax,%eax
+    0.00 :	  217fa:       jle    218a9 <ImagingResampleHorizontal_8bpc@@Base+0x119>
+    0.00 :	  21800:       mov    0x4(%rsp),%r12d
+    0.00 :	  21805:       mov    0x259664(%rip),%r11        # 27ae70 <lookups@@Base-0x3330>
+    0.00 :	  2180c:       xor    %r10d,%r10d
+    0.00 :	  2180f:       xor    %r9d,%r9d
+    0.00 :	  21812:       movslq %r12d,%rbx
+    0.00 :	  21815:       add    0x30(%rsp),%r12d
+    0.00 :	  2181a:       shl    $0x3,%rbx
+    0.00 :	  2181e:       movslq %r12d,%r12
+    0.00 :	  21821:       shl    $0x3,%r12
+    0.00 :	  21825:       nopl   (%rax)
+    0.00 :	  21828:       lea    (%r9,%r9,1),%edx
+    0.00 :	  2182c:       movslq %edx,%rdx
+    0.00 :	  2182f:       mov    0x4(%r13,%rdx,4),%edi
+    0.00 :	  21834:       mov    0x0(%r13,%rdx,4),%eax
+    0.00 :	  21839:       movslq %r10d,%rdx
+    0.00 :	  2183c:       lea    0x0(%rbp,%rdx,4),%rcx
+    0.00 :	  21841:       test   %edi,%edi
+    0.00 :	  21843:       jle    218d1 <ImagingResampleHorizontal_8bpc@@Base+0x141>
+    0.00 :	  21849:       mov    0x28(%r14),%rdx
+    0.00 :	  2184d:       add    %eax,%edi
+    0.00 :	  2184f:       mov    $0x200000,%esi
+    0.00 :	  21854:       mov    (%rdx,%r12,1),%r8
+    0.00 :	  21858:       nopl   0x0(%rax,%rax,1)
+    0.00 :	  21860:       movslq %eax,%rdx
+    0.00 :	  21863:       add    $0x1,%eax
+    0.00 :	  21866:       add    $0x4,%rcx
+    0.00 :	  2186a:       movzbl (%r8,%rdx,1),%edx
+    0.00 :	  2186f:       imul   -0x4(%rcx),%edx
+    0.00 :	  21873:       add    %edx,%esi
+    0.00 :	  21875:       cmp    %edi,%eax
+    0.00 :	  21877:       jne    21860 <ImagingResampleHorizontal_8bpc@@Base+0xd0>
+    0.00 :	  21879:       sar    $0x16,%esi
+    0.00 :	  2187c:       movslq %esi,%rsi
+    0.00 :	  2187f:       mov    (%r11),%rax
+    0.00 :	  21882:       mov    0x28(%r15),%rdx
+    0.00 :	  21886:       add    (%rsp),%r10d
+    0.00 :	  2188a:       movzbl (%rax,%rsi,1),%ecx
+    0.00 :	  2188e:       mov    (%rdx,%rbx,1),%rdx
+    0.00 :	  21892:       movslq %r9d,%rax
+    0.00 :	  21895:       add    $0x1,%r9d
+    0.00 :	  21899:       mov    %cl,(%rdx,%rax,1)
+    0.00 :	  2189c:       mov    0x14(%r15),%eax
+    0.00 :	  218a0:       cmp    %r9d,%eax
+    0.00 :	  218a3:       jg     21828 <ImagingResampleHorizontal_8bpc@@Base+0x98>
+    0.00 :	  218a5:       mov    0x18(%r15),%edx
+    0.00 :	  218a9:       addl   $0x1,0x4(%rsp)
+    0.00 :	  218ae:       cmp    %edx,0x4(%rsp)
+    0.00 :	  218b2:       jl     217f8 <ImagingResampleHorizontal_8bpc@@Base+0x68>
+    0.00 :	  218b8:       mov    0x38(%rsp),%rdi
+    0.00 :	  218bd:       callq  11e90 <ImagingSectionLeave@plt>
+    0.00 :	  218c2:       add    $0x58,%rsp
+    0.00 :	  218c6:       pop    %rbx
+    0.00 :	  218c7:       pop    %rbp
+    0.00 :	  218c8:       pop    %r12
+    0.00 :	  218ca:       pop    %r13
+    0.00 :	  218cc:       pop    %r14
+    0.00 :	  218ce:       pop    %r15
+    0.00 :	  218d0:       retq   
+    0.00 :	  218d1:       xor    %esi,%esi
+    0.00 :	  218d3:       jmp    2187f <ImagingResampleHorizontal_8bpc@@Base+0xef>
+    0.00 :	  218d5:       mov    0x8(%r14),%eax
+    0.00 :	  218d9:       test   %eax,%eax
+    0.00 :	  218db:       jne    218b8 <ImagingResampleHorizontal_8bpc@@Base+0x128>
+    0.00 :	  218dd:       mov    0x10(%r14),%eax
+    0.00 :	  218e1:       mov    0x18(%r15),%edx
+    0.00 :	  218e5:       cmp    $0x2,%eax
+    0.00 :	  218e8:       je     21bd8 <ImagingResampleHorizontal_8bpc@@Base+0x448>
+    0.00 :	  218ee:       cmp    $0x3,%eax
+    0.00 :	  218f1:       je     21a7a <ImagingResampleHorizontal_8bpc@@Base+0x2ea>
+    0.00 :	  218f7:       test   %edx,%edx
+    0.00 :	  218f9:       jle    218b8 <ImagingResampleHorizontal_8bpc@@Base+0x128>
+    0.00 :	  218fb:       mov    0x25956e(%rip),%rcx        # 27ae70 <lookups@@Base-0x3330>
+    0.00 :	  21902:       mov    0x14(%r15),%eax
+    0.00 :	  21906:       mov    %r15,0x10(%rsp)
+    0.00 :	  2190b:       movl   $0x0,0x34(%rsp)
+    0.00 :	  21913:       mov    %r14,0x28(%rsp)
+    0.00 :	  21918:       mov    (%rcx),%rbx
+    0.00 :	  2191b:       mov    %rbx,%r15
+    0.00 :	  2191e:       test   %eax,%eax
+    0.00 :	  21920:       jle    21a5a <ImagingResampleHorizontal_8bpc@@Base+0x2ca>
+    0.00 :	  21926:       mov    0x10(%rsp),%rax
+    0.00 :	  2192b:       mov    0x34(%rsp),%ebx
+    0.00 :	  2192f:       xor    %r14d,%r14d
+    0.00 :	  21932:       movl   $0x0,0x4(%rsp)
+    0.00 :	  2193a:       mov    0x38(%rax),%rax
+    0.00 :	  2193e:       movslq %ebx,%rdx
+    0.00 :	  21941:       mov    (%rax,%rdx,8),%rax
+    0.00 :	  21945:       mov    %rax,0x18(%rsp)
+    0.00 :	  2194a:       mov    0x30(%rsp),%eax
+    0.00 :	  2194e:       add    %ebx,%eax
+    0.00 :	  21950:       cltq   
+    0.00 :	  21952:       shl    $0x3,%rax
+    0.00 :	  21956:       mov    %rax,0x20(%rsp)
+    0.00 :	  2195b:       lea    (%r14,%r14,1),%eax
+    0.00 :	  2195f:       mov    0x8(%rsp),%rbx
+    0.00 :	  21964:       cltq   
+    0.00 :	  21966:       mov    0x4(%r13,%rax,4),%ebp
+    0.00 :	  2196b:       mov    0x0(%r13,%rax,4),%r8d
+    0.00 :	  21970:       movslq 0x4(%rsp),%rax
+    0.00 :	  21975:       test   %ebp,%ebp
+    0.00 :	  21977:       lea    (%rbx,%rax,4),%r12
+    0.00 :	  2197b:       jle    21a70 <ImagingResampleHorizontal_8bpc@@Base+0x2e0>
+    0.00 :	  21981:       mov    0x28(%rsp),%rax
+    0.00 :	  21986:       mov    0x20(%rsp),%rbx
+    0.00 :	  2198b:       shl    $0x2,%r8d
+    0.00 :	  2198f:       xor    %ecx,%ecx
+    0.00 :	  21991:       mov    $0x200000,%r9d
+    0.00 :	  21997:       mov    $0x200000,%r10d
+    0.00 :	  2199d:       mov    $0x200000,%r11d
+    0.00 :	  219a3:       mov    0x38(%rax),%rax
+    0.00 :	  219a7:       mov    (%rax,%rbx,1),%rsi
+    0.00 :	  219ab:       mov    $0x200000,%ebx
+    0.00 :	  219b0:       movslq %r8d,%rdx
+    0.00 :	  219b3:       mov    (%r12,%rcx,4),%eax
+    0.00 :	  219b7:       add    $0x1,%rcx
+    0.00 :	  219bb:       movzbl (%rsi,%rdx,1),%edi
+    0.00 :	  219bf:       add    $0x4,%r8d
+    0.00 :	  219c3:       imul   %eax,%edi
+    0.00 :	  219c6:       add    %edi,%ebx
+    0.00 :	  219c8:       movzbl 0x1(%rsi,%rdx,1),%edi
+    0.00 :	  219cd:       imul   %eax,%edi
+    0.00 :	  219d0:       add    %edi,%r11d
+    0.00 :	  219d3:       movzbl 0x2(%rsi,%rdx,1),%edi
+    0.00 :	  219d8:       movzbl 0x3(%rsi,%rdx,1),%edx
+    0.00 :	  219dd:       imul   %eax,%edi
+    0.00 :	  219e0:       imul   %eax,%edx
+    0.00 :	  219e3:       add    %edi,%r10d
+    0.00 :	  219e6:       add    %edx,%r9d
+    0.00 :	  219e9:       cmp    %ecx,%ebp
+    0.00 :	  219eb:       jg     219b0 <ImagingResampleHorizontal_8bpc@@Base+0x220>
+    0.00 :	  219ed:       sar    $0x16,%ebx
+    0.00 :	  219f0:       sar    $0x16,%r11d
+    0.00 :	  219f4:       sar    $0x16,%r10d
+    0.00 :	  219f8:       sar    $0x16,%r9d
+    0.00 :	  219fc:       movslq %ebx,%rdx
+    0.00 :	  219ff:       movslq %r11d,%rcx
+    0.00 :	  21a02:       movslq %r10d,%rsi
+    0.00 :	  21a05:       movslq %r9d,%rdi
+    0.00 :	  21a08:       movzbl (%r15,%rcx,1),%ecx
+    0.00 :	  21a0d:       movzbl (%r15,%rsi,1),%esi
+    0.00 :	  21a12:       movslq %r14d,%rax
+    0.00 :	  21a15:       movzbl (%r15,%rdx,1),%edx
+    0.00 :	  21a1a:       mov    0x18(%rsp),%rbx
+    0.00 :	  21a1f:       add    $0x1,%r14d
+    0.00 :	  21a23:       shl    $0x8,%ecx
+    0.00 :	  21a26:       shl    $0x10,%esi
+    0.00 :	  21a29:       or     %esi,%ecx
+    0.00 :	  21a2b:       or     %edx,%ecx
+    0.00 :	  21a2d:       movzbl (%r15,%rdi,1),%edx
+    0.00 :	  21a32:       shl    $0x18,%edx
+    0.00 :	  21a35:       or     %edx,%ecx
+    0.00 :	  21a37:       mov    %ecx,(%rbx,%rax,4)
+    0.00 :	  21a3a:       mov    0x10(%rsp),%rax
+    0.00 :	  21a3f:       mov    (%rsp),%ebx
+    0.00 :	  21a42:       add    %ebx,0x4(%rsp)
+    0.00 :	  21a46:       mov    0x14(%rax),%eax
+    0.00 :	  21a49:       cmp    %r14d,%eax
+    0.00 :	  21a4c:       jg     2195b <ImagingResampleHorizontal_8bpc@@Base+0x1cb>
+    0.00 :	  21a52:       mov    0x10(%rsp),%rbx
+    0.00 :	  21a57:       mov    0x18(%rbx),%edx
+    0.00 :	  21a5a:       addl   $0x1,0x34(%rsp)
+    0.00 :	  21a5f:       cmp    %edx,0x34(%rsp)
+    0.00 :	  21a63:       jl     2191e <ImagingResampleHorizontal_8bpc@@Base+0x18e>
+    0.00 :	  21a69:       jmpq   218b8 <ImagingResampleHorizontal_8bpc@@Base+0x128>
+    0.00 :	  21a6e:       xchg   %ax,%ax
+    0.00 :	  21a70:       xor    %edi,%edi
+    0.00 :	  21a72:       xor    %esi,%esi
+    0.00 :	  21a74:       xor    %ecx,%ecx
+    0.00 :	  21a76:       xor    %edx,%edx
+    0.00 :	  21a78:       jmp    21a08 <ImagingResampleHorizontal_8bpc@@Base+0x278>
+    0.01 :	  21a7a:       test   %edx,%edx
+    0.00 :	  21a7c:       jle    218b8 <ImagingResampleHorizontal_8bpc@@Base+0x128>
+    0.00 :	  21a82:       mov    0x2593e7(%rip),%rcx        # 27ae70 <lookups@@Base-0x3330>
+    0.00 :	  21a89:       mov    0x14(%r15),%eax
+    0.00 :	  21a8d:       movl   $0x0,0x4(%rsp)
+    0.00 :	  21a95:       mov    %r14,0x28(%rsp)
+    0.00 :	  21a9a:       mov    (%rcx),%rbx
+    0.00 :	  21a9d:       mov    %rbx,0x18(%rsp)
+    0.04 :	  21aa2:       test   %eax,%eax
+    0.00 :	  21aa4:       jle    21bb6 <ImagingResampleHorizontal_8bpc@@Base+0x426>
+    0.00 :	  21aaa:       mov    0x4(%rsp),%ebx
+    0.00 :	  21aae:       mov    0x38(%r15),%rax
+    0.00 :	  21ab2:       xor    %r14d,%r14d
+    0.01 :	  21ab5:       xor    %r12d,%r12d
+    0.00 :	  21ab8:       movslq %ebx,%rdx
+    0.01 :	  21abb:       mov    (%rax,%rdx,8),%rax
+    0.04 :	  21abf:       mov    %rax,0x10(%rsp)
+    0.02 :	  21ac4:       mov    0x30(%rsp),%eax
+    0.00 :	  21ac8:       add    %ebx,%eax
+    0.01 :	  21aca:       cltq   
+    0.00 :	  21acc:       shl    $0x3,%rax
+    0.03 :	  21ad0:       mov    %rax,0x20(%rsp)
+    0.38 :	  21ad5:       lea    (%r12,%r12,1),%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21ad9]    0.98 :	  21ad9:       mov    0x8(%rsp),%rsi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21ade]    1.89 :	  21ade:       cltq   
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21ae0]    0.55 :	  21ae0:       mov    0x4(%r13,%rax,4),%ebx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21ae5]    0.50 :	  21ae5:       mov    0x0(%r13,%rax,4),%edi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21aea]    0.96 :	  21aea:       movslq %r14d,%rax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21aed]    1.74 :	  21aed:       lea    (%rsi,%rax,4),%rbp
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21af1]    0.58 :	  21af1:       test   %ebx,%ebx
+    0.00 :	  21af3:       jle    21bd0 <ImagingResampleHorizontal_8bpc@@Base+0x440>
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21af9]    0.50 :	  21af9:       mov    0x28(%rsp),%rax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21afe]    1.01 :	  21afe:       mov    0x20(%rsp),%rsi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b03]    1.53 :	  21b03:       shl    $0x2,%edi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b06]    0.72 :	  21b06:       mov    $0x200000,%r9d
+    0.49 :	  21b0c:       mov    $0x200000,%r10d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b12]    0.96 :	  21b12:       mov    $0x200000,%r11d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b18]    1.81 :	  21b18:       mov    0x38(%rax),%rax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b1c]    0.73 :	  21b1c:       mov    (%rax,%rsi,1),%r8
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b20]    1.12 :	  21b20:       xor    %eax,%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b22]    1.01 :	  21b22:       nopw   0x0(%rax,%rax,1)
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b28]    3.17 :	  21b28:       movslq %edi,%rdx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b2b]    3.29 :	  21b2b:       mov    0x0(%rbp,%rax,4),%ecx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b2f]    3.12 :	  21b2f:       add    $0x1,%rax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b33]    3.29 :	  21b33:       movzbl (%r8,%rdx,1),%esi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b38]    3.82 :	  21b38:       add    $0x4,%edi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b3b]    3.39 :	  21b3b:       imul   %ecx,%esi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b3e]    3.81 :	  21b3e:       add    %esi,%r11d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b41]   10.14 :	  21b41:       movzbl 0x1(%r8,%rdx,1),%esi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b47]    2.50 :	  21b47:       movzbl 0x2(%r8,%rdx,1),%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b4d]    3.23 :	  21b4d:       imul   %ecx,%esi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b50]    2.65 :	  21b50:       imul   %ecx,%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b53]    4.19 :	  21b53:       add    %esi,%r10d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b56]    5.87 :	  21b56:       add    %edx,%r9d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b59]    4.16 :	  21b59:       cmp    %eax,%ebx
+    0.00 :	  21b5b:       jg     21b28 <ImagingResampleHorizontal_8bpc@@Base+0x398>
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b5d]    0.80 :	  21b5d:       mov    %r11d,%esi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b60]    1.31 :	  21b60:       mov    %r10d,%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b63]    0.84 :	  21b63:       mov    %r9d,%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b66]    0.91 :	  21b66:       sar    $0x16,%esi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b69]    0.80 :	  21b69:       sar    $0x16,%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b6c]    1.19 :	  21b6c:       sar    $0x16,%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b6f]    0.98 :	  21b6f:       movslq %esi,%rsi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b72]    1.10 :	  21b72:       cltq   
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b74]    0.67 :	  21b74:       movslq %edx,%rdx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b77]    1.09 :	  21b77:       mov    0x18(%rsp),%rbx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b7c]    0.83 :	  21b7c:       movslq %r12d,%rcx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b7f]    0.94 :	  21b7f:       add    $0x1,%r12d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b83]    0.73 :	  21b83:       add    (%rsp),%r14d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b87]    1.17 :	  21b87:       movzbl (%rbx,%rax,1),%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b8b]    1.86 :	  21b8b:       movzbl (%rbx,%rdx,1),%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b8f]    1.21 :	  21b8f:       shl    $0x8,%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b92]    0.98 :	  21b92:       shl    $0x10,%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b95]    1.25 :	  21b95:       or     %edx,%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b97]    1.39 :	  21b97:       movzbl (%rbx,%rsi,1),%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21b9b]    0.71 :	  21b9b:       mov    0x10(%rsp),%rbx
+    0.42 :	  21ba0:       or     %edx,%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21ba2]    2.00 :	  21ba2:       mov    %eax,(%rbx,%rcx,4)
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21ba5]    1.95 :	  21ba5:       mov    0x14(%r15),%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[21ba9]    0.56 :	  21ba9:       cmp    %r12d,%eax
+    0.00 :	  21bac:       jg     21ad5 <ImagingResampleHorizontal_8bpc@@Base+0x345>
+    0.00 :	  21bb2:       mov    0x18(%r15),%edx
+    0.00 :	  21bb6:       addl   $0x1,0x4(%rsp)
+    0.04 :	  21bbb:       cmp    %edx,0x4(%rsp)
+    0.00 :	  21bbf:       jl     21aa2 <ImagingResampleHorizontal_8bpc@@Base+0x312>
+    0.00 :	  21bc5:       jmpq   218b8 <ImagingResampleHorizontal_8bpc@@Base+0x128>
+    0.00 :	  21bca:       nopw   0x0(%rax,%rax,1)
+    0.00 :	  21bd0:       xor    %edx,%edx
+    0.00 :	  21bd2:       xor    %eax,%eax
+    0.00 :	  21bd4:       xor    %esi,%esi
+    0.00 :	  21bd6:       jmp    21b77 <ImagingResampleHorizontal_8bpc@@Base+0x3e7>
+    0.00 :	  21bd8:       test   %edx,%edx
+    0.00 :	  21bda:       jle    218b8 <ImagingResampleHorizontal_8bpc@@Base+0x128>
+    0.00 :	  21be0:       mov    0x259289(%rip),%rcx        # 27ae70 <lookups@@Base-0x3330>
+    0.00 :	  21be7:       mov    0x14(%r15),%eax
+    0.00 :	  21beb:       movl   $0x0,0x4(%rsp)
+    0.00 :	  21bf3:       mov    (%rcx),%rbx
+    0.00 :	  21bf6:       mov    %rbx,0x18(%rsp)
+    0.00 :	  21bfb:       test   %eax,%eax
+    0.00 :	  21bfd:       jle    21cdb <ImagingResampleHorizontal_8bpc@@Base+0x54b>
+    0.00 :	  21c03:       mov    0x4(%rsp),%ebx
+    0.00 :	  21c07:       mov    0x38(%r15),%rax
+    0.00 :	  21c0b:       xor    %r12d,%r12d
+    0.00 :	  21c0e:       xor    %ebp,%ebp
+    0.00 :	  21c10:       movslq %ebx,%rdx
+    0.00 :	  21c13:       mov    (%rax,%rdx,8),%rax
+    0.00 :	  21c17:       mov    %rax,0x10(%rsp)
+    0.00 :	  21c1c:       mov    0x30(%rsp),%eax
+    0.00 :	  21c20:       add    %ebx,%eax
+    0.00 :	  21c22:       cltq   
+    0.00 :	  21c24:       shl    $0x3,%rax
+    0.00 :	  21c28:       mov    %rax,0x20(%rsp)
+    0.00 :	  21c2d:       lea    0x0(%rbp,%rbp,1),%eax
+    0.00 :	  21c31:       mov    0x8(%rsp),%rbx
+    0.00 :	  21c36:       cltq   
+    0.00 :	  21c38:       mov    0x4(%r13,%rax,4),%r11d
+    0.00 :	  21c3d:       mov    0x0(%r13,%rax,4),%ecx
+    0.00 :	  21c42:       movslq %r12d,%rax
+    0.00 :	  21c45:       lea    (%rbx,%rax,4),%rbx
+    0.00 :	  21c49:       test   %r11d,%r11d
+    0.00 :	  21c4c:       jle    21cf0 <ImagingResampleHorizontal_8bpc@@Base+0x560>
+    0.00 :	  21c52:       mov    0x38(%r14),%rax
+    0.00 :	  21c56:       mov    0x20(%rsp),%rdi
+    0.00 :	  21c5b:       shl    $0x2,%ecx
+    0.00 :	  21c5e:       mov    $0x200000,%r8d
+    0.00 :	  21c64:       mov    $0x200000,%r9d
+    0.00 :	  21c6a:       mov    (%rax,%rdi,1),%r10
+    0.00 :	  21c6e:       xor    %eax,%eax
+    0.00 :	  21c70:       movslq %ecx,%rdi
+    0.00 :	  21c73:       mov    (%rbx,%rax,4),%esi
+    0.00 :	  21c76:       add    $0x1,%rax
+    0.00 :	  21c7a:       movzbl (%r10,%rdi,1),%edx
+    0.00 :	  21c7f:       add    $0x4,%ecx
+    0.00 :	  21c82:       imul   %esi,%edx
+    0.00 :	  21c85:       add    %edx,%r9d
+    0.00 :	  21c88:       movzbl 0x3(%r10,%rdi,1),%edx
+    0.00 :	  21c8e:       imul   %esi,%edx
+    0.00 :	  21c91:       add    %edx,%r8d
+    0.00 :	  21c94:       cmp    %eax,%r11d
+    0.00 :	  21c97:       jg     21c70 <ImagingResampleHorizontal_8bpc@@Base+0x4e0>
+    0.00 :	  21c99:       sar    $0x16,%r9d
+    0.00 :	  21c9d:       sar    $0x16,%r8d
+    0.00 :	  21ca1:       movslq %r9d,%rdx
+    0.00 :	  21ca4:       movslq %r8d,%rax
+    0.00 :	  21ca7:       mov    0x18(%rsp),%rbx
+    0.00 :	  21cac:       movslq %ebp,%rcx
+    0.00 :	  21caf:       add    $0x1,%ebp
+    0.00 :	  21cb2:       add    (%rsp),%r12d
+    0.00 :	  21cb6:       movzbl (%rbx,%rax,1),%eax
+    0.00 :	  21cba:       movzbl (%rbx,%rdx,1),%edx
+    0.00 :	  21cbe:       mov    0x10(%rsp),%rbx
+    0.00 :	  21cc3:       shl    $0x18,%eax
+    0.00 :	  21cc6:       or     %edx,%eax
+    0.00 :	  21cc8:       mov    %eax,(%rbx,%rcx,4)
+    0.00 :	  21ccb:       mov    0x14(%r15),%eax
+    0.00 :	  21ccf:       cmp    %ebp,%eax
+    0.00 :	  21cd1:       jg     21c2d <ImagingResampleHorizontal_8bpc@@Base+0x49d>
+    0.00 :	  21cd7:       mov    0x18(%r15),%edx
+    0.00 :	  21cdb:       addl   $0x1,0x4(%rsp)
+    0.00 :	  21ce0:       cmp    %edx,0x4(%rsp)
+    0.00 :	  21ce4:       jl     21bfb <ImagingResampleHorizontal_8bpc@@Base+0x46b>
+    0.00 :	  21cea:       jmpq   218b8 <ImagingResampleHorizontal_8bpc@@Base+0x128>
+    0.00 :	  21cef:       nop
+    0.00 :	  21cf0:       xor    %eax,%eax
+    0.00 :	  21cf2:       xor    %edx,%edx
+    0.00 :	  21cf4:       jmp    21ca7 <ImagingResampleHorizontal_8bpc@@Base+0x517>
+
+Sorted summary for file /lib/modules/4.14.34-gentoo/build/vmlinux
+----------------------------------------------
+
+   99.98 tsc.c:0
+ Percent |	Source code & Disassembly of vmlinux for cycles
+---------------------------------------------------------------
+         :
+         :
+         :
+         :	Disassembly of section .text:
+         :
+         :	ffffffff8101d610 <read_tsc>:
+         :	read_tsc():
+ tsc.c:0   19.60 :	  ffffffff8101d610:       nop
+    0.00 :	  ffffffff8101d611:       nop
+    0.00 :	  ffffffff8101d612:       nop
+   11.50 :	  ffffffff8101d613:       rdtsc  
+   66.63 :	  ffffffff8101d615:       shl    $0x20,%rdx
+    0.02 :	  ffffffff8101d619:       or     %rdx,%rax
+ tsc.c:0    2.26 :	  ffffffff8101d61c:       retq   
+
+Sorted summary for file /lib/modules/4.14.34-gentoo/build/vmlinux
+----------------------------------------------
+
+   38.82 [kernel.vmlinux][ffffffff81001616]
+   19.27 [kernel.vmlinux][ffffffff81001659]
+    9.54 [kernel.vmlinux][ffffffff8100166e]
+    4.42 [kernel.vmlinux][ffffffff8100160e]
+    3.67 [kernel.vmlinux][ffffffff81001600]
+    3.66 [kernel.vmlinux][ffffffff810016b3]
+    3.46 [kernel.vmlinux][ffffffff810016a3]
+    3.46 [kernel.vmlinux][ffffffff81001602]
+    3.38 [kernel.vmlinux][ffffffff81001601]
+    3.26 [kernel.vmlinux][ffffffff81001622]
+    3.20 [kernel.vmlinux][ffffffff81001646]
+    3.20 [kernel.vmlinux][ffffffff81001636]
+ Percent |	Source code & Disassembly of vmlinux for cycles
+---------------------------------------------------------------
+         :
+         :
+         :
+         :	Disassembly of section .text:
+         :
+         :	ffffffff81001600 <do_syscall_64>:
+         :	do_syscall_64():
+ [kernel.vmlinux][ffffffff81001600]    3.67 :	  ffffffff81001600:       push   %rbp
+ [kernel.vmlinux][ffffffff81001601]    3.38 :	  ffffffff81001601:       push   %rbx
+ [kernel.vmlinux][ffffffff81001602]    3.46 :	  ffffffff81001602:       mov    %rdi,%rbx
+    0.01 :	  ffffffff81001605:       mov    %gs:0x14cc0,%rdx
+ [kernel.vmlinux][ffffffff8100160e]    4.42 :	  ffffffff8100160e:       mov    0x78(%rdi),%rax
+    0.01 :	  ffffffff81001612:       sti    
+    0.00 :	  ffffffff81001613:       mov    (%rdx),%rdx
+ [kernel.vmlinux][ffffffff81001616]   38.82 :	  ffffffff81001616:       test   $0x100801c1,%edx
+    0.00 :	  ffffffff8100161c:       jne    ffffffff810016b6 <do_syscall_64+0xb6>
+ [kernel.vmlinux][ffffffff81001622]    3.26 :	  ffffffff81001622:       cmp    $0x14c,%rax
+    0.00 :	  ffffffff81001628:       ja     ffffffff81001659 <do_syscall_64+0x59>
+    0.01 :	  ffffffff8100162a:       cmp    $0x14d,%rax
+    0.00 :	  ffffffff81001630:       sbb    %r8,%r8
+    0.12 :	  ffffffff81001633:       and    %r8,%rax
+ [kernel.vmlinux][ffffffff81001636]    3.20 :	  ffffffff81001636:       mov    0x38(%rbx),%rcx
+    0.00 :	  ffffffff8100163a:       mov    0x60(%rbx),%rdx
+    0.00 :	  ffffffff8100163e:       mov    0x68(%rbx),%rsi
+    0.07 :	  ffffffff81001642:       mov    0x70(%rbx),%rdi
+ [kernel.vmlinux][ffffffff81001646]    3.20 :	  ffffffff81001646:       mov    0x40(%rbx),%r9
+    0.00 :	  ffffffff8100164a:       mov    0x48(%rbx),%r8
+    0.00 :	  ffffffff8100164e:       callq  *-0x7e5fff00(,%rax,8)
+    0.21 :	  ffffffff81001655:       mov    %rax,0x50(%rbx)
+ [kernel.vmlinux][ffffffff81001659]   19.27 :	  ffffffff81001659:       mov    %gs:0x14cc0,%rax
+    0.00 :	  ffffffff81001662:       mov    (%rax),%rsi
+    0.05 :	  ffffffff81001665:       test   $0x10000091,%esi
+    0.00 :	  ffffffff8100166b:       jne    ffffffff810016cf <do_syscall_64+0xcf>
+    0.11 :	  ffffffff8100166d:       cli    
+ [kernel.vmlinux][ffffffff8100166e]    9.54 :	  ffffffff8100166e:       mov    %gs:0x14cc0,%rbp
+    0.00 :	  ffffffff81001677:       mov    0x0(%rbp),%rax
+    0.02 :	  ffffffff8100167b:       test   $0x80000000,%eax
+    0.01 :	  ffffffff81001680:       je     ffffffff810016a3 <do_syscall_64+0xa3>
+    0.00 :	  ffffffff81001682:       movabs $0x7ffffffff000,%rax
+    0.00 :	  ffffffff8100168c:       cmp    %rax,0x958(%rbp)
+    0.00 :	  ffffffff81001693:       jne    ffffffff810016d9 <do_syscall_64+0xd9>
+    0.00 :	  ffffffff81001695:       mov    %gs:0x14cc0,%rax
+    0.00 :	  ffffffff8100169e:       lock andb $0x7f,0x3(%rax)
+ [kernel.vmlinux][ffffffff810016a3]    3.46 :	  ffffffff810016a3:       mov    0x0(%rbp),%rsi
+    0.00 :	  ffffffff810016a7:       test   $0x380e,%esi
+    0.00 :	  ffffffff810016ad:       jne    ffffffff810016c0 <do_syscall_64+0xc0>
+    0.00 :	  ffffffff810016af:       andl   $0xfffffff9,0x8(%rbp)
+ [kernel.vmlinux][ffffffff810016b3]    3.66 :	  ffffffff810016b3:       pop    %rbx
+    0.00 :	  ffffffff810016b4:       pop    %rbp
+    0.01 :	  ffffffff810016b5:       retq   
+    0.00 :	  ffffffff810016b6:       callq  ffffffff810011c0 <syscall_trace_enter>
+    0.00 :	  ffffffff810016bb:       jmpq   ffffffff81001622 <do_syscall_64+0x22>
+    0.01 :	  ffffffff810016c0:       mov    %rbx,%rdi
+    0.00 :	  ffffffff810016c3:       callq  ffffffff81001130 <exit_to_usermode_loop>
+    0.00 :	  ffffffff810016c8:       andl   $0xfffffff9,0x8(%rbp)
+    0.00 :	  ffffffff810016cc:       pop    %rbx
+    0.00 :	  ffffffff810016cd:       pop    %rbp
+    0.00 :	  ffffffff810016ce:       retq   
+    0.00 :	  ffffffff810016cf:       mov    %rbx,%rdi
+    0.00 :	  ffffffff810016d2:       callq  ffffffff81001480 <syscall_slow_exit_work>
+    0.00 :	  ffffffff810016d7:       jmp    ffffffff8100166d <do_syscall_64+0x6d>
+    0.00 :	  ffffffff810016d9:       mov    $0xffffffff81b081c0,%rdi
+    0.00 :	  ffffffff810016e0:       callq  ffffffff81089ce6 <printk>
+    0.00 :	  ffffffff810016e5:       ud2    
+    0.00 :	  ffffffff810016e7:       mov    $0x9,%edi
+    0.00 :	  ffffffff810016ec:       mov    %rbp,%rsi
+    0.00 :	  ffffffff810016ef:       callq  ffffffff81058400 <force_sig>
+    0.00 :	  ffffffff810016f4:       jmp    ffffffff81001695 <do_syscall_64+0x95>
+
+Sorted summary for file /lib/modules/4.14.34-gentoo/build/vmlinux
+----------------------------------------------
+
+   39.31 [kernel.vmlinux][ffffffff815768c1]
+   37.47 [kernel.vmlinux][ffffffff8157689c]
+    9.96 [kernel.vmlinux][ffffffff81576899]
+    3.77 [kernel.vmlinux][ffffffff81576896]
+    3.29 [kernel.vmlinux][ffffffff8157688c]
+    3.12 [kernel.vmlinux][ffffffff815768bc]
+    2.65 [kernel.vmlinux][ffffffff81576894]
+ Percent |	Source code & Disassembly of vmlinux for cycles
+---------------------------------------------------------------
+         :
+         :
+         :
+         :	Disassembly of section .text:
+         :
+         :	ffffffff81576810 <copy_user_generic_unrolled>:
+         :	copy_user_generic_unrolled():
+    0.00 :	  ffffffff81576810:       nop
+    0.00 :	  ffffffff81576811:       nop
+    0.00 :	  ffffffff81576812:       nop
+    0.00 :	  ffffffff81576813:       cmp    $0x8,%edx
+    0.00 :	  ffffffff81576816:       jb     ffffffff815768a8 <copy_user_generic_unrolled+0x98>
+    0.00 :	  ffffffff8157681c:       mov    %edi,%ecx
+    0.00 :	  ffffffff8157681e:       and    $0x7,%ecx
+    0.00 :	  ffffffff81576821:       je     ffffffff81576838 <copy_user_generic_unrolled+0x28>
+    0.00 :	  ffffffff81576823:       sub    $0x8,%ecx
+    0.00 :	  ffffffff81576826:       neg    %ecx
+    0.00 :	  ffffffff81576828:       sub    %ecx,%edx
+    0.00 :	  ffffffff8157682a:       mov    (%rsi),%al
+    0.00 :	  ffffffff8157682c:       mov    %al,(%rdi)
+    0.00 :	  ffffffff8157682e:       inc    %rsi
+    0.00 :	  ffffffff81576831:       inc    %rdi
+    0.00 :	  ffffffff81576834:       dec    %ecx
+    0.00 :	  ffffffff81576836:       jne    ffffffff8157682a <copy_user_generic_unrolled+0x1a>
+    0.00 :	  ffffffff81576838:       mov    %edx,%ecx
+    0.00 :	  ffffffff8157683a:       and    $0x3f,%edx
+    0.00 :	  ffffffff8157683d:       shr    $0x6,%ecx
+    0.00 :	  ffffffff81576840:       je     ffffffff8157688c <copy_user_generic_unrolled+0x7c>
+    0.00 :	  ffffffff81576842:       mov    (%rsi),%r8
+    0.00 :	  ffffffff81576845:       mov    0x8(%rsi),%r9
+    0.00 :	  ffffffff81576849:       mov    0x10(%rsi),%r10
+    0.00 :	  ffffffff8157684d:       mov    0x18(%rsi),%r11
+    0.00 :	  ffffffff81576851:       mov    %r8,(%rdi)
+    0.00 :	  ffffffff81576854:       mov    %r9,0x8(%rdi)
+    0.00 :	  ffffffff81576858:       mov    %r10,0x10(%rdi)
+    0.00 :	  ffffffff8157685c:       mov    %r11,0x18(%rdi)
+    0.00 :	  ffffffff81576860:       mov    0x20(%rsi),%r8
+    0.00 :	  ffffffff81576864:       mov    0x28(%rsi),%r9
+    0.00 :	  ffffffff81576868:       mov    0x30(%rsi),%r10
+    0.00 :	  ffffffff8157686c:       mov    0x38(%rsi),%r11
+    0.00 :	  ffffffff81576870:       mov    %r8,0x20(%rdi)
+    0.00 :	  ffffffff81576874:       mov    %r9,0x28(%rdi)
+    0.00 :	  ffffffff81576878:       mov    %r10,0x30(%rdi)
+    0.00 :	  ffffffff8157687c:       mov    %r11,0x38(%rdi)
+    0.00 :	  ffffffff81576880:       lea    0x40(%rsi),%rsi
+    0.00 :	  ffffffff81576884:       lea    0x40(%rdi),%rdi
+    0.00 :	  ffffffff81576888:       dec    %ecx
+    0.00 :	  ffffffff8157688a:       jne    ffffffff81576842 <copy_user_generic_unrolled+0x32>
+ [kernel.vmlinux][ffffffff8157688c]    3.29 :	  ffffffff8157688c:       mov    %edx,%ecx
+    0.00 :	  ffffffff8157688e:       and    $0x7,%edx
+    0.35 :	  ffffffff81576891:       shr    $0x3,%ecx
+ [kernel.vmlinux][ffffffff81576894]    2.65 :	  ffffffff81576894:       je     ffffffff815768a8 <copy_user_generic_unrolled+0x98>
+ [kernel.vmlinux][ffffffff81576896]    3.77 :	  ffffffff81576896:       mov    (%rsi),%r8
+ [kernel.vmlinux][ffffffff81576899]    9.96 :	  ffffffff81576899:       mov    %r8,(%rdi)
+ [kernel.vmlinux][ffffffff8157689c]   37.47 :	  ffffffff8157689c:       lea    0x8(%rsi),%rsi
+    0.00 :	  ffffffff815768a0:       lea    0x8(%rdi),%rdi
+    0.00 :	  ffffffff815768a4:       dec    %ecx
+    0.00 :	  ffffffff815768a6:       jne    ffffffff81576896 <copy_user_generic_unrolled+0x86>
+    0.09 :	  ffffffff815768a8:       and    %edx,%edx
+    0.00 :	  ffffffff815768aa:       je     ffffffff815768bc <copy_user_generic_unrolled+0xac>
+    0.00 :	  ffffffff815768ac:       mov    %edx,%ecx
+    0.00 :	  ffffffff815768ae:       mov    (%rsi),%al
+    0.00 :	  ffffffff815768b0:       mov    %al,(%rdi)
+    0.00 :	  ffffffff815768b2:       inc    %rsi
+    0.00 :	  ffffffff815768b5:       inc    %rdi
+    0.00 :	  ffffffff815768b8:       dec    %ecx
+    0.00 :	  ffffffff815768ba:       jne    ffffffff815768ae <copy_user_generic_unrolled+0x9e>
+ [kernel.vmlinux][ffffffff815768bc]    3.12 :	  ffffffff815768bc:       xor    %eax,%eax
+    0.00 :	  ffffffff815768be:       nop
+    0.00 :	  ffffffff815768bf:       nop
+    0.00 :	  ffffffff815768c0:       nop
+ [kernel.vmlinux][ffffffff815768c1]   39.31 :	  ffffffff815768c1:       retq   
+
+Sorted summary for file /home/mbp/.virtualenvs/pytorch-examples/lib/python3.5/site-packages/PIL/_imaging.cpython-35m-x86_64-linux-gnu.so
+----------------------------------------------
+
+    7.38 _imaging.cpython-35m-x86_64-linux-gnu.so[220fc]
+    5.07 _imaging.cpython-35m-x86_64-linux-gnu.so[2210e]
+    5.07 _imaging.cpython-35m-x86_64-linux-gnu.so[220f6]
+    3.95 _imaging.cpython-35m-x86_64-linux-gnu.so[2210b]
+    3.82 _imaging.cpython-35m-x86_64-linux-gnu.so[220ed]
+    3.73 _imaging.cpython-35m-x86_64-linux-gnu.so[220e0]
+    3.55 _imaging.cpython-35m-x86_64-linux-gnu.so[220e5]
+    3.50 _imaging.cpython-35m-x86_64-linux-gnu.so[22111]
+    3.32 _imaging.cpython-35m-x86_64-linux-gnu.so[220f1]
+    3.26 _imaging.cpython-35m-x86_64-linux-gnu.so[2213f]
+    3.26 _imaging.cpython-35m-x86_64-linux-gnu.so[220e3]
+    3.22 _imaging.cpython-35m-x86_64-linux-gnu.so[22105]
+    3.22 _imaging.cpython-35m-x86_64-linux-gnu.so[22101]
+    3.13 _imaging.cpython-35m-x86_64-linux-gnu.so[220a5]
+    3.10 _imaging.cpython-35m-x86_64-linux-gnu.so[22159]
+    3.01 _imaging.cpython-35m-x86_64-linux-gnu.so[220f9]
+    2.99 _imaging.cpython-35m-x86_64-linux-gnu.so[220d0]
+    2.95 _imaging.cpython-35m-x86_64-linux-gnu.so[22156]
+    2.69 _imaging.cpython-35m-x86_64-linux-gnu.so[220bd]
+    2.60 _imaging.cpython-35m-x86_64-linux-gnu.so[22108]
+    2.48 _imaging.cpython-35m-x86_64-linux-gnu.so[2214b]
+    2.30 _imaging.cpython-35m-x86_64-linux-gnu.so[220e8]
+    1.85 _imaging.cpython-35m-x86_64-linux-gnu.so[2211e]
+    1.82 _imaging.cpython-35m-x86_64-linux-gnu.so[22146]
+    1.82 _imaging.cpython-35m-x86_64-linux-gnu.so[2212a]
+    1.59 _imaging.cpython-35m-x86_64-linux-gnu.so[22137]
+    1.34 _imaging.cpython-35m-x86_64-linux-gnu.so[22149]
+    1.28 _imaging.cpython-35m-x86_64-linux-gnu.so[22143]
+    1.11 _imaging.cpython-35m-x86_64-linux-gnu.so[2213b]
+    0.93 _imaging.cpython-35m-x86_64-linux-gnu.so[22121]
+    0.92 _imaging.cpython-35m-x86_64-linux-gnu.so[22115]
+    0.86 _imaging.cpython-35m-x86_64-linux-gnu.so[22154]
+    0.78 _imaging.cpython-35m-x86_64-linux-gnu.so[2212c]
+    0.69 _imaging.cpython-35m-x86_64-linux-gnu.so[2211b]
+    0.60 _imaging.cpython-35m-x86_64-linux-gnu.so[220d8]
+    0.59 _imaging.cpython-35m-x86_64-linux-gnu.so[2212f]
+    0.56 _imaging.cpython-35m-x86_64-linux-gnu.so[220cc]
+    0.54 _imaging.cpython-35m-x86_64-linux-gnu.so[22127]
+    0.53 _imaging.cpython-35m-x86_64-linux-gnu.so[22134]
+    0.53 _imaging.cpython-35m-x86_64-linux-gnu.so[220b7]
+ Percent |	Source code & Disassembly of _imaging.cpython-35m-x86_64-linux-gnu.so for cycles
+------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         :	Disassembly of section .text:
+         :
+         :	0000000000021d00 <ImagingResampleVertical_8bpc@@Base>:
+    0.00 :	  21d00:       push   %r15
+    0.00 :	  21d02:       mov    %rdi,%r15
+    0.00 :	  21d05:       mov    %r9,%rdx
+    0.00 :	  21d08:       push   %r14
+    0.00 :	  21d0a:       push   %r13
+    0.00 :	  21d0c:       push   %r12
+    0.00 :	  21d0e:       push   %rbp
+    0.00 :	  21d0f:       push   %rbx
+    0.00 :	  21d10:       mov    %rsi,%rbx
+    0.00 :	  21d13:       sub    $0x78,%rsp
+    0.00 :	  21d17:       mov    0x18(%rdi),%edi
+    0.00 :	  21d1a:       mov    %rsi,0x28(%rsp)
+    0.00 :	  21d1f:       mov    %ecx,%esi
+    0.00 :	  21d21:       mov    %ecx,0x14(%rsp)
+    0.00 :	  21d25:       mov    %r8,0x18(%rsp)
+    0.00 :	  21d2a:       mov    %r9,0x20(%rsp)
+    0.00 :	  21d2f:       callq  11eb0 <normalize_coeffs_8bpc@plt>
+    0.00 :	  21d34:       lea    0x68(%rsp),%rax
+    0.00 :	  21d39:       mov    %rax,%rdi
+    0.00 :	  21d3c:       mov    %rax,0x58(%rsp)
+    0.00 :	  21d41:       callq  11900 <ImagingSectionEnter@plt>
+    0.00 :	  21d46:       cmpq   $0x0,0x28(%rbx)
+    0.00 :	  21d4b:       je     21e54 <ImagingResampleVertical_8bpc@@Base+0x154>
+    0.00 :	  21d51:       mov    0x18(%r15),%ecx
+    0.00 :	  21d55:       test   %ecx,%ecx
+    0.00 :	  21d57:       jle    21e3b <ImagingResampleVertical_8bpc@@Base+0x13b>
+    0.00 :	  21d5d:       xor    %r14d,%r14d
+    0.00 :	  21d60:       mov    0x14(%r15),%eax
+    0.00 :	  21d64:       movl   $0x0,0x8(%rsp)
+    0.00 :	  21d6c:       mov    %r14d,(%rsp)
+    0.00 :	  21d70:       mov    0x28(%rsp),%r14
+    0.00 :	  21d75:       movslq 0x8(%rsp),%rdx
+    0.00 :	  21d7a:       mov    0x20(%rsp),%rbx
+    0.00 :	  21d7f:       test   %eax,%eax
+    0.00 :	  21d81:       mov    0x18(%rsp),%rdi
+    0.00 :	  21d86:       lea    (%rbx,%rdx,4),%r13
+    0.00 :	  21d8a:       mov    (%rsp),%ebx
+    0.00 :	  21d8d:       lea    (%rbx,%rbx,1),%edx
+    0.00 :	  21d90:       movslq %edx,%rdx
+    0.00 :	  21d93:       mov    (%rdi,%rdx,4),%r12d
+    0.00 :	  21d97:       mov    0x4(%rdi,%rdx,4),%r11d
+    0.00 :	  21d9c:       jle    21e26 <ImagingResampleVertical_8bpc@@Base+0x126>
+    0.00 :	  21da2:       movslq %ebx,%rbp
+    0.00 :	  21da5:       mov    0x2590c4(%rip),%rbx        # 27ae70 <lookups@@Base-0x3330>
+    0.00 :	  21dac:       lea    (%r11,%r12,1),%r9d
+    0.00 :	  21db0:       shl    $0x3,%rbp
+    0.00 :	  21db4:       xor    %r10d,%r10d
+    0.00 :	  21db7:       nopw   0x0(%rax,%rax,1)
+    0.00 :	  21dc0:       xor    %esi,%esi
+    0.00 :	  21dc2:       test   %r11d,%r11d
+    0.00 :	  21dc5:       movslq %r10d,%rdi
+    0.00 :	  21dc8:       jle    21e03 <ImagingResampleVertical_8bpc@@Base+0x103>
+    0.00 :	  21dca:       mov    0x28(%r14),%r8
+    0.00 :	  21dce:       movslq %r10d,%rdi
+    0.00 :	  21dd1:       mov    %r12d,%eax
+    0.00 :	  21dd4:       mov    %r13,%rcx
+    0.00 :	  21dd7:       mov    $0x200000,%esi
+    0.00 :	  21ddc:       nopl   0x0(%rax)
+    0.00 :	  21de0:       movslq %eax,%rdx
+    0.00 :	  21de3:       add    $0x1,%eax
+    0.00 :	  21de6:       add    $0x4,%rcx
+    0.00 :	  21dea:       mov    (%r8,%rdx,8),%rdx
+    0.00 :	  21dee:       movzbl (%rdx,%rdi,1),%edx
+    0.00 :	  21df2:       imul   -0x4(%rcx),%edx
+    0.00 :	  21df6:       add    %edx,%esi
+    0.00 :	  21df8:       cmp    %r9d,%eax
+    0.00 :	  21dfb:       jne    21de0 <ImagingResampleVertical_8bpc@@Base+0xe0>
+    0.00 :	  21dfd:       sar    $0x16,%esi
+    0.00 :	  21e00:       movslq %esi,%rsi
+    0.00 :	  21e03:       mov    (%rbx),%rax
+    0.00 :	  21e06:       add    $0x1,%r10d
+    0.00 :	  21e0a:       movzbl (%rax,%rsi,1),%edx
+    0.00 :	  21e0e:       mov    0x28(%r15),%rax
+    0.00 :	  21e12:       mov    (%rax,%rbp,1),%rax
+    0.00 :	  21e16:       mov    %dl,(%rax,%rdi,1)
+    0.00 :	  21e19:       mov    0x14(%r15),%eax
+    0.00 :	  21e1d:       cmp    %r10d,%eax
+    0.00 :	  21e20:       jg     21dc0 <ImagingResampleVertical_8bpc@@Base+0xc0>
+    0.00 :	  21e22:       mov    0x18(%r15),%ecx
+    0.00 :	  21e26:       addl   $0x1,(%rsp)
+    0.00 :	  21e2a:       mov    0x14(%rsp),%ebx
+    0.00 :	  21e2e:       add    %ebx,0x8(%rsp)
+    0.00 :	  21e32:       cmp    %ecx,(%rsp)
+    0.00 :	  21e35:       jl     21d75 <ImagingResampleVertical_8bpc@@Base+0x75>
+    0.00 :	  21e3b:       mov    0x58(%rsp),%rdi
+    0.00 :	  21e40:       callq  11e90 <ImagingSectionLeave@plt>
+    0.00 :	  21e45:       add    $0x78,%rsp
+    0.00 :	  21e49:       pop    %rbx
+    0.00 :	  21e4a:       pop    %rbp
+    0.00 :	  21e4b:       pop    %r12
+    0.00 :	  21e4d:       pop    %r13
+    0.00 :	  21e4f:       pop    %r14
+    0.00 :	  21e51:       pop    %r15
+    0.00 :	  21e53:       retq   
+    0.00 :	  21e54:       mov    0x28(%rsp),%rax
+    0.00 :	  21e59:       mov    0x8(%rax),%esi
+    0.00 :	  21e5c:       test   %esi,%esi
+    0.00 :	  21e5e:       jne    21e3b <ImagingResampleVertical_8bpc@@Base+0x13b>
+    0.00 :	  21e60:       mov    0x10(%rax),%eax
+    0.00 :	  21e63:       mov    0x18(%r15),%edx
+    0.00 :	  21e67:       cmp    $0x2,%eax
+    0.00 :	  21e6a:       je     22190 <ImagingResampleVertical_8bpc@@Base+0x490>
+    0.00 :	  21e70:       cmp    $0x3,%eax
+    0.00 :	  21e73:       je     22022 <ImagingResampleVertical_8bpc@@Base+0x322>
+    0.00 :	  21e79:       test   %edx,%edx
+    0.00 :	  21e7b:       jle    21e3b <ImagingResampleVertical_8bpc@@Base+0x13b>
+    0.00 :	  21e7d:       mov    0x258fec(%rip),%rcx        # 27ae70 <lookups@@Base-0x3330>
+    0.00 :	  21e84:       mov    0x14(%r15),%eax
+    0.00 :	  21e88:       movl   $0x0,0x54(%rsp)
+    0.00 :	  21e90:       movl   $0x0,0x50(%rsp)
+    0.00 :	  21e98:       mov    %r15,0x8(%rsp)
+    0.00 :	  21e9d:       mov    (%rcx),%rbx
+    0.00 :	  21ea0:       mov    %rbx,0x38(%rsp)
+    0.00 :	  21ea5:       movslq 0x54(%rsp),%rcx
+    0.00 :	  21eaa:       mov    0x20(%rsp),%rbx
+    0.00 :	  21eaf:       test   %eax,%eax
+    0.00 :	  21eb1:       mov    0x50(%rsp),%edi
+    0.00 :	  21eb5:       mov    0x18(%rsp),%rsi
+    0.00 :	  21eba:       lea    (%rbx,%rcx,4),%rbx
+    0.00 :	  21ebe:       lea    (%rdi,%rdi,1),%ecx
+    0.00 :	  21ec1:       movslq %ecx,%rcx
+    0.00 :	  21ec4:       mov    %rbx,0x40(%rsp)
+    0.00 :	  21ec9:       mov    (%rsi,%rcx,4),%ebx
+    0.00 :	  21ecc:       mov    0x4(%rsi,%rcx,4),%ecx
+    0.00 :	  21ed0:       mov    %ebx,0x4c(%rsp)
+    0.00 :	  21ed4:       mov    %ecx,0x48(%rsp)
+    0.00 :	  21ed8:       jle    21ff9 <ImagingResampleVertical_8bpc@@Base+0x2f9>
+    0.00 :	  21ede:       mov    0x8(%rsp),%rax
+    0.00 :	  21ee3:       movslq %edi,%rdx
+    0.00 :	  21ee6:       add    %ecx,%ebx
+    0.00 :	  21ee8:       movl   $0x0,(%rsp)
+    0.00 :	  21eef:       mov    %ebx,%r15d
+    0.00 :	  21ef2:       mov    0x38(%rax),%rax
+    0.00 :	  21ef6:       mov    (%rax,%rdx,8),%rax
+    0.00 :	  21efa:       mov    %rax,0x30(%rsp)
+    0.00 :	  21eff:       mov    0x48(%rsp),%eax
+    0.00 :	  21f03:       test   %eax,%eax
+    0.00 :	  21f05:       jle    22018 <ImagingResampleVertical_8bpc@@Base+0x318>
+    0.00 :	  21f0b:       mov    0x28(%rsp),%rax
+    0.00 :	  21f10:       mov    0x4c(%rsp),%ecx
+    0.00 :	  21f14:       mov    $0x200000,%r11d
+    0.00 :	  21f1a:       mov    0x40(%rsp),%rdi
+    0.00 :	  21f1f:       mov    $0x200000,%r10d
+    0.00 :	  21f25:       mov    $0x200000,%r9d
+    0.00 :	  21f2b:       mov    $0x200000,%r8d
+    0.00 :	  21f31:       mov    0x38(%rax),%r14
+    0.00 :	  21f35:       mov    (%rsp),%eax
+    0.00 :	  21f38:       lea    0x0(,%rax,4),%ebx
+    0.00 :	  21f3f:       movslq %ebx,%rbx
+    0.00 :	  21f42:       lea    0x1(%rbx),%r13
+    0.00 :	  21f46:       lea    0x2(%rbx),%r12
+    0.00 :	  21f4a:       lea    0x3(%rbx),%rbp
+    0.00 :	  21f4e:       xchg   %ax,%ax
+    0.00 :	  21f50:       movslq %ecx,%rax
+    0.00 :	  21f53:       add    $0x1,%ecx
+    0.00 :	  21f56:       add    $0x4,%rdi
+    0.00 :	  21f5a:       mov    (%r14,%rax,8),%rdx
+    0.00 :	  21f5e:       mov    -0x4(%rdi),%eax
+    0.00 :	  21f61:       movzbl (%rdx,%rbx,1),%esi
+    0.00 :	  21f65:       imul   %eax,%esi
+    0.00 :	  21f68:       add    %esi,%r8d
+    0.00 :	  21f6b:       movzbl (%rdx,%r13,1),%esi
+    0.00 :	  21f70:       imul   %eax,%esi
+    0.00 :	  21f73:       add    %esi,%r9d
+    0.00 :	  21f76:       movzbl (%rdx,%r12,1),%esi
+    0.00 :	  21f7b:       movzbl (%rdx,%rbp,1),%edx
+    0.00 :	  21f7f:       imul   %eax,%esi
+    0.00 :	  21f82:       imul   %eax,%edx
+    0.00 :	  21f85:       add    %esi,%r10d
+    0.00 :	  21f88:       add    %edx,%r11d
+    0.00 :	  21f8b:       cmp    %r15d,%ecx
+    0.00 :	  21f8e:       jne    21f50 <ImagingResampleVertical_8bpc@@Base+0x250>
+    0.00 :	  21f90:       sar    $0x16,%r8d
+    0.00 :	  21f94:       sar    $0x16,%r9d
+    0.00 :	  21f98:       sar    $0x16,%r10d
+    0.00 :	  21f9c:       sar    $0x16,%r11d
+    0.00 :	  21fa0:       movslq %r8d,%rdx
+    0.00 :	  21fa3:       movslq %r9d,%rax
+    0.00 :	  21fa6:       movslq %r10d,%rsi
+    0.00 :	  21fa9:       movslq %r11d,%rdi
+    0.00 :	  21fac:       mov    0x38(%rsp),%rbx
+    0.00 :	  21fb1:       movslq (%rsp),%rcx
+    0.00 :	  21fb5:       addl   $0x1,(%rsp)
+    0.00 :	  21fb9:       movzbl (%rbx,%rax,1),%eax
+    0.00 :	  21fbd:       movzbl (%rbx,%rsi,1),%esi
+    0.00 :	  21fc1:       movzbl (%rbx,%rdx,1),%edx
+    0.00 :	  21fc5:       shl    $0x8,%eax
+    0.00 :	  21fc8:       shl    $0x10,%esi
+    0.00 :	  21fcb:       or     %esi,%eax
+    0.00 :	  21fcd:       or     %edx,%eax
+    0.00 :	  21fcf:       movzbl (%rbx,%rdi,1),%edx
+    0.00 :	  21fd3:       mov    0x30(%rsp),%rbx
+    0.00 :	  21fd8:       shl    $0x18,%edx
+    0.00 :	  21fdb:       or     %edx,%eax
+    0.00 :	  21fdd:       mov    %eax,(%rbx,%rcx,4)
+    0.00 :	  21fe0:       mov    0x8(%rsp),%rax
+    0.00 :	  21fe5:       mov    0x14(%rax),%eax
+    0.00 :	  21fe8:       cmp    (%rsp),%eax
+    0.00 :	  21feb:       jg     21eff <ImagingResampleVertical_8bpc@@Base+0x1ff>
+    0.00 :	  21ff1:       mov    0x8(%rsp),%rbx
+    0.00 :	  21ff6:       mov    0x18(%rbx),%edx
+    0.00 :	  21ff9:       addl   $0x1,0x50(%rsp)
+    0.00 :	  21ffe:       mov    0x14(%rsp),%ebx
+    0.00 :	  22002:       add    %ebx,0x54(%rsp)
+    0.00 :	  22006:       cmp    %edx,0x50(%rsp)
+    0.00 :	  2200a:       jl     21ea5 <ImagingResampleVertical_8bpc@@Base+0x1a5>
+    0.00 :	  22010:       jmpq   21e3b <ImagingResampleVertical_8bpc@@Base+0x13b>
+    0.00 :	  22015:       nopl   (%rax)
+    0.00 :	  22018:       xor    %edi,%edi
+    0.00 :	  2201a:       xor    %esi,%esi
+    0.00 :	  2201c:       xor    %eax,%eax
+    0.00 :	  2201e:       xor    %edx,%edx
+    0.00 :	  22020:       jmp    21fac <ImagingResampleVertical_8bpc@@Base+0x2ac>
+    0.02 :	  22022:       test   %edx,%edx
+    0.00 :	  22024:       jle    21e3b <ImagingResampleVertical_8bpc@@Base+0x13b>
+    0.02 :	  2202a:       mov    0x258e3f(%rip),%rcx        # 27ae70 <lookups@@Base-0x3330>
+    0.00 :	  22031:       mov    0x14(%r15),%eax
+    0.00 :	  22035:       movl   $0x0,0x48(%rsp)
+    0.00 :	  2203d:       movl   $0x0,(%rsp)
+    0.00 :	  22044:       mov    (%rcx),%rbx
+    0.00 :	  22047:       mov    %rbx,0x38(%rsp)
+    0.05 :	  2204c:       movslq 0x48(%rsp),%rcx
+    0.00 :	  22051:       mov    0x20(%rsp),%rbx
+    0.00 :	  22056:       test   %eax,%eax
+    0.00 :	  22058:       mov    (%rsp),%edi
+    0.00 :	  2205b:       lea    (%rbx,%rcx,4),%rbx
+    0.00 :	  2205f:       lea    (%rdi,%rdi,1),%ecx
+    0.00 :	  22062:       mov    %rbx,0x40(%rsp)
+    0.00 :	  22067:       mov    0x18(%rsp),%rbx
+    0.00 :	  2206c:       movslq %ecx,%rcx
+    0.00 :	  2206f:       mov    (%rbx,%rcx,4),%esi
+    0.12 :	  22072:       mov    0x4(%rbx,%rcx,4),%ebx
+    0.00 :	  22076:       mov    %esi,0x4c(%rsp)
+    0.00 :	  2207a:       mov    %ebx,0x8(%rsp)
+    0.00 :	  2207e:       jle    2216a <ImagingResampleVertical_8bpc@@Base+0x46a>
+    0.00 :	  22084:       mov    0x38(%r15),%rax
+    0.00 :	  22088:       movslq %edi,%rdx
+    0.02 :	  2208b:       xor    %r14d,%r14d
+    0.00 :	  2208e:       add    %esi,%ebx
+    0.00 :	  22090:       mov    (%rax,%rdx,8),%rax
+    0.02 :	  22094:       mov    %rax,0x30(%rsp)
+    0.39 :	  22099:       mov    0x8(%rsp),%edx
+    0.36 :	  2209d:       test   %edx,%edx
+    0.00 :	  2209f:       jle    22188 <ImagingResampleVertical_8bpc@@Base+0x488>
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220a5]    3.13 :	  220a5:       mov    0x28(%rsp),%rax
+    0.12 :	  220aa:       lea    0x0(,%r14,4),%r11d
+    0.50 :	  220b2:       mov    0x40(%rsp),%rdi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220b7]    0.53 :	  220b7:       mov    $0x200000,%r10d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220bd]    2.69 :	  220bd:       mov    $0x200000,%r9d
+    0.12 :	  220c3:       mov    $0x200000,%r8d
+    0.44 :	  220c9:       movslq %r11d,%r11
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220cc]    0.56 :	  220cc:       mov    0x38(%rax),%r13
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220d0]    2.99 :	  220d0:       mov    0x4c(%rsp),%eax
+    0.14 :	  220d4:       lea    0x1(%r11),%r12
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220d8]    0.60 :	  220d8:       lea    0x2(%r11),%rbp
+    0.42 :	  220dc:       nopl   0x0(%rax)
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220e0]    3.73 :	  220e0:       movslq %eax,%rdx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220e3]    3.26 :	  220e3:       mov    (%rdi),%ecx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220e5]    3.55 :	  220e5:       add    $0x1,%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220e8]    2.30 :	  220e8:       mov    0x0(%r13,%rdx,8),%rdx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220ed]    3.82 :	  220ed:       add    $0x4,%rdi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220f1]    3.32 :	  220f1:       movzbl (%rdx,%r11,1),%esi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220f6]    5.07 :	  220f6:       imul   %ecx,%esi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220f9]    3.01 :	  220f9:       add    %esi,%r8d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[220fc]    7.38 :	  220fc:       movzbl (%rdx,%r12,1),%esi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22101]    3.22 :	  22101:       movzbl (%rdx,%rbp,1),%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22105]    3.22 :	  22105:       imul   %ecx,%esi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22108]    2.60 :	  22108:       imul   %ecx,%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[2210b]    3.95 :	  2210b:       add    %esi,%r9d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[2210e]    5.07 :	  2210e:       add    %edx,%r10d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22111]    3.50 :	  22111:       cmp    %ebx,%eax
+    0.00 :	  22113:       jne    220e0 <ImagingResampleVertical_8bpc@@Base+0x3e0>
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22115]    0.92 :	  22115:       mov    %r8d,%esi
+    0.47 :	  22118:       mov    %r9d,%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[2211b]    0.69 :	  2211b:       mov    %r10d,%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[2211e]    1.85 :	  2211e:       sar    $0x16,%esi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22121]    0.93 :	  22121:       sar    $0x16,%eax
+    0.48 :	  22124:       sar    $0x16,%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22127]    0.54 :	  22127:       movslq %esi,%rsi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[2212a]    1.82 :	  2212a:       cltq   
+ _imaging.cpython-35m-x86_64-linux-gnu.so[2212c]    0.78 :	  2212c:       movslq %edx,%rdx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[2212f]    0.59 :	  2212f:       mov    0x38(%rsp),%rdi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22134]    0.53 :	  22134:       movslq %r14d,%rcx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22137]    1.59 :	  22137:       add    $0x1,%r14d
+ _imaging.cpython-35m-x86_64-linux-gnu.so[2213b]    1.11 :	  2213b:       movzbl (%rdi,%rax,1),%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[2213f]    3.26 :	  2213f:       movzbl (%rdi,%rdx,1),%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22143]    1.28 :	  22143:       shl    $0x8,%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22146]    1.82 :	  22146:       shl    $0x10,%edx
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22149]    1.34 :	  22149:       or     %edx,%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[2214b]    2.48 :	  2214b:       movzbl (%rdi,%rsi,1),%edx
+    0.29 :	  2214f:       mov    0x30(%rsp),%rdi
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22154]    0.86 :	  22154:       or     %edx,%eax
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22156]    2.95 :	  22156:       mov    %eax,(%rdi,%rcx,4)
+ _imaging.cpython-35m-x86_64-linux-gnu.so[22159]    3.10 :	  22159:       mov    0x14(%r15),%eax
+    0.11 :	  2215d:       cmp    %r14d,%eax
+    0.00 :	  22160:       jg     22099 <ImagingResampleVertical_8bpc@@Base+0x399>
+    0.00 :	  22166:       mov    0x18(%r15),%edx
+    0.00 :	  2216a:       addl   $0x1,(%rsp)
+    0.06 :	  2216e:       mov    0x14(%rsp),%ebx
+    0.00 :	  22172:       add    %ebx,0x48(%rsp)
+    0.00 :	  22176:       cmp    %edx,(%rsp)
+    0.00 :	  22179:       jl     2204c <ImagingResampleVertical_8bpc@@Base+0x34c>
+    0.00 :	  2217f:       jmpq   21e3b <ImagingResampleVertical_8bpc@@Base+0x13b>
+    0.00 :	  22184:       nopl   0x0(%rax)
+    0.00 :	  22188:       xor    %edx,%edx
+    0.00 :	  2218a:       xor    %eax,%eax
+    0.00 :	  2218c:       xor    %esi,%esi
+    0.00 :	  2218e:       jmp    2212f <ImagingResampleVertical_8bpc@@Base+0x42f>
+    0.00 :	  22190:       test   %edx,%edx
+    0.00 :	  22192:       jle    21e3b <ImagingResampleVertical_8bpc@@Base+0x13b>
+    0.00 :	  22198:       mov    0x258cd1(%rip),%rcx        # 27ae70 <lookups@@Base-0x3330>
+    0.00 :	  2219f:       mov    0x14(%r15),%eax
+    0.00 :	  221a3:       xor    %r13d,%r13d
+    0.00 :	  221a6:       movl   $0x0,0x30(%rsp)
+    0.00 :	  221ae:       mov    (%rcx),%r14
+    0.00 :	  221b1:       movslq 0x30(%rsp),%rcx
+    0.00 :	  221b6:       mov    0x20(%rsp),%rbx
+    0.00 :	  221bb:       test   %eax,%eax
+    0.00 :	  221bd:       lea    (%rbx,%rcx,4),%rbx
+    0.00 :	  221c1:       lea    0x0(%r13,%r13,1),%ecx
+    0.00 :	  221c6:       mov    %rbx,(%rsp)
+    0.00 :	  221ca:       mov    0x18(%rsp),%rbx
+    0.00 :	  221cf:       movslq %ecx,%rcx
+    0.00 :	  221d2:       mov    (%rbx,%rcx,4),%edi
+    0.00 :	  221d5:       mov    0x4(%rbx,%rcx,4),%ebx
+    0.00 :	  221d9:       mov    %edi,0x8(%rsp)
+    0.00 :	  221dd:       mov    %ebx,0x48(%rsp)
+    0.00 :	  221e1:       jle    222a7 <ImagingResampleVertical_8bpc@@Base+0x5a7>
+    0.00 :	  221e7:       mov    0x38(%r15),%rax
+    0.00 :	  221eb:       movslq %r13d,%rdx
+    0.00 :	  221ee:       add    %edi,%ebx
+    0.00 :	  221f0:       xor    %r12d,%r12d
+    0.00 :	  221f3:       mov    %ebx,%ebp
+    0.00 :	  221f5:       mov    (%rax,%rdx,8),%rax
+    0.00 :	  221f9:       mov    %rax,0x38(%rsp)
+    0.00 :	  221fe:       mov    0x48(%rsp),%ecx
+    0.00 :	  22202:       test   %ecx,%ecx
+    0.00 :	  22204:       jle    222c8 <ImagingResampleVertical_8bpc@@Base+0x5c8>
+    0.00 :	  2220a:       mov    0x28(%rsp),%rax
+    0.00 :	  2220f:       lea    0x0(,%r12,4),%r10d
+    0.00 :	  22217:       mov    (%rsp),%rcx
+    0.00 :	  2221b:       mov    $0x200000,%r9d
+    0.00 :	  22221:       mov    $0x200000,%r8d
+    0.00 :	  22227:       movslq %r10d,%r10
+    0.00 :	  2222a:       mov    0x38(%rax),%rbx
+    0.00 :	  2222e:       mov    0x8(%rsp),%eax
+    0.00 :	  22232:       lea    0x3(%r10),%r11
+    0.00 :	  22236:       nopw   %cs:0x0(%rax,%rax,1)
+    0.00 :	  22240:       movslq %eax,%rdx
+    0.00 :	  22243:       mov    (%rcx),%esi
+    0.00 :	  22245:       add    $0x1,%eax
+    0.00 :	  22248:       mov    (%rbx,%rdx,8),%rdi
+    0.00 :	  2224c:       add    $0x4,%rcx
+    0.00 :	  22250:       movzbl (%rdi,%r10,1),%edx
+    0.00 :	  22255:       imul   %esi,%edx
+    0.00 :	  22258:       add    %edx,%r8d
+    0.00 :	  2225b:       movzbl (%rdi,%r11,1),%edx
+    0.00 :	  22260:       imul   %esi,%edx
+    0.00 :	  22263:       add    %edx,%r9d
+    0.00 :	  22266:       cmp    %ebp,%eax
+    0.00 :	  22268:       jne    22240 <ImagingResampleVertical_8bpc@@Base+0x540>
+    0.00 :	  2226a:       sar    $0x16,%r8d
+    0.00 :	  2226e:       sar    $0x16,%r9d
+    0.00 :	  22272:       movslq %r8d,%rdx
+    0.00 :	  22275:       movslq %r9d,%rax
+    0.00 :	  22278:       movzbl (%r14,%rax,1),%eax
+    0.00 :	  2227d:       movzbl (%r14,%rdx,1),%edx
