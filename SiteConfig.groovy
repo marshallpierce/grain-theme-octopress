@@ -75,7 +75,10 @@ rsync_deploy_cmd = "rsync -avze 'ssh -p ${rsync_ssh_port}' --delete ${destinatio
 gh_pages_url = '' // path to GitHub repository in format git@github.com:{username}/{repo}.git
 github_pages_deploy_cmd = new GHPagesDeployer(site).deploy
 
-deploy = s3_deploy_cmd
+// override public to use grain's output dir
+firebase_deploy_cmd = "yarn firebase deploy --public ${destination_dir}"
+
+deploy = firebase_deploy_cmd
 
 /*
  * Site configuration.

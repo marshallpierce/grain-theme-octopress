@@ -1,6 +1,12 @@
 Source of [varblog.org](http://varblog.org).
 
 ![Banner](https://raw.githubusercontent.com/sysgears/grain-theme-octopress/master/banner.jpg)
+
+# State of the project
+
+Grain seems irredeemably horked. `./gradlew generate` starts on Java 8 with some build tweaks, but never completes.
+
+Instead, I downloaded the current contents of s3 to `public` and deployed it to firebase (`yarn firebase deploy`).
  
 Octopress Grain Theme
 =====================

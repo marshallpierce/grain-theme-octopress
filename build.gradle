@@ -1,4 +1,3 @@
-apply plugin: 'maven'
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
@@ -9,7 +8,7 @@ defaultTasks 'preview'
 
 ext {
     mainClassName = 'com.sysgears.grain.Main'
-    compatibilityVersion = JavaVersion.VERSION_1_7
+    compatibilityVersion = JavaVersion.VERSION_1_8
 }
 
 sourceCompatibility = compatibilityVersion
@@ -37,7 +36,6 @@ configurations.all {
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
     maven {
         url 'https://oss.sonatype.org/content/groups/public/'
@@ -45,7 +43,12 @@ repositories {
 }
 
 dependencies {
-    compile "com.sysgears.grain:grain:$project.grainVersion"
+    implementation "com.sysgears.grain:grain:$project.grainVersion"
+    // use newer deps to be compatible with java 11
+    implementation 'com.google.inject:guice:5.1.0'
+    implementation 'com.google.inject.extensions:guice-assistedinject:5.1.0'
+    // Grain only works with 2.4
+    implementation 'org.codehaus.groovy:groovy:2.4.21'
 }
 
 sourceSets {
@@ -83,25 +86,26 @@ idea {
 task generate(type: JavaExec) {
     logging.captureStandardOutput LogLevel.INFO
     classpath sourceSets.main.runtimeClasspath
-    main = mainClassName
-    args name
+    mainClass = mainClassName
+    args
+
 }
 
 task preview(type: JavaExec) {
     classpath sourceSets.main.runtimeClasspath
-    main = mainClassName
+    mainClass = mainClassName
     args name
 }
 
 task deploy(type: JavaExec) {
     classpath sourceSets.main.runtimeClasspath
-    main = mainClassName
+    mainClass = mainClassName
     args name
 }
 
 task createPost(type: JavaExec) {
     classpath sourceSets.main.runtimeClasspath
-    main = mainClassName
+    mainClass = mainClassName
     def postName = project.hasProperty('postName') ? project.getProperty('postName') : 'NEW-POST'
     args 'create-post', postName
 }

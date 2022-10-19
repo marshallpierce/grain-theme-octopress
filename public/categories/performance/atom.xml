@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[/var/blog]]></title><link href="http://varblog.org/categories/performance/atom.xml" rel="self"/><link href="http://varblog.org/"/><updated>2015-03-25T08:36:50-05:00</updated><id>http://varblog.org/</id><author><name><![CDATA[Marshall Pierce]]></name></author><generator uri="http://sysgears.com/grain/">Grain</generator><entry><title type="html"><![CDATA[Profiling and Optimizing Machine Learning Model Training with PyTorch]]></title><link href="http://varblog.org/blog/2018/05/24/profiling-and-optimizing-machine-learning-model-training-with-pytorch/"/><updated>2018-05-24T08:13:51-05:00</updated><id>/blog/2018/05/24/profiling-and-optimizing-machine-learning-model-training-with-pytorch/</id><content type="html"><![CDATA[<p>There's lots of innovation out there building better machine learning models with new neural net structures, regularization methods, etc. Groups like <a href="http://www.fast.ai/">fast.ai</a> are <a href="http://www.fast.ai/2018/04/30/dawnbench-fastai/">training complex models quickly on commodity hardware</a> by relying more on "algorithmic creativity" than on overwhelming hardware power, which is good news for those of us without data centers full of hardware. Rather than add to your stash of creative algorithms, this post takes a different (but compatible) approach to better performance. We'll step through measuring and optimizing model training from a systems perspective, which applies regardless of what algorithm you're using. As we'll see, there are nice speedups to be had with little effort. While keeping the same model structure, hyperparameters, etc, training speed improves by 26% by simply moving some work to another CPU core. You might find that you have easy performance gains waiting for you whether you're using an SVM or a neural network in your project.</p>
+<p>We'll be using the <a href="https://github.com/pytorch/examples/tree/master/fast_neural_style">fast neural style</a> example in <a href="https://github.com/pytorch/examples">PyTorch's example projects</a> as the system to optimize. If you just want to see the few code changes needed, check out <a href="https://github.com/pytorch/examples/compare/master...marshallpierce:perf-experiments?expand=1">this branch</a>. Otherwise, to see how to get there step-by-step so that you can replicate this process on your own projects, read on.</p>
+<p>If you want to follow along, start by downloading the <a href="http://images.cocodataset.org/zips/train2017.zip">2017 COCO training dataset</a> (18GiB). You'll also need a Linux system with a recent kernel and a GPU (an nVidia one, if you want to use the provided commands as-is). My hardware for this experiment is an i7-6850K with 2x GTX 1070 Ti, though we'll only be using one GPU this time.</p>
+<h1>Getting started</h1>
+<p>If you're a <code>virtualenv</code> user, you'll probably want to have a virtualenv with the necessary packages installed:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span></span>mkvirtualenv pytorch-examples
+</span><span class='line'>workon pytorch-examples
+</span><span class='line'>pip install torch torchvision numpy
+</span></code></pre></td></tr></table></div></figure>
+<p>Clone the <a href="https://github.com/pytorch/examples">pytorch/examples</a> repo and go into the <code>fast_neural_style</code> directory, then start training a model. The batch size is left at the default (4) so it will be easier to replicate these results on smaller hardware, but of course feel free to increase the batch size if you have the hardware. We run <code>date</code> first so we have a timestamp to compare later timestamps with, and pass <code>--cuda 1</code> so that it will use a GPU. The directory to pass to <code>--dataset</code> should be the one <em>containing</em> the <code>train2017</code> directory, not the path to <code>train2017</code> itself.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span></span>date ; python neural_style/neural_style.py \
+</span><span class='line'>    train --dataset /path/to/coco/ \
+</span><span class='line'>     --cuda 1 \
+</span><span class='line'>     --save-model-dir model
+</span></code></pre></td></tr></table></div></figure>
+<p>While that's running for the next few hours, let's dig in to its performance characteristics. <code>vmstat 2</code> isn't fancy, but it's a good place to start. Unsurprisingly, we have negligible <code>wa</code> (i/o wait) CPU usage and little block i/o, and we're seeing normal user CPU usage for one busy process on a 6-core, 12-thread system (10-12%):</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span></span>procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+</span><span class='line'> r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+</span><span class='line'> 2  0      0 978456 1641496 18436400    0    0   298     0 8715 33153 11  3 86  1  0
+</span><span class='line'> 1  0      0 977804 1641496 18436136    0    0   256     4 8850 33866 11  3 86  0  0
+</span><span class='line'> 3  0      0 966088 1641496 18436136    0    0  1536    12 9793 33106 18  3 79  0  0
+</span><span class='line'> 2  0      0 973500 1641496 18436540    0    0   256  2288 9795 36201 12  3 84  1  0
+</span><span class='line'> 1  0      0 973576 1641496 18436540    0    0   256     0 8433 32495 10  3 87  0  0
+</span></code></pre></td></tr></table></div></figure>
+<p>Moving on to the GPU, we'll use <code>nvidia-smi dmon -s u -i 0</code>. <code>dmon</code> periodically outputs GPU info, and we're limiting it to utilization (<code>-s u</code>) and we want the first GPU device (<code>-i 0</code>).</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span></span># gpu    sm   mem   enc   dec
+</span><span class='line'># Idx     %     %     %     %
+</span><span class='line'>    0    67    40     0     0
+</span><span class='line'>    0    57    35     0     0
+</span><span class='line'>    0    69    41     0     0
+</span><span class='line'>    0    30    14     0     0
+</span><span class='line'>    0    95    52     0     0
+</span><span class='line'>    0    65    41     0     0
+</span><span class='line'>    0    68    27     0     0
+</span><span class='line'>    0    73    34     0     0
+</span></code></pre></td></tr></table></div></figure>
+<p>Now this is more interesting. GPU utilization as low as 30%? This workload should basically be waiting on the GPU the entire time, so failing to keep the GPU busy is a problem.</p>
+<p>To see if there's something seriously wrong, <code>perf stat</code> is a simple way to get a high-level view of what's going on. Just using 100% of a CPU core <a href="https://www.youtube.com/watch?v=QkcBASKLyeU">doesn't mean much</a>; it could be spending all of its time waiting for memory access or pipeline flushes.  We can attach to a running process (that's the <code>-p &lt;pid&gt;</code>) and aggregate performance counters. Note that if you're using a virtual machine, you may not have access to performance counters, and even my physical hardware doesn't support all the counters <code>perf stat</code> looks for, as you can see below.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span></span>sudo perf stat -p 15939
+</span></code></pre></td></tr></table></div></figure>
+<p>After letting that run for a couple of minutes, stopping it with <code>^C</code> prints a summary:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'><span></span>     167611.675673      task-clock (msec)         #    1.060 CPUs utilized          
+</span><span class='line'>            22,843      context-switches          #    0.136 K/sec                  
+</span><span class='line'>             1,986      cpu-migrations            #    0.012 K/sec                  
+</span><span class='line'>                 7      page-faults               #    0.000 K/sec                  
+</span><span class='line'>   641,956,257,119      cycles                    #    3.830 GHz                    
+</span><span class='line'>   &lt;not supported&gt;      stalled-cycles-frontend  
+</span><span class='line'>   &lt;not supported&gt;      stalled-cycles-backend   
+</span><span class='line'>   803,246,123,727      instructions              #    1.25  insns per cycle        
+</span><span class='line'>   134,551,532,600      branches                  #  802.758 M/sec                  
+</span><span class='line'>       943,869,394      branch-misses             #    0.70% of all branches        
+</span><span class='line'>
+</span><span class='line'>     158.057364231 seconds time elapsed
+</span></code></pre></td></tr></table></div></figure>
+<p>Key points:</p>
+<ul>
+<li>1.25 instructions per cycle isn't awful, but it's not great either. In ideal circumstances, CPUs can retire many instructions per cycle, so if that was more like 3 or 4 then that would be a signal that the CPU was already being kept quite busy.</li>
+<li>0.7% branch mispredicts is higher than I'd like, but it isn't catastrophic.</li>
+<li>Hundreds of context switches per second is not suitable for realtime systems, but is unlikely to affect batch workloads like this one.</li>
+</ul>
+<p>Overall, there's nothing obvious like a 5% branch miss rate or 0.5 IPC, so this isn't telling us anything particularly compelling.</p>
+<h1>Profiling</h1>
+<p>Capturing performance counter information with <code>perf stat</code> shows that there's some room to improve, but it's not providing any details on what to do about it. <code>perf record</code>, on the other hand, samples the program's stack while it's running, so it will tell us more about what specifically the CPU is spending its time doing.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'><span></span>sudo perf record -p 15939
+</span></code></pre></td></tr></table></div></figure>
+<p>After letting that run for a few minutes, that will have written a <code>perf.data</code> file. It's not human readable, but <code>perf annotate</code> will output disassembly with the percentage of samples where the CPU was executing that instruction. For my run, the <a href="/images/optimizing-machine-learning/annotate-4c0015043a03d94f8b3571ef3ef5979d.txt">output</a> starts with a disassembly of <code>syscall_return_via_sysret</code> indicating that most of the time there is spent on <code>pop</code>. That's not particularly useful knowledge at the moment (the process makes a good number of syscalls, so we do expect to see some time spent there), so let's keep looking. The next item is for <code>jpeg_idct_islow@@LIBJPEG_9.0</code>, part of PIL (Python Imaging Library, aka Pillow). The output starts with a summary like this:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'><span></span>    2.52 libjpeg-4268453f.so.9.2.0[36635]
+</span><span class='line'>    1.93 libjpeg-4268453f.so.9.2.0[3624d]
+</span><span class='line'>    1.83 libjpeg-4268453f.so.9.2.0[3646a]
+</span><span class='line'>    1.53 libjpeg-4268453f.so.9.2.0[3648b]
+</span><span class='line'>    1.44 libjpeg-4268453f.so.9.2.0[36284]
+</span><span class='line'>    1.16 libjpeg-4268453f.so.9.2.0[36562]
+</span></code></pre></td></tr></table></div></figure>
+<p>That continues for about 50 lines or so. That tells us that rather than having a few hot instructions in this function, the cost is smeared out across many instructions (2.52% at offset 36635, 1.93% at 3624d, etc). Paging down to the disassembly, we find lots of this kind of info:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'><span></span>    0.34 :        35ec0:       cltq   
+</span><span class='line'>    0.11 :        35ec2:       mov    %rax,-0x40(%rbp)
+</span><span class='line'>    0.14 :        35ec6:       shlq   $0xd,-0x38(%rbp)
+</span><span class='line'> libjpeg-4268453f.so.9.2.0[35ecb]    0.72 :       35ecb:       shlq   $0xd,-0x40(%rbp)
+</span><span class='line'> libjpeg-4268453f.so.9.2.0[35ed0]    0.82 :       35ed0:       addq   $0x400,-0x38(%rbp)
+</span><span class='line'> libjpeg-4268453f.so.9.2.0[35ed8]    0.94 :       35ed8:       mov    -0x40(%rbp),%rax
+</span><span class='line'>    0.30 :        35edc:       mov    -0x38(%rbp),%rdx
+</span><span class='line'> libjpeg-4268453f.so.9.2.0[35ee0]    0.83 :       35ee0:       add    %rdx,%rax
+</span><span class='line'>    0.30 :        35ee3:       mov    %rax,-0x48(%rbp)
+</span><span class='line'>    0.28 :        35ee7:       mov    -0x40(%rbp),%rax
+</span><span class='line'>    0.00 :        35eeb:       mov    -0x38(%rbp),%rdx
+</span><span class='line'>    0.00 :        35eef:       sub    %rax,%rdx
+</span></code></pre></td></tr></table></div></figure>
+<p>You can see the percentage of samples in the left column (sometimes prefixed with the symbol name for extra busy samples) and offset. This snippet is telling us that 0.72% of cycles were spent on <code>shlq</code> (shift left), 0.82% on <code>addq</code> (integer addition), etc. Note that due to a phenomenon called <a href="https://perf.wiki.kernel.org/index.php/Tutorial">skid</a> the usage per instruction may be incorrect by several or even dozens of instructions, so these percentage numbers should not be taken as gospel. In this case, for instance, it's unlikely that the two <code>shlq</code> instructions at 35ec6 and 35ecb are actually 5x different.</p>
+<p>The next section of <code>perf annotate</code> output is of <code>__vdso_clock_gettime@@LINUX_2.6</code>. VDSO is a way to <a href="https://www.linuxjournal.com/content/creating-vdso-colonels-other-chicken">speed up certain syscalls</a>, notably <code>gettimeofday</code>. Not much to see here, other than to note that maybe we shouldn't be calling <code>gettimeofday(2)</code> as much.</p>
+<p>The next section is of <code>ImagingResampleHorizontal_8bpc@@Base</code> from <code>_imaging.cpython-35m-x86_64-linux-gnu.so</code>, which has a large block of fairly hot instructions like this:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'><span></span> _imaging.cpython-35m-x86_64-linux-gnu.so[21b3b]    3.39 :        21b3b:       imul   %ecx,%esi
+</span><span class='line'> _imaging.cpython-35m-x86_64-linux-gnu.so[21b3e]    3.81 :        21b3e:       add    %esi,%r11d
+</span><span class='line'> _imaging.cpython-35m-x86_64-linux-gnu.so[21b41]   10.14 :        21b41:       movzbl 0x1(%r8,%rdx,1&gt;
+</span><span class='line'> _imaging.cpython-35m-x86_64-linux-gnu.so[21b47]    2.50 :        21b47:       movzbl 0x2(%r8,%rdx,1&gt;
+</span><span class='line'> _imaging.cpython-35m-x86_64-linux-gnu.so[21b4d]    3.23 :        21b4d:       imul   %ecx,%esi
+</span></code></pre></td></tr></table></div></figure>
+<p>That's a pretty hot <code>movzbl</code> (zero-expand 1 byte into 4 bytes). At this point, we have a hypothesis: we're spending a lot of time decoding and scaling images.</p>
+<h1>Flame graphs</h1>
+<p>To get a clearer view of what paths through the program are the most relevant, we'll use a <a href="http://www.brendangregg.com/flamegraphs.html">flame graph</a>. There are other things we could do with <code>perf</code> like <code>perf report</code>, but flame graphs are easier to understand in my experience. If you haven't worked with flame graphs before, the general idea is that width = percentage of samples and height = call stack. As an example, a tall, skinny column means a deep call stack that doesn't use much CPU time, while a wide, short column means a shallow call stack that uses a lot of CPU.</p>
+<p>Clone the <a href="https://github.com/uber/pyflame">Pyflame repo</a> and follow their <a href="https://pyflame.readthedocs.io/en/latest/installation.html#compiling">compile instructions</a>. There's no need to install it anywhere (the <code>make install</code> step) -- just having a compiled <code>pyflame</code> binary in the build output is sufficient.</p>
+<p>As with the other tools, we attach the compiled <code>pyflame</code> binary to the running process and let it run for 10 minutes to get good fidelity:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'><span></span>./src/pyflame -s 600 -p 15939 -o neural-style-baseline.pyflame
+</span></code></pre></td></tr></table></div></figure>
+<p>In the meantime, clone <a href="https://github.com/brendangregg/FlameGraph">FlameGraph</a> so we can render <code>pyflame</code>'s output as an SVG. From the FlameGraph repo:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'><span></span>./flamegraph.pl path/to/neural-style-baseline.pyflame &gt; neural-style-baseline.svg
+</span></code></pre></td></tr></table></div></figure>
+<p>The resulting flamegraph looks like this, which you'll probably want to open in a separate tab and zoom in on (the SVG has helpful mouseover info):</p>
+<p><a href="/images/optimizing-machine-learning/neural-style-baseline-16da7db5473d84e617712dd3ea7c9c53.svg">
+<img class='centered' src="/images/optimizing-machine-learning/neural-style-baseline-16da7db5473d84e617712dd3ea7c9c53.svg" />
+</a></p>
+<p>Most of the time is <a href="https://pyflame.readthedocs.io/en/latest/faq.html#what-is-idle-time">idle</a>, which isn't interesting in this case. Back to pyflame, this time with <code>-x</code> to exclude idle time:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'><span></span>./src/pyflame -s 600 -p 15939 -x -o neural-style-baseline-noidle.pyflame
+</span></code></pre></td></tr></table></div></figure>
+<p><a href="/images/optimizing-machine-learning/neural-style-baseline-noidle-dfa537d33d887f8b2a759b788506e885.svg">
+<img class='centered' src="/images/optimizing-machine-learning/neural-style-baseline-noidle-dfa537d33d887f8b2a759b788506e885.svg" />
+</a></p>
+<p>That's much easier to see. If you spend some time mousing around the left third or so of the graph, you'll find that a significant amount of execution time is spent on image decoding and manipulation, starting with <code>neural_style.py:67</code>, which is this:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span></span><span class="k">for</span> <span class="n">batch_id</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>Put another way, it's spending enough time decoding images that it's a significant part of the overall execution, and it's all clumped together in one place rather than being spread across the whole program. In a way, that's good news, because that's a problem we can pretty easily do something about. There's still the other 2/3rds of the graph that we'd love to optimize away too, but that's mostly running the PyTorch model, and improving that will require much more surgery. There is a surprising amount of time spent in <code>vgg.py</code>'s usage of <code>namedtuple</code>, though -- that might be a good thing to investigate another  time. So, let's work on that first third of the graph: loading the training data.</p>
+<h1>Adding some parallelism</h1>
+<p>By now that <code>python</code> command has probably been running for a good long while. It helpfully outputs timestamps every 2000 iterations, and comparing the 20,000 iteration timestamp with the start timestamp I get 21m 40s elapsed. We'll use this duration later.</p>
+<p>It's unlikely that we'll make huge strides in JPEG decoding, as that code is already written in a low level language and reasonably well optimized. What we can do, though, is move the CPU-intensive work of image decoding onto another core. Normally this would be a good place to use threads, but Python as a language and CPython as a runtime are not very well suited to multithreading. We can use another <code>Process</code> to avoid the GIL (Global Interpreter Lock) and lack of memory model, though, and even though we'll have more overhead between processes than we would between threads, it should still be a net win. Conveniently, the work we want to execute concurrently is already small and fairly isolated, so it should be easy to move to another process. The training data <code>DataLoader</code> is set up in <code>neural_style.py</code> with</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span></span><span class="n">train_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">transform</span><span class="p">)</span>
+</span><span class='line'><span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>and used with</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span></span><span class="k">for</span> <span class="n">batch_id</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>So, all we need to do is move the loading to another process. We can do this with a <a href="https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue">Queue</a> (actually, one of <a href="https://pytorch.org/docs/stable/notes/multiprocessing.html">PyTorch's wrappers</a>). Instead of enumerating <code>train_loader</code> in the main process, we'll have another process do that so that all the image decoding can happen on another core, and we'll receive the decoded data in the main process. To make it easy to enumerate a <code>Queue</code>, we'll start with a helper to make a <code>Queue</code> be iterable:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span></span><span class="k">class</span> <span class="nc">QueueIterator</span><span class="p">:</span>
+</span><span class='line'>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span class='line'><span class="sd">    An Iterator over a Queue&#39;s contents that stops when it receives a None</span>
+</span><span class='line'><span class="sd">    &quot;&quot;&quot;</span>
+</span><span class='line'>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">Queue</span><span class="p">):</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">q</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="k">return</span> <span class="bp">self</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">thing</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="n">thing</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+</span><span class='line'>            <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="n">thing</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>We're making the simple assumption that if we pop <code>None</code> off the queue, the iteration is complete. Next, we need a function to invoke in another process that will populate the queue. This is made a bit more complicated by the fact that we can't spawn a process at the intuitive point in the training <code>for</code> loop. If we create a new <code>Process</code> where we enumerate over <code>train_loader</code> (as in the code snippet above), the child process hangs immediately and never is able to populate the queue. The PyTorch docs warn that <a href="https://pytorch.org/docs/stable/notes/multiprocessing.html#avoiding-and-fighting-deadlocks">about such issues</a>, but unfortunately using <code>torch.multiprocessing</code>'s wrappers or <code>SimpleQueue</code> did not help. Getting to the root cause of that problem will be a task for another day, but it's simple enough to rearrange the code to avoid the problem: fork a worker process earlier, and re-use it across multiple iterations. To do this, we use <em>another</em> <code>Queue</code> as a simple communication mechanism, which is <code>control_queue</code> below. The usage is pretty basic: sending <code>True</code> through <code>control_queue</code> tells the worker to enumerate the loader and populate <code>batch_queue</code>, finishing with a <code>None</code> to signal completion to the <code>QueueIterator</code> on the other end, while sending <code>False</code> tells the worker that its job is done and it can end its loop (and therefore exit).</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span></span><span class="k">def</span> <span class="nf">enqueue_loader_output</span><span class="p">(</span><span class="n">batch_queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">,</span> <span class="n">control_queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">,</span> <span class="n">loader</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">ctrl</span> <span class="o">=</span> <span class="n">control_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">ctrl</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+</span><span class='line'>            <span class="k">break</span>
+</span><span class='line'>        
+</span><span class='line'>        <span class="k">for</span> <span class="n">batch_id</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">loader</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">batch_queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">batch_id</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+</span><span class='line'>        <span class="n">batch_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>Now we have everything we need to wire it all together. Before the training loop, make some queues and fork a process:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span></span><span class="n">batch_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span><span class='line'><span class="n">control_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+</span><span class='line'><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">enqueue_loader_output</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">batch_queue</span><span class="p">,</span> <span class="n">control_queue</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>And then iterate in the training loop with a <code>QueueIterator</code>:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span></span><span class="k">for</span> <span class="n">batch_id</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">QueueIterator</span><span class="p">(</span><span class="n">batch_queue</span><span class="p">):</span>
+</span></code></pre></td></tr></table></div></figure>
+<h1>Measuring</h1>
+<p>After stopping the previous training invocation and starting a new one, we can immediately see a good change in <code>nvidia-smi dmon</code>:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span></span><span class="c1"># gpu    sm   mem   enc   dec</span>
+</span><span class='line'><span class="c1"># Idx     %     %     %     %</span>
+</span><span class='line'>    <span class="mi">0</span>    <span class="mi">97</span>    <span class="mi">44</span>     <span class="mi">0</span>     <span class="mi">0</span>
+</span><span class='line'>    <span class="mi">0</span>    <span class="mi">97</span>    <span class="mi">45</span>     <span class="mi">0</span>     <span class="mi">0</span>
+</span><span class='line'>    <span class="mi">0</span>    <span class="mi">99</span>    <span class="mi">50</span>     <span class="mi">0</span>     <span class="mi">0</span>
+</span><span class='line'>    <span class="mi">0</span>    <span class="mi">97</span>    <span class="mi">49</span>     <span class="mi">0</span>     <span class="mi">0</span>
+</span><span class='line'>    <span class="mi">0</span>    <span class="mi">97</span>    <span class="mi">49</span>     <span class="mi">0</span>     <span class="mi">0</span>
+</span><span class='line'>    <span class="mi">0</span>    <span class="mi">97</span>    <span class="mi">49</span>     <span class="mi">0</span>     <span class="mi">0</span>
+</span><span class='line'>    <span class="mi">0</span>    <span class="mi">97</span>    <span class="mi">47</span>     <span class="mi">0</span>     <span class="mi">0</span>
+</span><span class='line'>    <span class="mi">0</span>    <span class="mi">97</span>    <span class="mi">48</span>     <span class="mi">0</span>     <span class="mi">0</span>
+</span><span class='line'>    <span class="mi">0</span>    <span class="mi">99</span>    <span class="mi">50</span>     <span class="mi">0</span>     <span class="mi">0</span>
+</span><span class='line'>    <span class="mi">0</span>    <span class="mi">97</span>    <span class="mi">55</span>     <span class="mi">0</span>     <span class="mi">0</span>
+</span><span class='line'>    <span class="mi">0</span>    <span class="mi">97</span>    <span class="mi">56</span>     <span class="mi">0</span>     <span class="mi">0</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>The GPU is staying fully utilized. Here's the master process:</p>
+<p><a href="/images/optimizing-machine-learning/neural-style-tmpq-master-6b9ce81e14b2fd083fafca6be8ba5092.svg">
+<img class='centered' src="/images/optimizing-machine-learning/neural-style-tmpq-master-6b9ce81e14b2fd083fafca6be8ba5092.svg" />
+</a></p>
+<p>What was previously the largest chunk of work in the flame graph is now the small peak on the left. Training logic dominates the graph, instead of image decoding, and <code>namedtuple</code> looks like increasingly low-hanging fruit at 13% of samples...</p>
+<p>And the worker that loads training images:</p>
+<p><a href="/images/optimizing-machine-learning/neural-style-tmpq-worker-56fb5021334a67c43c1d257f2bbe1957.svg">
+<img class='centered' src="/images/optimizing-machine-learning/neural-style-tmpq-worker-56fb5021334a67c43c1d257f2bbe1957.svg" />
+</a></p>
+<p>It's spending most of its time doing image decoding. There's some CPU spent in Python's Queue implementation, but the worker sits at about 40% CPU usage total anyway, so the inter-process communication isn't a major bottleneck in this case.</p>
+<p>More importantly, for our "time until 20,000 iterations" measurement, that improves from 21m40s to 17m9s, or about a 26% improvement in iterations/sec (15.4 to 19.4). Not bad for just a few lines of straightforward code.</p>
+]]></content></entry></feed>

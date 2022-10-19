@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[/var/blog]]></title><link href="http://varblog.org/categories/route53/atom.xml" rel="self"/><link href="http://varblog.org/"/><updated>2015-03-25T08:36:50-05:00</updated><id>http://varblog.org/</id><author><name><![CDATA[Marshall Pierce]]></name></author><generator uri="http://sysgears.com/grain/">Grain</generator><entry><title type="html"><![CDATA[Blogging with Grain and S3]]></title><link href="http://varblog.org/blog/2014/01/05/blogging-with-grain-and-s3/"/><updated>2015-06-09T22:52:37-05:00</updated><id>/blog/2014/01/05/blogging-with-grain-and-s3/</id><content type="html"><![CDATA[<p>I prefer static site generators when it comes to blogging: they're easy to store in version control, and they're pretty bulletproof security-wise. I'd used <a href="http://octopress.org/docs/">Octopress</a> before, as well as plain <a href="http://jekyllrb.com/">Jekyll</a>, and though I liked the concept, in practice neither worked smoothly: the whole gem infrastructure is kinda messy, and "watch for changes" mode didn't work reliably. So, when I saw a blurb about <a href="http://sysgears.com/grain/">Grain</a>, a static site generator written in Groovy, I investigated and was pleased to see that it (1) had an Octopress theme clone for easy blog setup, (2) was written with (IMO) best-in-class tech choices: Groovy, Guice, and Gradle, and (3) had watch-for-changes that actually worked.</p>
+<h2>Grain</h2>
+<p>This blog uses the <a href="http://sysgears.com/grain/themes/octopress/">Octopress theme</a> for <a href="http://sysgears.com/grain/">Grain</a>. I chose to <a href="https://github.com/marshallpierce/varblog.org">fork (see the varblog branch)</a> the <a href="https://github.com/sysgears/grain-theme-octopress">main octopress theme repo</a> so that I could more easily incorporate future improvements, rather than starting a new repo using a released version. Especially as Grain matures, you may wish to just take a released version and go from there, but for now using a fork has been fine, and it's let me easily make pull requests as I make improvements that could be generally useful to other users.</p>
+<p>I encourage interested readers to go look at <a href="https://github.com/marshallpierce/varblog.org/commits/varblog">the commits in my fork</a> to see all the setup steps I took, but I'll point out one in particular. My Linux system used Python 3 by default, which wasn't compatible with the version of Pygments bundled with Grain. So, to change it to look for python 2 first, I added the following to my SiteConfig in the <code>features</code> section:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span></span>    python {
+</span><span class='line'>        cmd_candidates = [&#39;python2&#39;]
+</span><span class='line'>    }
+</span></code></pre></td></tr></table></div></figure>
+<h2>S3 Hosting</h2>
+<p>Hosting static output in S3 is pretty common. The speed and reliability of S3 is tough to beat, and even though it's non-free, for most people hosting a blog on S3 will cost less than $1 a month.</p>
+<p>I first created an S3 bucket named the same thing as the domain (<code>varblog.org</code>). I enabled static website hosting for the bucket (using <code>index.html</code> as the index document) and set the bucket policy to allow GetObject on every object:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span></span>{
+</span><span class='line'>    &quot;Version&quot;:   &quot;2008-10-17&quot;,
+</span><span class='line'>    &quot;Id&quot;:        &quot;Policy1388973900126&quot;,
+</span><span class='line'>    &quot;Statement&quot;: [
+</span><span class='line'>        {
+</span><span class='line'>            &quot;Sid&quot;:       &quot;Stmt1388973897544&quot;,
+</span><span class='line'>            &quot;Effect&quot;:    &quot;Allow&quot;,
+</span><span class='line'>            &quot;Principal&quot;: {
+</span><span class='line'>                &quot;AWS&quot;: &quot;*&quot;
+</span><span class='line'>            },
+</span><span class='line'>            &quot;Action&quot;:    &quot;s3:GetObject&quot;,
+</span><span class='line'>            &quot;Resource&quot;:  &quot;arn:aws:s3:::varblog.org/*&quot;
+</span><span class='line'>        }
+</span><span class='line'>    ]
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+<p>I made a Route 53 hosted zone for <code>varblog.org</code> (remember to change your domain's nameservers to be Route 53's nameservers) and set up an alias record for <code>varblog.org</code> to point to the S3 bucket.</p>
+<h2>Uploading to S3</h2>
+<p>I created a dedicated IAM user for managing the bucket and gave it this IAM policy:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span></span>{
+</span><span class='line'>    &quot;Version&quot;:   &quot;2012-10-17&quot;,
+</span><span class='line'>    &quot;Statement&quot;: [
+</span><span class='line'>        {
+</span><span class='line'>            &quot;Sid&quot;:      &quot;Stmt1388973098000&quot;,
+</span><span class='line'>            &quot;Effect&quot;:   &quot;Allow&quot;,
+</span><span class='line'>            &quot;Action&quot;:   [
+</span><span class='line'>                &quot;s3:*&quot;
+</span><span class='line'>            ],
+</span><span class='line'>            &quot;Resource&quot;: [
+</span><span class='line'>                &quot;arn:aws:s3:::varblog.org/*&quot;
+</span><span class='line'>            ]
+</span><span class='line'>        },
+</span><span class='line'>        {
+</span><span class='line'>            &quot;Sid&quot;:      &quot;Stmt1388973135000&quot;,
+</span><span class='line'>            &quot;Effect&quot;:   &quot;Allow&quot;,
+</span><span class='line'>            &quot;Action&quot;:   [
+</span><span class='line'>                &quot;s3:*&quot;
+</span><span class='line'>            ],
+</span><span class='line'>            &quot;Resource&quot;: [
+</span><span class='line'>                &quot;arn:aws:s3:::varblog.org&quot;
+</span><span class='line'>            ]
+</span><span class='line'>        }
+</span><span class='line'>    ]
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+<p>This allows that user to do everything to the <code>varblog.org</code> bucket and its contents, but not to do any other AWS actions. I created an Access Key for the user in the IAM console and used it to configure <a href="http://s3tools.org/s3cmd"><code>s3cmd</code></a> with <code>s3cmd --configure -c ~/.s3cfg-varblog.org</code>. This creates a separate config file which I then reference in the <code>s3_deploy_cmd</code> in <code>SiteConfig.groovy</code>. This way, even though I'm storing an access key &amp; secret unencrypted on the filesystem, the credentials only have limited AWS privileges, and I'm not conflating this <code>s3cmd</code> configuration with other configurations I have. Note that when configuring <code>s3cmd</code>, it will ask if you want to test the configuration. Don't bother, as this test will fail: it tries to list all buckets, but this isn't allowed in the IAM user's policy.</p>
+<p>At this point, <code>./grainw deploy</code> will populate the bucket with the generated contents of the site.</p>
+<h2>Other stuff</h2>
+<p>For Google Analytics and Disqus I simply created new sites and plugged in the appropriate ids in <code>SiteConfig</code>. I chose to update the GA snippet template since by default new GA accounts use the "universal" tracker which has a different snippet than good old <code>ga.js</code>. If your GA account is old-school, you should be able to leave the template as-is.</p>
+<p>Other than that, all I did was tweak some <code>SASS</code> in <code>theme/sass/custom</code>.</p>
+<h2>What's with the name?</h2>
+<p>If you're not a Linux/Unix user, this blog's name will make no sense. Then again, the rest of this post probably didn't either. The <code>/var/log</code> directory is historically where log files have gone on Unix-y systems, and 'blog' is kind of like 'log'. Or, put another way, I thought it was amusing when I registered this domain long, long ago.</p>
+]]></content></entry></feed>

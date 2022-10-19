@@ -1,0 +1,7 @@
+{
+  "name": "varblog.org",
+  "packageManager": "yarn@3.2.3",
+  "dependencies": {
+    "firebase-tools": "^11.8.0"
+  }
+}
